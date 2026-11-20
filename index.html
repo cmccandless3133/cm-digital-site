@@ -896,6 +896,43 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
   .tbtn.ai:hover{background:rgba(34,197,94,.2);filter:none}
   .tbtn .ic-svg{width:.95em;height:.95em}
 </style>
+<style id="bundles">
+.bundles{margin-top:40px}
+.bundles-head{max-width:44em;margin:0 auto 22px;text-align:center}
+.bundles-head h3{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:1.5rem;color:var(--cream);letter-spacing:.02em}
+.bundles-head p{color:#cfd6e2;font-size:.95rem;margin-top:8px}
+.founding{max-width:860px;margin:0 auto 26px;background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px;padding:14px 18px;color:#cfd6e2;font-size:.95rem}
+.founding b{color:var(--cream)}
+.tier .quote{color:var(--muted);font-size:.93rem;font-style:italic;margin-top:4px}
+.tier .half{display:inline-block;margin-top:10px;background:rgba(224,166,60,.12);border:1px solid rgba(224,166,60,.4);color:var(--cream);border-radius:20px;padding:.3em .8em;font-size:.88rem}
+.tier .half b{color:var(--amber)}
+@media(min-width:980px){.tiers.three{grid-template-columns:repeat(3,1fr);max-width:1100px}}
+</style>
+<style id="trade-try">
+.hero-ai .try-link{color:var(--amber);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
+.trade-try{margin-top:22px;background:var(--panel-2);border:1px solid var(--line);border-top:4px solid var(--amber);border-radius:4px;padding:20px 18px;scroll-margin-top:80px}
+.trade-try .tt-k{font-family:var(--disp);text-transform:uppercase;letter-spacing:.14em;font-size:.72rem;font-weight:600;color:var(--amber);margin:0 0 12px}
+.tt-chips{display:flex;flex-wrap:wrap;gap:8px}
+.tt-chip{font:inherit;font-size:.88rem;line-height:1;padding:.62em .9em;border-radius:999px;border:1px solid var(--line);background:var(--ink);color:var(--cream);cursor:pointer;min-height:38px}
+.tt-chip:hover{border-color:var(--amber)}
+.tt-chip.on{background:var(--amber);border-color:var(--amber);color:#0e1320;font-weight:700}
+.tt-chip:focus-visible{outline:2px solid var(--amber-hi);outline-offset:2px}
+.tt-say{margin:16px 0 14px;padding:14px 16px;background:var(--ink);border-radius:4px;border-left:3px solid var(--amber)}
+.tt-say .tt-l{display:block;font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:.68rem;color:var(--muted);margin-bottom:4px}
+.tt-say q{display:block;color:var(--cream);font-size:1.08rem;font-weight:600;line-height:1.4;margin-bottom:12px;quotes:"\201C" "\201D"}
+.tt-say p{color:var(--cream);font-size:.96rem;margin:0}
+.tt-call{width:100%;justify-content:center}
+.tt-fine{color:var(--muted);font-size:.86rem;margin:12px 0 0}
+.try-boxes{display:grid;grid-template-columns:1fr;gap:12px;margin-top:22px}
+@media(min-width:760px){.try-boxes{grid-template-columns:repeat(2,1fr)}}
+.tbox{display:flex;flex-direction:column;gap:6px;background:var(--panel-2);border:1px solid var(--line);border-top:3px solid var(--amber);border-radius:6px;padding:16px 16px 14px;text-decoration:none;color:var(--cream);transition:border-color .15s}
+.tbox:hover{border-color:var(--amber)}
+.tbox:focus-visible{outline:2px solid var(--amber-hi);outline-offset:2px}
+.tbox .tb-k{font-family:var(--disp);text-transform:uppercase;letter-spacing:.12em;font-size:.68rem;color:var(--amber)}
+.tbox b{font-size:1.02rem;line-height:1.3}
+.tbox .tb-d{color:var(--muted);font-size:.9rem;line-height:1.45;flex:1}
+.tbox .tb-go{font-family:var(--disp);text-transform:uppercase;letter-spacing:.07em;font-size:.78rem;font-weight:600;color:var(--amber);margin-top:4px}
+</style>
 </head>
 <body>
 <svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3h3A1.5 1.5 0 0 1 20 4.6v2.3a1.5 1.5 0 0 1-1.3 1.5l-2 .3a1.3 1.3 0 0 0-1.1 1.1 9.5 9.5 0 0 1-5.1 5.1 1.3 1.3 0 0 0-1.1 1.1l-.3 2A1.5 1.5 0 0 1 7.5 20H5.2A1.5 1.5 0 0 1 3.6 18.3 15.4 15.4 0 0 1 15.5 3Z"/></symbol><symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.3h2"/></symbol><symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3.4 6.4 7.5 5.6a2 2 0 0 0 2.2 0l7.5-5.6"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c2.6 2.6 2.6 15.8 0 18.4-2.6-2.6-2.6-15.8 0-18.4Z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a7.7 7.7 0 0 1-8.2 7.7 9 9 0 0 1-2.5-.3L6 21l.8-3.3A7.6 7.6 0 0 1 3 11.5C3 7.2 7 4 12 4s9 3.2 9 7.5Z"/><path d="M8.6 11.5h.01M12 11.5h.01M15.4 11.5h.01"/></symbol><symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2.6"/><path d="M12 4.5v3.5M9 13.5h.01M15 13.5h.01M9.5 17h5"/><circle cx="12" cy="3.6" r="1.2"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.2 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.7l6.1-.9Z"/></symbol><symbol id="i-board" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6"/><path d="M10.3 19a2 2 0 0 0 3.4 0"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol><symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.2 6.3a4.5 4.5 0 0 1 6.2 5.4l-2.6-2.6-2.3.6-.6 2.3 2.6 2.6a4.5 4.5 0 0 1-5.4-6.2L4.6 3.5 3.5 4.6Z"/><path d="m11 13-7.5 7.5 1.1 1.1L12.1 14"/></symbol><symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2 2 0 0 1 5 6.5h1.8l1.3-2h7.8l1.3 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="3.6"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 2.5 4.5 13.6h5.6l-1.3 7.9 8.7-11.1h-5.6Z"/></symbol><symbol id="i-cash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.8"/><path d="M6 10v4M18 10v4"/></symbol><symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M3 20.5a6 6 0 0 1 12 0"/><path d="M16.5 5.2a3.4 3.4 0 0 1 0 5.6M18 14.6a6 6 0 0 1 3 5.9"/></symbol><symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l7.5 2.8v5.6c0 4.7-3.2 8.8-7.5 10.3-4.3-1.5-7.5-5.6-7.5-10.3V5.6Z"/><path d="m8.8 11.7 2.3 2.3 4.3-4.5"/></symbol><symbol id="i-tire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="4"/><path d="M12 2.8V8M12 16v5.2M2.8 12H8M16 12h5.2"/></symbol><symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7.5" width="16" height="9" rx="1.8"/><path d="M21.5 11v2M5.5 11v2M9 11v2M12.5 11v2"/></symbol><symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h10v9h-10Z"/><path d="M12.5 9.5h4l3 3v3h-7Z"/><circle cx="6.5" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol><symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 21.5 20H2.5Z"/><path d="M12 9.5v4M12 16.8h.01"/></symbol><symbol id="i-hook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7.5"/><path d="M12 10.5a4.5 4.5 0 1 0-4.5 4.5"/><path d="M7.5 15v3.5M5.5 18.5h4"/></symbol><symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4.6"/><path d="m11.4 11.4 9.1 9.1M17 16l2-2M14.2 13.2l2-2"/></symbol><symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="17" rx="2"/><path d="M9 4.5V3.2h6v1.3"/><path d="M9 10h6M9 14h6M9 18h3"/></symbol><symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V3.8"/><path d="M5 4.2c4-1.6 8 1.6 12 0v8c-4 1.6-8-1.6-12 0Z"/></symbol><symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.3 7.3l2.3 1.3M17.4 15.4l2.3 1.3M4.3 16.7l2.3-1.3M17.4 8.6l2.3-1.3"/></symbol><symbol id="i-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2s6 6.2 6 10.1a6 6 0 0 1-12 0C6 9.4 12 3.2 12 3.2Z"/></symbol><symbol id="i-octagon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3Z"/><path d="M9 12h6"/></symbol><symbol id="i-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.8 12 3.4l8.5 4.4v8.4L12 20.6l-8.5-4.4Z"/><path d="M3.5 7.8 12 12.2l8.5-4.4M12 12.2v8.4"/></symbol><symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 3H21v8.4l-9.6 9.6L3 12.6Z"/><circle cx="17" cy="7" r="1.5"/></symbol></svg>
@@ -1048,10 +1085,40 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
   <div class="wrap">
     <div class="ai">
       <div class="section-head reveal" style="margin:0">
-        <p class="eyebrow">Try it yourself</p>
-        <h2 class="section-title">Talk to my <span class="accent">AI assistant</span></h2>
-        <p>This is the assistant that answers my business line. Call it and ask anything about websites, prices or how it works. Tell it what you need and the details come straight to my phone. Then ask it to answer like it's <b style="color:var(--cream)">your</b> front desk, and hear what your customers would get.</p>
+        <p class="eyebrow">Try it now</p>
+        <h2 class="section-title">Hear what your <span class="accent">callers would hear</span></h2>
+        <p>When you're on a roof, under a sink or out on a tow, a call you can't take usually goes to the next shop on Google. This is the AI that answers my own line. Call it, tell it what kind of shop you run, and it answers like <b style="color:var(--cream)">your</b> front desk: it asks the questions your customers get asked, flags what's urgent in your trade, and gets the caller's details down so you can call back knowing the job. It takes about a minute.</p>
         <div class="hero-ctas"><a class="btn btn-amber" href="tel:+18128183099"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call my AI assistant</a></div>
+        <div class="try-boxes" aria-label="Ways to try it">
+          <a class="tbox" href="#try"><span class="tb-k">1 &middot; Call it</span><b>Hear it answer for your trade</b><span class="tb-d">Call (812) 818-3099, tell it what kind of shop you run, then play a customer. About a minute.</span><span class="tb-go">Pick your trade &rsaquo;</span></a>
+          <a class="tbox" href="https://trades.getcmdigital.com/#join" target="_blank" rel="noopener"><span class="tb-k">2 &middot; Try it on your line</span><b>14 days free on your own number</b><span class="tb-d">It answers your shop's calls and emails you every caller's details.</span><span class="tb-go">Start the free trial &rsaquo;</span></a>
+        </div>
+        <div class="trade-try" id="try">
+          <p class="tt-k">Pick your trade, then call</p>
+          <div class="tt-chips" role="group" aria-label="Pick your trade">
+            <button type="button" class="tt-chip on" data-t="HVAC company" data-u="no heat on a cold night, or a gas smell">HVAC</button>
+            <button type="button" class="tt-chip" data-t="plumbing shop" data-u="a burst pipe or sewage backing up">Plumbing</button>
+            <button type="button" class="tt-chip" data-t="septic service" data-u="sewage backing up into the house">Septic</button>
+            <button type="button" class="tt-chip" data-t="excavating company" data-u="a job that needs a site visit and a quote">Excavating</button>
+            <button type="button" class="tt-chip" data-t="towing company" data-u="someone stranded on the road after hours">Towing</button>
+            <button type="button" class="tt-chip" data-t="auto repair shop" data-u="a car that won't start before work">Auto repair</button>
+            <button type="button" class="tt-chip" data-t="tire shop" data-u="a flat, and which tire size they need">Tires</button>
+            <button type="button" class="tt-chip" data-t="meat processor" data-u="deer season drop-offs and cut questions">Meat processing</button>
+            <button type="button" class="tt-chip" data-t="tree service" data-u="a tree down on a house after a storm">Tree service</button>
+            <button type="button" class="tt-chip" data-t="roofing company" data-u="an active leak after a storm">Roofing</button>
+            <button type="button" class="tt-chip" data-t="electrician" data-u="a burning smell or sparking outlet">Electrical</button>
+            <button type="button" class="tt-chip" data-t="garage door company" data-u="a door stuck open or off its track">Garage doors</button>
+            <button type="button" class="tt-chip" data-t="pest control company" data-u="what pest, where, and kids or pets at home">Pest control</button>
+          </div>
+          <div class="tt-say">
+            <span class="tt-l">Call and say</span>
+            <q id="tt-line">Answer like you're my front desk. I run an HVAC company.</q>
+            <span class="tt-l">Then play your customer</span>
+            <p id="tt-urg">Call in something real, like no heat on a cold night, or a gas smell, and hear how it handles it.</p>
+          </div>
+          <a class="btn btn-amber tt-call" href="tel:+18128183099"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call (812) 818-3099</a>
+          <p class="tt-fine">It won't make up your prices or hours. When it's set up for your shop, it learns your real ones, and you can try it free for 14 days on your own line.</p>
+        </div>
         <div class="owner-text">
           <div class="ot-head"><span><b>What you'd get</b> · summary from your AI receptionist</span><span>9:42 PM</span></div>
           <div class="bubble"><span class="urg">URGENT</span><span class="row">New call: water coming through the kitchen ceiling.</span><span class="row"><span class="k">Name:</span> John S.</span><span class="row"><span class="k">Address:</span> 412 Main St, Petersburg</span><span class="row"><span class="k">Callback:</span> (812) 555-0148</span><span class="row"><span class="k">Wants:</span> someone out tomorrow morning. Main water is shut off.</span></div>
@@ -1064,7 +1131,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
         <ul class="ai-try">
           <li><b>Ask:</b> "What does a website cost?"</li>
           <li><b>Say:</b> "I need a site for my tree service. Have Chris call me."</li>
-          <li><b>Try:</b> "Answer like you're my front desk. I run a plumbing shop in Jasper."</li>
+          <li><b>Try:</b> "Answer like you're my front desk. I run a plumbing shop." Then call in a burst pipe.</li>
           <li><b>Ask:</b> "Am I talking to a real person?"</li>
         </ul>
         <p class="ai-fine">It's an AI, and it'll tell you so if you ask. Anything you tell it comes straight to me, and I'll get back to you. Rather talk to a person? Call or text me at <a href="tel:+18125820112" style="color:var(--amber)">(812) 582-0112</a>.</p>
@@ -1144,6 +1211,60 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <li>Automatic review requests</li>
         </ul>
         <a class="btn btn-amber" href="#contact" data-need="Website + online booking/orders">Get a free quote</a>
+      </div>
+    </div>
+    <div class="bundles" id="bundles">
+      <div class="bundles-head reveal">
+        <p class="eyebrow">Bundles</p>
+        <h3>The website and the phones, handled together</h3>
+        <p>For established shops that want one price for the whole front desk instead of a menu. Each one includes the one before it. Same terms as everything else: see it working first, then half to start and half at launch.</p>
+      </div>
+      <p class="founding reveal"><b>Founding clients:</b> my first few clients get the build at half price. The monthly stays the same.</p>
+      <div class="tiers three">
+      <div class="tier reveal">
+        <h3>Core</h3>
+        <p class="quote">&ldquo;We need people to find us and reach us, even when we're all out on jobs.&rdquo;</p>
+        <div class="price"><span class="n">$2,600</span><span class="per">to build</span></div>
+        <p class="setup">+ $299/month</p>
+        <span class="half">Founding clients: <b>$1,300</b> to build</span>
+        <ul>
+          <li>Everything in Site + Capture</li>
+          <li>Every call answered in your business's name, day or night, with a summary right after</li>
+          <li>Customers book a time themselves instead of playing phone tag</li>
+          <li>A ballpark price on your site at any hour, no waiting on a callback</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact" data-need="Bundle: Core">See it working first</a>
+      </div>
+      <div class="tier feat reveal">
+        <span class="tag">Most popular</span>
+        <h3>Growth</h3>
+        <p class="quote">&ldquo;We do good work, but quotes go cold and past customers forget about us.&rdquo;</p>
+        <div class="price"><span class="n">$3,400</span><span class="per">to build</span></div>
+        <p class="setup">+ $329/month</p>
+        <span class="half">Founding clients: <b>$1,700</b> to build</span>
+        <ul>
+          <li>Everything in Core</li>
+          <li>Every quote gets a friendly follow-up, so priced jobs don't go to someone else</li>
+          <li>Past customers get reminded when service is due, so repeat work comes back</li>
+          <li>A hiring page and a commercial services page</li>
+          <li>Customers apply for financing with the lender you already use</li>
+        </ul>
+        <a class="btn btn-amber" href="#contact" data-need="Bundle: Growth">See it working first</a>
+      </div>
+      <div class="tier reveal">
+        <h3>Complete</h3>
+        <p class="quote">&ldquo;I want the whole front office handled so I can stay on the tools.&rdquo;</p>
+        <div class="price"><span class="n">$4,500</span><span class="per">to build</span></div>
+        <p class="setup">+ $499/month</p>
+        <span class="half">Founding clients: <b>$2,250</b> to build</span>
+        <ul>
+          <li>Everything in Growth</li>
+          <li>A chat helper on your site answers questions and books jobs at any hour</li>
+          <li>Seasonal and weather reminders go out before your busy stretches</li>
+          <li>Your Google profile kept current every month: photos, hours, services and posts</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact" data-need="Bundle: Complete">See it working first</a>
+      </div>
       </div>
     </div>
     <div class="addon reveal">
@@ -1268,7 +1389,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <div class="field"><label for="c-name">Your name <span class="req">*</span></label><input type="text" id="c-name" name="name" placeholder="First and last"></div>
           <div class="field"><label for="c-biz">Business name</label><input type="text" id="c-biz" name="business" placeholder="What's it called?"></div>
           <div class="field"><label for="c-need">What do you need? <span class="req">*</span></label>
-            <select id="c-need" name="need"><option value="">Choose one…</option><option>A new website</option><option>Website + online booking/orders</option><option>Fix or improve my current website</option><option>AI receptionist: 14-day free trial</option><option>AI &amp; automation setup</option><option>Not sure yet — need ideas</option></select>
+            <select id="c-need" name="need"><option value="">Choose one…</option><option>A new website</option><option>Website + online booking/orders</option><option>Fix or improve my current website</option><option>AI receptionist: 14-day free trial</option><option>Bundle: Core</option><option>Bundle: Growth</option><option>Bundle: Complete</option><option>AI &amp; automation setup</option><option>Not sure yet — need ideas</option></select>
           </div>
           <div class="field"><label for="c-how">How should I reach you? <span class="req">*</span></label>
             <select id="c-how" name="reach-by"><option>Text me</option><option>Call me</option><option>Email me</option><option>Facebook message</option></select>
@@ -1299,7 +1420,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 
 <div class="mbar" id="mbar" aria-label="Quick contact">
   <a class="btn btn-amber" href="#start">Get a free sample</a>
-  <a class="btn btn-ghost" href="tel:+18128183099">Call my AI assistant</a>
+  <a class="btn btn-ghost" href="tel:+18128183099">Hear it answer</a>
 </div>
 
 <!-- ============ DEMO OVERLAYS ============ -->
@@ -1979,6 +2100,21 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           '<a class="btn btn-amber" style="margin-top:14px" href="sms:+18125820112?&body='+sms+'">Text Chris</a></div>';
       });
   };
+})();
+</script>
+<script id="trade-try-js">
+(function(){
+  var chips=document.querySelectorAll('.tt-chip'),line=document.getElementById('tt-line'),urg=document.getElementById('tt-urg');
+  if(!chips.length||!line||!urg)return;
+  function art(w){return /^[aeiou]/i.test(w)?'an ':'a ';}
+  chips.forEach(function(c){c.addEventListener('click',function(){
+    chips.forEach(function(x){x.classList.remove('on');x.setAttribute('aria-pressed','false');});
+    c.classList.add('on');c.setAttribute('aria-pressed','true');
+    var t=c.getAttribute('data-t');
+    line.textContent="Answer like you're my front desk. I run "+art(t)+t+".";
+    urg.textContent="Call in something real, like "+c.getAttribute('data-u')+", and hear how it handles it.";
+  });});
+  chips[0].setAttribute('aria-pressed','true');
 })();
 </script>
 </body>
