@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CM Digital | Websites that bring in work, and the tools that manage it</title>
-<meta name="description" content="I build websites for trades and small shops, fix the ones that aren't working, and add the tools that answer the phone, book the job, text people back and ask for reviews. $1,000 one time, no monthly fee. Based in Indiana, working anywhere. See it working before you pay.">
+<meta name="description" content="I build websites for trades and small shops, fix the ones that aren't working, and add the tools that answer the phone, book the job, ask for reviews. Sites from $299 plus $29 a month. Based in Indiana, working anywhere. See it working before you pay.">
 <link rel="canonical" href="https://getcmdigital.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getcmdigital.com/">
@@ -12,7 +12,7 @@
 <meta property="og:description" content="New site, or a fix for the one you've got, plus the tools that answer, book, text back and chase reviews. Based in Indiana, working anywhere. See it working before you pay.">
 <meta name="theme-color" content="#0e1320">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"CM Digital","url":"https://getcmdigital.com/","telephone":"+1-812-582-0112","founder":{"@type":"Person","name":"Chris McCandless"},"description":"Websites, AI phone receptionists and automation for small businesses. Based in Indiana, working remotely nationwide.","areaServed":[{"@type":"Country","name":"United States"},{"@type":"State","name":"Indiana"},{"@type":"City","name":"Evansville"}],"priceRange":"$$","makesOffer":[{"@type":"Offer","name":"Website","price":"1000","priceCurrency":"USD","description":"$1,000 one-time build, no monthly fee, client owns the site and domain"},{"@type":"Offer","name":"AI receptionist","price":"149","priceCurrency":"USD","description":"$149/month plus $300 setup, 14-day free trial"}]}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"CM Digital","url":"https://getcmdigital.com/","telephone":"+1-812-582-0112","founder":{"@type":"Person","name":"Chris McCandless"},"description":"Websites, AI phone receptionists and automation for small businesses. Based in Indiana, working remotely nationwide.","areaServed":[{"@type":"Country","name":"United States"},{"@type":"State","name":"Indiana"},{"@type":"City","name":"Evansville"}],"priceRange":"$$","makesOffer":[{"@type":"Offer","name":"Simple Site","price":"299","priceCurrency":"USD","description":"$299 setup plus $29/month, client owns the site and domain"},{"@type":"Offer","name":"AI receptionist","price":"149","priceCurrency":"USD","description":"$149/month on its own, 14-day free trial"}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -896,17 +896,23 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
   .tbtn.ai:hover{background:rgba(34,197,94,.2);filter:none}
   .tbtn .ic-svg{width:.95em;height:.95em}
 </style>
-<style id="bundles">
-.bundles{margin-top:40px}
-.bundles-head{max-width:44em;margin:0 auto 22px;text-align:center}
-.bundles-head h3{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:1.5rem;color:var(--cream);letter-spacing:.02em}
-.bundles-head p{color:#cfd6e2;font-size:.95rem;margin-top:8px}
-.founding{max-width:860px;margin:0 auto 26px;background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px;padding:14px 18px;color:#cfd6e2;font-size:.95rem}
+<style id="menu">
+.founding{max-width:860px;margin:0 auto 22px;background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px;padding:14px 18px;color:#cfd6e2;font-size:.95rem}
 .founding b{color:var(--cream)}
-.tier .quote{color:var(--muted);font-size:.93rem;font-style:italic;margin-top:4px}
-.tier .half{display:inline-block;margin-top:10px;background:rgba(224,166,60,.12);border:1px solid rgba(224,166,60,.4);color:var(--cream);border-radius:20px;padding:.3em .8em;font-size:.88rem}
-.tier .half b{color:var(--amber)}
-@media(min-width:980px){.tiers.three{grid-template-columns:repeat(3,1fr);max-width:1100px}}
+.menu{margin-top:30px;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:20px 18px}
+.menu-head h3{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:1.35rem;color:var(--cream);letter-spacing:.02em}
+.menu-head p{color:#cfd6e2;font-size:.95rem;margin:6px 0 12px}
+.mrow{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:11px 0;border-bottom:1px solid var(--line)}
+.mrow:last-child{border-bottom:none}
+.mrow-l{min-width:0}
+.mrow-l b{display:block;color:var(--cream);font-size:.98rem}
+.mrow-l span{display:block;color:var(--muted);font-size:.88rem;line-height:1.4;margin-top:2px}
+.mrow-r{display:flex;gap:10px;flex:none;text-align:right;font-family:var(--disp);letter-spacing:.02em}
+.mrow-r .mset{width:5.2em;color:var(--cream)}
+.mrow-r .mmo{width:5.6em;color:var(--amber)}
+.mrow-h .mrow-l b,.mrow-h .mrow-r span{font-size:.72rem;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+@media(max-width:520px){.mrow{flex-direction:column;gap:4px}.mrow-r{text-align:left}.mrow-r .mset,.mrow-r .mmo{width:auto}.mrow-h{display:none}}
+.terms-line b{color:var(--cream)}
 </style>
 <style id="trade-try">
 .hero-ai .try-link{color:var(--amber);text-decoration:underline;text-underline-offset:3px;white-space:nowrap}
@@ -1180,106 +1186,79 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     <div class="section-head reveal">
       <p class="eyebrow">Pricing</p>
       <h2 class="section-title">Straight <span class="accent">pricing</span></h2>
-      <p>No contracts, no surprise fees. You see a working version first and pay nothing unless you love it. Then it's half to start, half at launch. The Site package has no monthly fee at all. Plans with a monthly fee are month to month; cancel with 30 days notice.</p>
+      <p>Start with a simple site, then add only what you need. You see it working first and owe nothing until you're happy. Then the setup and first month are due when it goes live. Month to month after that; cancel with 30 days notice.</p>
     </div>
+    <p class="founding reveal"><b>Founding-client prices:</b> my first clients get these prices locked for 12 months.</p>
     <div class="tiers">
       <div class="tier reveal">
-        <h3>Site</h3>
-        <p class="sub">No site yet, or one nobody's touched in years.</p>
-        <div class="price"><span class="n">$1,000</span><span class="per">one time</span></div>
-        <p class="setup">No monthly fee. You own it.</p>
+        <h3>Simple Site</h3>
+        <p class="sub">People can't find you, or your site is years old.</p>
+        <div class="price"><span class="n">$299</span><span class="per">setup</span></div>
+        <p class="setup">+ $29/month · normally $399 setup</p>
         <ul>
-          <li>Custom site, built for phones first</li>
-          <li>Tap-to-call on every screen</li>
-          <li>Request form straight to you</li>
-          <li>Google Business Profile hooked up</li>
-          <li>Runs on your own free hosting, domain in your name</li>
+          <li>One page built for phones first, with tap-to-call</li>
+          <li>Your services, hours, service area and photos</li>
+          <li>Request form straight to your email</li>
+          <li>Google Business Profile set up and connected</li>
+          <li>Hosting, upkeep and 15 minutes of changes a month</li>
+          <li>Domain in your name. Skip the monthly and own the page outright if a site is all you want</li>
         </ul>
-        <a class="btn btn-ghost" href="#contact" data-need="A new website">Get a free quote</a>
+        <a class="btn btn-ghost" href="#contact" data-need="A new website">See it working first</a>
       </div>
       <div class="tier feat reveal">
-        <span class="tag">Recommended</span>
-        <h3>Site + Capture</h3>
-        <p class="sub">You're on a job and calls go to voicemail.</p>
-        <div class="price"><span class="n">$2,200</span><span class="per">to build</span></div>
-        <p class="setup">+ $175/month</p>
+        <span class="tag">Everything</span>
+        <h3>Everything</h3>
+        <p class="sub">The whole front office handled, so you can stay on the tools.</p>
+        <div class="price"><span class="n">$999</span><span class="per">setup</span></div>
+        <p class="setup">+ $279/month · $1,393 + $307/month if added one by one</p>
         <ul>
-          <li>Everything in Site</li>
-          <li>Missed-call text-back</li>
-          <li>Requests texted to your phone</li>
-          <li>Owner board so nothing gets lost</li>
-          <li>Automatic review requests</li>
+          <li>The Simple Site plus every feature below</li>
+          <li>AI receptionist answering every call, day or night</li>
+          <li>Online booking, price estimator and plan sign-ups</li>
+          <li>Review asks, quote follow-ups and seasonal reminders by email</li>
+          <li>Google profile care and a chat helper on your site</li>
+          <li>Up to an hour of changes a month</li>
         </ul>
-        <a class="btn btn-amber" href="#contact" data-need="Website + online booking/orders">Get a free quote</a>
+        <a class="btn btn-amber" href="#contact" data-need="Everything package">See it working first</a>
       </div>
     </div>
-    <div class="bundles" id="bundles">
-      <div class="bundles-head reveal">
-        <p class="eyebrow">Bundles</p>
-        <h3>The website and the phones, handled together</h3>
-        <p>For established shops that want one price for the whole front desk instead of a menu. Each one includes the one before it. Same terms as everything else: see it working first, then half to start and half at launch.</p>
+    <div class="menu reveal" id="features">
+      <div class="menu-head">
+        <h3>Add any feature</h3>
+        <p>Add one, a few, or all of them, now or later. Take one off and its monthly comes off your next bill.</p>
       </div>
-      <p class="founding reveal"><b>Founding clients:</b> my first few clients get the build at half price. The monthly stays the same.</p>
-      <div class="tiers three">
-      <div class="tier reveal">
-        <h3>Core</h3>
-        <p class="quote">&ldquo;We need people to find us and reach us, even when we're all out on jobs.&rdquo;</p>
-        <div class="price"><span class="n">$2,600</span><span class="per">to build</span></div>
-        <p class="setup">+ $299/month</p>
-        <span class="half">Founding clients: <b>$1,300</b> to build</span>
-        <ul>
-          <li>Everything in Site + Capture</li>
-          <li>Every call answered in your business's name, day or night, with a summary right after</li>
-          <li>Customers book a time themselves instead of playing phone tag</li>
-          <li>A ballpark price on your site at any hour, no waiting on a callback</li>
-        </ul>
-        <a class="btn btn-ghost" href="#contact" data-need="Bundle: Core">See it working first</a>
-      </div>
-      <div class="tier feat reveal">
-        <span class="tag">Most popular</span>
-        <h3>Growth</h3>
-        <p class="quote">&ldquo;We do good work, but quotes go cold and past customers forget about us.&rdquo;</p>
-        <div class="price"><span class="n">$3,400</span><span class="per">to build</span></div>
-        <p class="setup">+ $329/month</p>
-        <span class="half">Founding clients: <b>$1,700</b> to build</span>
-        <ul>
-          <li>Everything in Core</li>
-          <li>Every quote gets a friendly follow-up, so priced jobs don't go to someone else</li>
-          <li>Past customers get reminded when service is due, so repeat work comes back</li>
-          <li>A hiring page and a commercial services page</li>
-          <li>Customers apply for financing with the lender you already use</li>
-        </ul>
-        <a class="btn btn-amber" href="#contact" data-need="Bundle: Growth">See it working first</a>
-      </div>
-      <div class="tier reveal">
-        <h3>Complete</h3>
-        <p class="quote">&ldquo;I want the whole front office handled so I can stay on the tools.&rdquo;</p>
-        <div class="price"><span class="n">$4,500</span><span class="per">to build</span></div>
-        <p class="setup">+ $499/month</p>
-        <span class="half">Founding clients: <b>$2,250</b> to build</span>
-        <ul>
-          <li>Everything in Growth</li>
-          <li>A chat helper on your site answers questions and books jobs at any hour</li>
-          <li>Seasonal and weather reminders go out before your busy stretches</li>
-          <li>Your Google profile kept current every month: photos, hours, services and posts</li>
-        </ul>
-        <a class="btn btn-ghost" href="#contact" data-need="Bundle: Complete">See it working first</a>
-      </div>
-      </div>
+      <div class="mrow mrow-h"><div class="mrow-l"><b>Feature</b></div><div class="mrow-r"><span class="mset">Setup</span><span class="mmo">Monthly</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Extra page</b><span>A page for one service, one town, or an About page. Shows up when people search that service or town.</span></div><div class="mrow-r"><span class="mset">$99 each</span><span class="mmo">included</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Photo gallery</b><span>Before-and-after and job photos, the way customers actually decide.</span></div><div class="mrow-r"><span class="mset">$99</span><span class="mmo">included</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Service area check</b><span>Customers type their ZIP and see if you cover them.</span></div><div class="mrow-r"><span class="mset">$49</span><span class="mmo">included</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Hiring page</b><span>A short job application that lands in your email.</span></div><div class="mrow-r"><span class="mset">$99</span><span class="mmo">included</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Commercial page</b><span>A page made for business and property customers.</span></div><div class="mrow-r"><span class="mset">$99</span><span class="mmo">included</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Financing link</b><span>A button to the lender you already use, so the big job doesn't wait.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">included</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Logo cleanup</b><span>One clean look on your site, truck and Facebook.</span></div><div class="mrow-r"><span class="mset">$250</span><span class="mmo">included</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Online booking</b><span>Customers pick a day and time window. No phone tag.</span></div><div class="mrow-r"><span class="mset">$99</span><span class="mmo">+$10/mo</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Price estimator</b><span>A ballpark price and monthly payment for big jobs, plus a repair-or-replace check. You set the ranges.</span></div><div class="mrow-r"><span class="mset">$150</span><span class="mmo">+$10/mo</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Maintenance plan sign-up</b><span>Customers join your tune-up club from the site. You set it up with them; nothing is charged online.</span></div><div class="mrow-r"><span class="mset">$150</span><span class="mmo">+$10/mo</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>AI receptionist</b><span>Every call answered in your business's name, day or night. Summary by email after each call, emergencies flagged. 300 minutes a month.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$120/mo</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Extra call minutes</b><span>100 more AI minutes a month for busy seasons.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$10/mo</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Review asks by email</b><span>Every finished job gets an email asking for a Google review.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$10/mo</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Quote follow-ups by email</b><span>A friendly follow-up a few days after a quote, so priced jobs don't go cold.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$15/mo</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Seasonal reminders by email</b><span>“Time for your furnace check” before your busy stretches.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$15/mo</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Google profile care</b><span>New photos, posts, hours and services on your Google profile every month.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$49/mo</span></div></div>
+        <div class="mrow"><div class="mrow-l"><b>Website chat helper</b><span>A chat box on your site that answers questions at any hour.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$39/mo</span></div></div>
     </div>
     <div class="addon reveal">
       <div class="addon-l">
-        <span class="eyebrow">Add to any site, or get it on its own</span>
-        <h3>AI receptionist</h3>
-        <p>Answers your line when you can't, gets the details and sends you a summary right after each call. Keep your same number. 300 call minutes a month included. <b>Try it free for 14 days on your real line.</b> You only pay if you keep it.</p>
+        <span class="eyebrow">Just need the phones answered?</span>
+        <h3>AI receptionist on its own</h3>
+        <p>Keep your site and your number. It answers when you can't, gets the details and emails you a summary right after each call. 300 call minutes a month included. <b>Try it free for 14 days on your real line.</b> You only pay if you keep it.</p>
       </div>
       <div class="addon-r">
         <div class="price"><span class="n">$149</span><span class="per">/ month</span></div>
-        <p class="setup">+ $300 setup</p>
+        <p class="setup">$0 setup for founding clients · normally $300</p>
         <a class="btn btn-amber" href="#contact" data-need="AI receptionist: 14-day free trial">Start a free trial</a>
       </div>
     </div>
-    <p class="terms-line reveal">Pay a year up front and get two months free. Add-ons like online booking and before-and-after galleries are priced separately. Ask for the full price sheet. Automatic texts from a business number need carrier registration in your business name. I file it for you; it takes a few weeks, so we start on day one. Until it clears, alerts and call summaries come by email.</p>
+    <p class="terms-line reveal"><b>Coming soon: texting.</b> Missed-call text-back, texted alerts and reminders by text need carrier registration in your business name first. Until then, alerts and call summaries come by email. Pay a year up front and get two months free. Work outside your plan is $75 an hour, quoted first.</p>
   </div>
 </section>
 
@@ -1292,12 +1271,12 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     </div>
     <div class="caps">
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-globe"/></svg></div><h3>A real website</h3><p>Found on Google, all your info in one place, works great on phones. Yours — not an algorithm's.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-calendar"/></svg></div><h3>Online booking &amp; quotes</h3><p>Customers book jobs or request quotes right from the site, straight to your phone.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-mobile"/></svg></div><h3>Missed-call text-back</h3><p>Can't answer? They instantly get a text so the lead never walks. Huge for busy trades.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-calendar"/></svg></div><h3>Online booking &amp; quotes</h3><p>Customers book a time or request a quote right from the site, and it lands in your email.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-mobile"/></svg></div><h3>Missed-call text-back</h3><p>Coming soon. Once your number is registered, a caller you miss gets a text back in seconds.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg></div><h3>AI phone receptionist</h3><p>Answers your line when you can't, day or night. Takes the details, flags emergencies, and sends you a summary.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-bot"/></svg></div><h3>AI chat assistant</h3><p>A 24/7 assistant on your site that answers questions and books appointments for you.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-star"/></svg></div><h3>Automatic reviews</h3><p>Happy customers get asked for a Google review automatically — more reviews, more business.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-board"/></svg></div><h3>A leads dashboard</h3><p>Every order or lead lands in one simple board on your phone — the Owner view in each example above.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-bot"/></svg></div><h3>AI chat assistant</h3><p>A chat box on your site that answers questions at any hour and takes down requests for you.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-star"/></svg></div><h3>Automatic reviews</h3><p>Every finished job gets an email asking for a Google review, so you don't have to remember.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-board"/></svg></div><h3>Alerts in your email</h3><p>Every request and every call summary lands in your email the moment it comes in.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-bell"/></svg></div><h3>Reminders &amp; follow-ups</h3><p>Automatic texts for appointments, pickups and "your part's in" — fewer no-shows, fewer phone calls.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-search"/></svg></div><h3>Google listing &amp; search</h3><p>Your Google Business profile set up right and the site built so people searching nearby actually find you.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-wrench"/></svg></div><h3>Hosting you own</h3><p>Your site runs on your own account with the domain in your name, so there's nothing to rent. Changes later are $75 an hour, or included with a monthly plan.</p></div>
@@ -1370,8 +1349,8 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       <details><summary>Is the hosting really free?</summary><div class="fa">Yes, for a normal small-business site. It runs on a free hosting tier under your account, and a site like yours stays inside it. The only thing you pay for yearly is the domain name, which runs about $12 to $20 and goes straight to the registrar, not to me.</div></details>
       <details><summary>What if you disappear?</summary><div class="fa">Fair question to ask anybody. Your site is plain, self-contained files sitting in your own account, so any developer can pick it up — there's nothing proprietary to get stuck in. You'd keep running without me. The automations and the AI line are the piece that needs someone watching them, and that's what the monthly covers; cancel it and the website keeps working.</div></details>
       <details><summary>Can I edit it myself?</summary><div class="fa">Most owners don't want to, so my default is you text me the change and it's done. If you'd rather do it yourself, say so up front and I'll build it so the parts you'll actually touch — prices, hours, photos, specials — are editable without me.</div></details>
-      <details><summary>What does a change cost later?</summary><div class="fa">Small stuff like hours, a price, a photo or a new service: <b>$75 an hour, one hour minimum</b>, and I tell you the number before I start. If you're on a monthly plan, up to <b>30 minutes of changes a month</b> are already included.</div></details>
-      <details><summary>Are you going to upsell me?</summary><div class="fa">The website is <b>$1,000 one time with no monthly fee</b>, and that's a complete thing on its own. I do sell monthly automations — an AI receptionist, missed-call text-back, review requests — and I only charge monthly for things that actually run every month. If a site is all you need, buy a site. I'll tell you if I think you don't need the rest.</div></details>
+      <details><summary>What does a change cost later?</summary><div class="fa">Small stuff like hours, a price, a photo or a new service: <b>$75 an hour, one hour minimum</b>, and I tell you the number before I start. On the $29 monthly, up to <b>15 minutes of changes a month</b> are already included, and up to an hour on Everything.</div></details>
+      <details><summary>Are you going to upsell me?</summary><div class="fa">The Simple Site is <b>$299</b>, and if a site is all you want you can skip the monthly and own it outright. I do sell features with a small monthly — an AI receptionist, online booking, review asks — and each one is priced on its own, so you only pay for what you use. If a site is all you need, buy a site. I'll tell you if I think you don't need the rest.</div></details>
       <details><summary>Will I show up first on Google?</summary><div class="fa">I'm not going to promise that, and be careful with anybody who does. What I can do is the part that's in my control: your site built so Google can read it, your Google Business Profile set up right, your towns and services on the page, and a review link so customers can leave you reviews. Ranking at the top of a competitive search takes months of steady work. For most shops around here the bigger win is being <b>findable and easy to call</b>, which happens fast.</div></details>
       <details><summary>How long does it take?</summary><div class="fa">For most builds you'll have a working sample to look at in <b>a couple of days</b>. Something big or unusual takes longer, and I'll tell you up front if it does. After you've looked at it and want to go ahead, it's live within a few days — most of that wait is you getting me photos and your service list. The AI receptionist can be answering your line <b>the next day</b>.</div></details>
     </div>
@@ -1389,7 +1368,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <div class="field"><label for="c-name">Your name <span class="req">*</span></label><input type="text" id="c-name" name="name" placeholder="First and last"></div>
           <div class="field"><label for="c-biz">Business name</label><input type="text" id="c-biz" name="business" placeholder="What's it called?"></div>
           <div class="field"><label for="c-need">What do you need? <span class="req">*</span></label>
-            <select id="c-need" name="need"><option value="">Choose one…</option><option>A new website</option><option>Website + online booking/orders</option><option>Fix or improve my current website</option><option>AI receptionist: 14-day free trial</option><option>Bundle: Core</option><option>Bundle: Growth</option><option>Bundle: Complete</option><option>AI &amp; automation setup</option><option>Not sure yet — need ideas</option></select>
+            <select id="c-need" name="need"><option value="">Choose one…</option><option>A new website</option><option>Website + online booking/orders</option><option>Fix or improve my current website</option><option>AI receptionist: 14-day free trial</option><option>Everything package</option><option>AI &amp; automation setup</option><option>Not sure yet — need ideas</option></select>
           </div>
           <div class="field"><label for="c-how">How should I reach you? <span class="req">*</span></label>
             <select id="c-how" name="reach-by"><option>Text me</option><option>Call me</option><option>Email me</option><option>Facebook message</option></select>
