@@ -392,6 +392,35 @@
   @media(prefers-reduced-motion:reduce){.hero-ai .pulse{animation:none}}
 
   @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js .reveal{opacity:1;transform:none;transition:none}.btn:hover,.pf:hover{transform:none}}
+
+/* examples: plain equal cards, stacked on a phone, 2 by 2 on a computer */
+#work .ex-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:14px;max-width:880px}
+@media(min-width:700px){#work .ex-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+#work .ex-card{display:flex;flex-direction:column;align-items:flex-start;gap:8px;min-width:0;padding:20px 20px 18px;border-top:3px solid var(--amber)}
+#work .ex-cat{font-family:var(--disp);text-transform:uppercase;letter-spacing:.06em;font-weight:600;font-size:1.05rem;color:var(--cream)}
+#work .ex-solve{color:var(--muted);font-size:.95rem;line-height:1.45;margin:0;flex:1}
+#work .ex-open{margin-top:6px;font-size:.78rem;padding:.65em 1.1em}
+#work .ex-card:hover .ex-open{border-color:var(--amber);color:var(--amber)}
+#pricing .pp-try{color:#cfd6e2;font-size:.9rem;margin-top:10px;background:rgba(45,212,191,.08);border:1px solid rgba(45,212,191,.3);border-radius:8px;padding:10px 12px}
+#pricing .pp-try a{color:var(--amber)}
+#c-helps{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px}
+#c-helps button{font:inherit;font-size:.88rem;color:#cfd6e2;background:var(--panel-2);border:1px solid var(--line);border-radius:999px;padding:8px 12px;cursor:pointer;min-height:40px}
+#c-helps button[aria-pressed="true"]{background:var(--grad);border-color:transparent;color:#fff}
+.c-rec{display:none;margin-top:10px;border:1px solid rgba(45,212,191,.5);border-left:3px solid var(--amber);border-radius:10px;padding:12px 14px;background:rgba(45,212,191,.06)}
+.c-rec .k{font-family:var(--disp);text-transform:uppercase;letter-spacing:.08em;font-size:.7rem;color:var(--amber)}
+.c-rec b.nm{display:block;font-size:1.05rem;color:var(--cream);margin-top:2px}
+.c-rec .pr{color:var(--cream);font-weight:600}
+.c-rec p{margin:4px 0 0;font-size:.9rem;color:#cfd6e2}
+.c-rec button{margin-top:8px;background:none;border:none;color:var(--amber);text-decoration:underline;font:inherit;font-size:.88rem;cursor:pointer;padding:0}
+
+.nav-ct{display:flex;align-items:center;gap:8px}
+.nav-ct .btn{padding:.6em 1em}
+.nav-num{font-family:var(--disp);letter-spacing:.04em;font-size:.82rem;color:var(--muted)}
+@media(max-width:420px){.nav-num{display:none}}
+#pricing .pp-start.rec{border-color:var(--amber);box-shadow:0 0 0 1px var(--amber),0 20px 50px -25px rgba(224,166,60,.45)}
+#pricing .pp-start.rec .tag{background:var(--amber);color:#0e1320}
+#pricing .pp-txt{display:inline-block;margin-top:3px;font-size:.78rem;color:var(--amber)}
+.ai-yours{margin-top:12px;border-left:3px solid var(--amber);padding:8px 12px;background:rgba(224,166,60,.07);border-radius:6px;color:#cfd6e2;font-size:.95rem}
 </style>
 <style id="safe-area-fixes">
 :root{box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
@@ -947,7 +976,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 <nav class="nav">
   <div class="nav-inner">
     <div class="logo"><span class="mark">CM</span><span>CM <b>Digital</b></span></div>
-    <div style="display:flex;align-items:center;gap:16px"><a class="navlink" href="#pricing">Pricing</a><a class="btn btn-amber" href="#contact">Get in touch</a></div>
+    <div style="display:flex;align-items:center;gap:16px"><span class="nav-ct"><span class="nav-num">812-582-0112</span><a class="btn btn-amber" href="tel:+18125820112" aria-label="Call Chris at 812-582-0112">Call</a><a class="btn btn-ghost" href="sms:+18125820112" aria-label="Text Chris at 812-582-0112">Text</a></span></div>
   </div>
 </nav>
 <style>.navlink{font-family:var(--disp);text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:var(--muted)}.navlink:hover{color:var(--amber)}@media(max-width:400px){.navlink{display:none}}</style>
@@ -969,123 +998,13 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       <span class="g-t"><span class="g-k">My guarantee</span><b>See it working first. Love it, or you don't pay a dime.</b> For most builds I'll have a working version of your site to look at in <b style="color:#cfd6e2">a couple of days</b> &mdash; before you spend anything. If it's not right for your business, you owe me nothing.</span>
     </div>
     <div class="hero-ctas reveal">
-      <a class="btn btn-amber" href="#start">Get my free sample</a>
+      <a class="btn btn-amber" href="#pricing">Pick what you need</a>
       <a class="btn btn-ghost" href="#work">See the work</a>
     </div>
     <p class="lede reveal">I'm Chris. I do the work myself, and it all runs alongside the Facebook page you already have, not instead of it — Facebook reaches the people who already follow you, your site is how the rest find you.</p>
     <div class="roadline hero-line reveal"></div>
   </div>
 </header>
-
-<section class="qs" id="start">
-  <div class="wrap">
-    <h2>What do you <span class="accent">do</span>?</h2>
-    <p class="qsub" id="qs-sub">Tap your trade and I'll build you a free sample site for your business, before you pay anything. Takes about a week, and you only pay if you love it.</p>
-    <div class="trades" id="trades" role="group" aria-label="Pick your trade">
-      <button type="button" data-trade="HVAC">HVAC</button>
-      <button type="button" data-trade="Plumbing">Plumbing</button>
-      <button type="button" data-trade="Electrical">Electrical</button>
-      <button type="button" data-trade="Excavation &amp; Septic">Excavation &amp; Septic</button>
-      <button type="button" data-trade="Towing &amp; Auto">Towing &amp; Auto</button>
-      <button type="button" data-trade="Roofing">Roofing</button>
-      <button type="button" data-trade="Concrete">Concrete</button>
-      <button type="button" data-trade="Lawn &amp; Tree">Lawn &amp; Tree</button>
-      <button type="button" data-trade="Meat Processing">Meat Processing</button>
-      <button type="button" data-trade="Something else">Something else</button>
-    </div>
-
-    <div id="qwrap">
-      <form class="qform" id="qform" onsubmit="quickSubmit(event)">
-        <p class="qfh" id="qfh">Where do I send it?</p>
-        <div class="qgrid">
-          <div class="qf"><label for="q-name">Your name</label><input type="text" id="q-name" placeholder="First and last"></div>
-          <div class="qf"><label for="q-phone">Cell number</label><input type="text" id="q-phone" inputmode="tel" autocomplete="tel" placeholder="(812) 555-0123"></div>
-          <div class="qf full"><label for="q-biz">Business name</label><input type="text" id="q-biz" placeholder="What's it called?"></div>
-        <div class="qf full wants">
-          <div class="wh">
-            <span class="wt">What would help most? Tap any that fit.</span>
-            <span class="wa"><button type="button" id="w-all">Select all</button><button type="button" id="w-none">Clear</button></span>
-          </div>
-          <div class="wgrid" id="wants">
-            <button type="button" class="want" data-want="Get found on Google"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">Get found on Google</span><span class="wd">A real website, so when somebody hears your name and looks you up, they find you instead of nothing.</span></span></button>
-            <button type="button" class="want" data-want="Answer the phone when I can't"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">Answer the phone when you can't</span><span class="wd">An AI picks up day or night, gets the job details, and sends you a summary. You keep your number.</span></span></button>
-            <button type="button" class="want" data-want="Text back everyone I miss"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">Text back everyone you miss</span><span class="wd">A missed call gets a text in seconds, before they scroll down and try the next guy.</span></span></button>
-            <button type="button" class="want" data-want="Take requests from the site"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">Take requests from your site</span><span class="wd">Quote and service requests land on your phone with name, number and what they need.</span></span></button>
-            <button type="button" class="want" data-want="Let people book themselves"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">Let people book themselves</span><span class="wd">Customers pick a day and a time window on their own. No more phone tag.</span></span></button>
-            <button type="button" class="want" data-want="One board for every job"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">One board for every job</span><span class="wd">Every lead and job in one place with its status, on your phone. Nothing on scrap paper.</span></span></button>
-            <button type="button" class="want" data-want="More 5-star reviews"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">More 5-star reviews</span><span class="wd">Every finished job asks the customer for a Google review, so you don't have to remember to.</span></span></button>
-            <button type="button" class="want" data-want="Chase quotes nobody answered"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">Chase the quotes nobody answered</span><span class="wd">A friendly nudge goes out on day 2 and day 7. That's where the big jobs quietly die.</span></span></button>
-            <button type="button" class="want" data-want="Remind past customers it's time"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">Remind past customers it's time</span><span class="wd">Seasonal check-ups and "you're due" messages to people who already paid you once.</span></span></button>
-            <button type="button" class="want wfull" data-want="Fix up my Google listing"><span class="wbox">&#10003;</span><span class="wtx"><span class="wn">And fix up your Google listing<span class="wfree">On me</span></span><span class="wd">Hours, photos, service area and a review link, so you turn up right on Maps when somebody searches you. I do this one free whether you buy anything or not &mdash; tick it and I'll just go do it.</span></span></button>
-          </div>
-          <p class="wcount" id="w-count">Not sure? Leave them unticked and I'll tell you what I'd do — or just describe it below.</p>
-        </div>
-        <div class="qf full"><label for="q-else">Anything else? <span style="color:var(--muted);text-transform:none;letter-spacing:0;font-family:var(--body)">(optional — if you can describe it, odds are I can build it)</span></label><input type="text" id="q-else" placeholder="Something not on the list, or how your shop actually runs…"></div>
-        </div>
-        <div class="qerr" id="q-err"></div>
-        <button class="btn btn-amber qbtn" type="submit">Build me a free sample</button>
-        <p class="qfine">Most demos are ready in <b style="color:#cfd6e2">a couple of days</b>. No cost, no pressure, and I don't sell your number to anybody.</p>
-      </form>
-    </div>
-
-
-    <div class="talk">
-      <p class="talk-h">Rather just talk to somebody?</p>
-      <div class="talk-grid">
-        <div class="tcard">
-          <span class="ti" aria-hidden="true"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg></span>
-          <span class="tt"><b>Call or text me</b><span class="tn">(812) 582-0112</span><span class="td">That's my cell, and it's me on the other end &mdash; no call center, no sales guy. Text is fine if you're on a job and I'll answer when I'm off mine.</span><span class="tacts"><a class="tbtn" href="tel:+18125820112"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg>Call</a><a class="tbtn out" href="sms:+18125820112?&amp;body=Hi%20Chris%2C%20I%20saw%20getcmdigital.com%20and%20I%27d%20like%20a%20free%20sample%20site%20for%20my%20business."><svg class="ic-svg" aria-hidden="true"><use href="#i-chat"/></svg>Text</a></span></span>
-        </div>
-        <div class="tcard tai">
-          <span class="ti" aria-hidden="true"><span class="pulse"></span></span>
-          <span class="tt"><b>Or try my AI assistant</b><span class="tn">(812) 818-3099</span><span class="td">Answers day or night. Ask it what things cost or what I build &mdash; or tell it to answer like <i>your</i> front desk and hear exactly what your customers would get. It's an AI, and it says so if you ask.</span><span class="tacts"><a class="tbtn ai" href="tel:+18128183099"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg>Call it and try to stump it</a></span></span>
-        </div>
-      </div>
-    </div>
-
-    <p class="areas"><b>Wherever you are.</b> None of this needs anybody to drive anywhere. I build it, send you a link, and you look at it on your phone. The only things I need from you are a few photos off your phone and about ten minutes telling me what you do &mdash; and your site works the same whether you're twenty minutes from me or a thousand miles away. I'm in Winslow, Indiana, so if you're close by and you'd rather sit down in person, I'm glad to. That's an offer, not a requirement.</p>
-  </div>
-</section>
-
-<section class="section" id="work">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">The work</p>
-      <h2 class="section-title">Example sites, <span class="accent">click right in</span></h2>
-      <p>Tap any one to open a full, working example — then hit <b style="color:var(--cream)">Owner view</b> to see the admin side you'd manage from your phone. This is what I'd build for your business.</p>
-    </div>
-    <div class="pf-grid">
-      <div class="pf reveal" data-demo="demo-dirt" role="button" tabindex="0">
-        <div class="browser">
-          <div class="chrome"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="u">ridgelineexcavating.com</span></div>
-          <div class="preview pv2 pv-dirt"><div class="pvnav"><span class="lg"><i></i>RIDGELINE</span><span class="nv">Services<b>Service area</b>About</span><span class="ph">(812) 555-0100</span></div><div class="in"><span class="k">Septic &middot; Excavation &middot; Site work</span><div class="nm">Dug right.<br><em>Backfilled clean.</em></div><div class="btns"><span class="b">Get a free quote</span><span class="b2">Call now</span></div></div><div class="strip"><span>Licensed &amp; insured</span><span>Pike County, IN</span><span>Family crew since 2004</span></div></div></div>
-        </div>
-        <div class="pf-foot"><div class="m"><div class="cat">Excavation &amp; Septic</div><div class="solve">Built to turn a 5-star Google page into booked jobs with online quotes.</div></div><span class="open">Open ›</span></div>
-      </div>
-      <div class="pf reveal" data-demo="demo-meat" role="button" tabindex="0">
-        <div class="browser">
-          <div class="chrome"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="u">timberridgemeatco.com</span></div>
-          <div class="preview pv2 pv-meat"><div class="in"><div class="bd">TR</div><div class="nm">Timber Ridge Meat Co.</div><div class="s">Custom processing, done the old way</div><span class="b">Reserve a share</span></div></div>
-        </div>
-        <div class="pf-foot"><div class="m"><div class="cat">Meat Processing</div><div class="solve">Moves orders out of Facebook comments into one clean system.</div></div><span class="open">Open ›</span></div>
-      </div>
-      <div class="pf reveal" data-demo="demo-auto" role="button" tabindex="0">
-        <div class="browser">
-          <div class="chrome"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="u">mainstreetautotire.com</span></div>
-          <div class="preview pv2 pv-auto"><div class="pvnav"><span class="lg"><i></i>MAIN STREET AUTO</span><span class="nv">Services<b>Tires</b>Book</span><span class="ph">(812) 555-0100</span></div><div class="in"><div class="nm">Car care that <span>fits your day.</span></div><div class="ch"><span>Oil change</span><span>Tires</span><span>Brakes</span></div><span class="b">Book online</span></div><div class="strip"><span>Walk-ins welcome</span><span>Mon&ndash;Fri 7:30&ndash;5:30</span><span>Free tire check</span></div></div></div>
-        </div>
-        <div class="pf-foot"><div class="m"><div class="cat">Auto &amp; Tire</div><div class="solve">Online booking so customers stop playing phone tag.</div></div><span class="open">Open ›</span></div>
-      </div>
-      <div class="pf reveal" data-demo="demo-tow" role="button" tabindex="0">
-        <div class="browser">
-          <div class="chrome"><i style="background:#ff5f57"></i><i style="background:#febc2e"></i><i style="background:#28c840"></i><span class="u">crossroadstowing.com</span></div>
-          <div class="preview pv2 pv-tow"><div class="pvnav"><span class="lg"><i></i>CROSSROADS</span><span class="nv">Towing<b>Recovery</b>Repair</span><span class="ph">(812) 555-0100</span></div><div class="in"><div class="lv"><i></i>2 trucks available now</div><div class="nm">Stuck?<br><span>We're rolling.</span></div><span class="b"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg> Call 24/7</span></div><div class="strip"><span>24/7 dispatch</span><span>Light &amp; heavy duty</span><span>DOT inspections</span></div></div></div>
-        </div>
-        <div class="pf-foot"><div class="m"><div class="cat">Towing &amp; Repair</div><div class="solve">Midnight tow calls turn into dispatch cards with automatic ETA texts.</div></div><span class="open">Open ›</span></div>
-      </div>
-    </div>
-  </div>
-</section>
 
 <section class="section alt" id="ai">
   <div class="wrap">
@@ -1094,10 +1013,10 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
         <p class="eyebrow">Try it now</p>
         <h2 class="section-title">Hear what your <span class="accent">callers would hear</span></h2>
         <p>When you're on a roof, under a sink or out on a tow, a call you can't take usually goes to the next shop on Google. This is the AI that answers my own line. Call it, tell it what kind of shop you run, and it answers like <b style="color:var(--cream)">your</b> front desk: it asks the questions your customers get asked, flags what's urgent in your trade, and gets the caller's details down so you can call back knowing the job. It takes about a minute.</p>
-        <div class="hero-ctas"><a class="btn btn-amber" href="tel:+18128183099"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1.9.4 1.8.7 2.7a2 2 0 0 1-.5 2.1L8 9.8a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.7.7a2 2 0 0 1 1.7 2z"/></svg>Call my AI assistant</a></div>
+        <p class="ai-yours"><b style="color:var(--cream)">This demo line is general.</b> When I set one up for you, I train it on your business: your services, prices, hours, area and how you want calls handled, so it answers your customers the way you would.</p>
         <div class="try-boxes" aria-label="Ways to try it">
           <a class="tbox" href="#try"><span class="tb-k">1 &middot; Call it</span><b>Hear it answer for your trade</b><span class="tb-d">Call (812) 818-3099, tell it what kind of shop you run, then play a customer. About a minute.</span><span class="tb-go">Pick your trade &rsaquo;</span></a>
-          <a class="tbox" href="https://trades.getcmdigital.com/#join" target="_blank" rel="noopener"><span class="tb-k">2 &middot; Try it on your line</span><b>14 days free on your own number</b><span class="tb-d">It answers your shop's calls and emails you every caller's details.</span><span class="tb-go">Start the free trial &rsaquo;</span></a>
+          <a class="tbox" href="#contact" data-need="Try the phone answering free for 14 days"><span class="tb-k">2 &middot; Try it on your line</span><b>14 days free on your own number</b><span class="tb-d">It answers your shop's calls and emails you every caller's details. Ask for it in the one request form.</span><span class="tb-go">Ask for the free trial &rsaquo;</span></a>
         </div>
         <div class="trade-try" id="try">
           <p class="tt-k">Pick your trade, then call</p>
@@ -1140,7 +1059,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <li><b>Try:</b> "Answer like you're my front desk. I run a plumbing shop." Then call in a burst pipe.</li>
           <li><b>Ask:</b> "Am I talking to a real person?"</li>
         </ul>
-        <p class="ai-fine">It's an AI, and it'll tell you so if you ask. Anything you tell it comes straight to me, and I'll get back to you. Rather talk to a person? Call or text me at <a href="tel:+18125820112" style="color:var(--amber)">(812) 582-0112</a>.</p>
+        <p class="ai-fine">It's an AI, and it'll tell you so if you ask. Anything you tell it comes straight to me, and I'll get back to you.</p>
         <div class="listen" id="listen">
           <h4 id="listen-h">Can't call right now? Read a sample call</h4>
           <audio id="demo-audio" controls preload="none" src="ai-demo.mp3" style="display:none"></audio>
@@ -1149,7 +1068,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
             <div class="tx">
               <p><b>AI:</b> Thanks for calling CM Digital, this is Chris's assistant. How can I help?</p>
               <p><b>Caller:</b> I run a tree service and I don't have a website. What would that cost?</p>
-              <p><b>AI:</b> Websites are a thousand dollars, one time, with no monthly fee, and you own it. Want Chris to call you with ideas?</p>
+              <p><b>AI:</b> A simple website is $299 to set up and $29 a month, and you own it. Want Chris to call you with ideas?</p>
               <p><b>Caller:</b> Sure. But what's this AI receptionist thing?</p>
               <p><b>AI:</b> It's me, answering for your business when you can't get to the phone. Want to hear it? What's your business called?</p>
               <p><b>Caller:</b> Baker Tree Service.</p>
@@ -1181,88 +1100,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
   </div>
 </section>
 
-<section class="section" id="pricing">
-  <div class="wrap">
-    <div class="section-head reveal">
-      <p class="eyebrow">Pricing</p>
-      <h2 class="section-title">Straight <span class="accent">pricing</span></h2>
-      <p>Start with a simple site, then add only what you need. You see it working first and owe nothing until you're happy. Then the setup and first month are due when it goes live. Month to month after that; cancel with 30 days notice.</p>
-    </div>
-    <p class="founding reveal"><b>Founding-client prices:</b> my first clients get these prices locked for 12 months.</p>
-    <div class="tiers">
-      <div class="tier reveal">
-        <h3>Simple Site</h3>
-        <p class="sub">People can't find you, or your site is years old.</p>
-        <div class="price"><span class="n">$299</span><span class="per">setup</span></div>
-        <p class="setup">+ $29/month · normally $399 setup</p>
-        <ul>
-          <li>One page built for phones first, with tap-to-call</li>
-          <li>Your services, hours, service area and photos</li>
-          <li>Request form straight to your email</li>
-          <li>Google Business Profile set up and connected</li>
-          <li>Hosting, upkeep and 15 minutes of changes a month</li>
-          <li>Domain in your name. Skip the monthly and own the page outright if a site is all you want</li>
-        </ul>
-        <a class="btn btn-ghost" href="#contact" data-need="A new website">See it working first</a>
-      </div>
-      <div class="tier feat reveal">
-        <span class="tag">Everything</span>
-        <h3>Everything</h3>
-        <p class="sub">The whole front office handled, so you can stay on the tools.</p>
-        <div class="price"><span class="n">$999</span><span class="per">setup</span></div>
-        <p class="setup">+ $279/month · $1,393 + $307/month if added one by one</p>
-        <ul>
-          <li>The Simple Site plus every feature below</li>
-          <li>AI receptionist answering every call, day or night</li>
-          <li>Online booking, price estimator and plan sign-ups</li>
-          <li>Review asks, quote follow-ups and seasonal reminders by email</li>
-          <li>Google profile care and a chat helper on your site</li>
-          <li>Up to an hour of changes a month</li>
-        </ul>
-        <a class="btn btn-amber" href="#contact" data-need="Everything package">See it working first</a>
-      </div>
-    </div>
-    <div class="menu reveal" id="features">
-      <div class="menu-head">
-        <h3>Add any feature</h3>
-        <p>Add one, a few, or all of them, now or later. Take one off and its monthly comes off your next bill.</p>
-      </div>
-      <div class="mrow mrow-h"><div class="mrow-l"><b>Feature</b></div><div class="mrow-r"><span class="mset">Setup</span><span class="mmo">Monthly</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Extra page</b><span>A page for one service, one town, or an About page. Shows up when people search that service or town.</span></div><div class="mrow-r"><span class="mset">$99 each</span><span class="mmo">included</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Photo gallery</b><span>Before-and-after and job photos, the way customers actually decide.</span></div><div class="mrow-r"><span class="mset">$99</span><span class="mmo">included</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Service area check</b><span>Customers type their ZIP and see if you cover them.</span></div><div class="mrow-r"><span class="mset">$49</span><span class="mmo">included</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Hiring page</b><span>A short job application that lands in your email.</span></div><div class="mrow-r"><span class="mset">$99</span><span class="mmo">included</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Commercial page</b><span>A page made for business and property customers.</span></div><div class="mrow-r"><span class="mset">$99</span><span class="mmo">included</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Financing link</b><span>A button to the lender you already use, so the big job doesn't wait.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">included</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Logo cleanup</b><span>One clean look on your site, truck and Facebook.</span></div><div class="mrow-r"><span class="mset">$250</span><span class="mmo">included</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Online booking</b><span>Customers pick a day and time window. No phone tag.</span></div><div class="mrow-r"><span class="mset">$99</span><span class="mmo">+$10/mo</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Price estimator</b><span>A ballpark price and monthly payment for big jobs, plus a repair-or-replace check. You set the ranges.</span></div><div class="mrow-r"><span class="mset">$150</span><span class="mmo">+$10/mo</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Maintenance plan sign-up</b><span>Customers join your tune-up club from the site. You set it up with them; nothing is charged online.</span></div><div class="mrow-r"><span class="mset">$150</span><span class="mmo">+$10/mo</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>AI receptionist</b><span>Every call answered in your business's name, day or night. Summary by email after each call, emergencies flagged. 300 minutes a month.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$120/mo</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Extra call minutes</b><span>100 more AI minutes a month for busy seasons.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$10/mo</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Review asks by email</b><span>Every finished job gets an email asking for a Google review.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$10/mo</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Quote follow-ups by email</b><span>A friendly follow-up a few days after a quote, so priced jobs don't go cold.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$15/mo</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Seasonal reminders by email</b><span>“Time for your furnace check” before your busy stretches.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$15/mo</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Google profile care</b><span>New photos, posts, hours and services on your Google profile every month.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$49/mo</span></div></div>
-        <div class="mrow"><div class="mrow-l"><b>Website chat helper</b><span>A chat box on your site that answers questions at any hour.</span></div><div class="mrow-r"><span class="mset">$0</span><span class="mmo">+$39/mo</span></div></div>
-    </div>
-    <div class="addon reveal">
-      <div class="addon-l">
-        <span class="eyebrow">Just need the phones answered?</span>
-        <h3>AI receptionist on its own</h3>
-        <p>Keep your site and your number. It answers when you can't, gets the details and emails you a summary right after each call. 300 call minutes a month included. <b>Try it free for 14 days on your real line.</b> You only pay if you keep it.</p>
-      </div>
-      <div class="addon-r">
-        <div class="price"><span class="n">$149</span><span class="per">/ month</span></div>
-        <p class="setup">$0 setup for founding clients · normally $300</p>
-        <a class="btn btn-amber" href="#contact" data-need="AI receptionist: 14-day free trial">Start a free trial</a>
-      </div>
-    </div>
-    <p class="terms-line reveal"><b>Coming soon: texting.</b> Missed-call text-back, texted alerts and reminders by text need carrier registration in your business name first. Until then, alerts and call summaries come by email. Pay a year up front and get two months free. Work outside your plan is $75 an hour, quoted first.</p>
-  </div>
-</section>
-
-<section class="section alt" id="what">
+<section class="section" id="what">
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">What I build</p>
@@ -1271,13 +1109,13 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     </div>
     <div class="caps">
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-globe"/></svg></div><h3>A real website</h3><p>Found on Google, all your info in one place, works great on phones. Yours — not an algorithm's.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-calendar"/></svg></div><h3>Online booking &amp; quotes</h3><p>Customers book a time or request a quote right from the site, and it lands in your email.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-calendar"/></svg></div><h3>Online booking &amp; quotes</h3><p>Customers request a day and a morning or afternoon window, or a quote, right from the site. You confirm it or offer another time.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-mobile"/></svg></div><h3>Missed-call text-back</h3><p>Coming soon. Once your number is registered, a caller you miss gets a text back in seconds.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg></div><h3>AI phone receptionist</h3><p>Answers your line when you can't, day or night. Takes the details, flags emergencies, and sends you a summary.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-bot"/></svg></div><h3>AI chat assistant</h3><p>A chat box on your site that answers questions at any hour and takes down requests for you.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-star"/></svg></div><h3>Automatic reviews</h3><p>Every finished job gets an email asking for a Google review, so you don't have to remember.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-board"/></svg></div><h3>Alerts in your email</h3><p>Every request and every call summary lands in your email the moment it comes in.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-bell"/></svg></div><h3>Reminders &amp; follow-ups</h3><p>Automatic texts for appointments, pickups and "your part's in" — fewer no-shows, fewer phone calls.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-bell"/></svg></div><h3>Reminders &amp; follow-ups</h3><p>Automatic reminders and quote follow-ups by email now, and by text once your number's registered. Fewer no-shows, fewer quotes that go quiet.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-search"/></svg></div><h3>Google listing &amp; search</h3><p>Your Google Business profile set up right and the site built so people searching nearby actually find you.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-wrench"/></svg></div><h3>Hosting you own</h3><p>Your site runs on your own account with the domain in your name, so there's nothing to rent. Changes later are $75 an hour, or included with a monthly plan.</p></div>
       <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-camera"/></svg></div><h3>Photos, forms &amp; the rest</h3><p>Galleries, price lists, service areas, PDF forms, whatever your business actually needs on the page.</p></div>
@@ -1285,7 +1123,304 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
   </div>
 </section>
 
-<section class="section" id="why">
+<section class="section alt" id="work">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Examples</p>
+      <h2 class="section-title">See what <span class="accent">you'd get</span></h2>
+      <p>Open one to try it, owner side included.</p>
+    </div>
+    <div class="ex-grid">
+      <div class="pf ex-card" data-demo="demo-dirt" role="button" tabindex="0">
+        <div class="ex-cat">Excavation &amp; Septic</div>
+        <p class="ex-solve">Turns a 5-star Google page into booked jobs with online quotes.</p>
+        <span class="btn btn-ghost ex-open">Open the example</span>
+      </div>
+      <div class="pf ex-card" data-demo="demo-meat" role="button" tabindex="0">
+        <div class="ex-cat">Meat Processing</div>
+        <p class="ex-solve">Moves orders out of Facebook comments into one clean system.</p>
+        <span class="btn btn-ghost ex-open">Open the example</span>
+      </div>
+      <div class="pf ex-card" data-demo="demo-auto" role="button" tabindex="0">
+        <div class="ex-cat">Auto &amp; Tire</div>
+        <p class="ex-solve">Online booking so customers stop playing phone tag.</p>
+        <span class="btn btn-ghost ex-open">Open the example</span>
+      </div>
+      <div class="pf ex-card" data-demo="demo-tow" role="button" tabindex="0">
+        <div class="ex-cat">Towing &amp; Repair</div>
+        <p class="ex-solve">Midnight tow calls land on your phone with the details.</p>
+        <span class="btn btn-ghost ex-open">Open the example</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+<style>
+#pricing .pp-lede{max-width:860px;margin:0 auto 22px;background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px;padding:14px 18px;color:#cfd6e2;font-size:.95rem}
+#pricing .pp-lede b{color:var(--cream)}
+#pricing .pp-starts{display:grid;grid-template-columns:1fr;gap:16px;max-width:1040px;margin:0 auto}
+#pricing .pp-start{position:relative;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:22px 20px;display:flex;flex-direction:column}
+#pricing .pp-start.feat{border-color:rgba(45,212,191,.5);box-shadow:0 20px 50px -25px rgba(45,212,191,.35)}
+#pricing .pp-start .tag{position:absolute;top:-12px;left:18px;background:var(--grad);color:#fff;font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;font-weight:600;padding:.35em .8em;border-radius:20px}
+#pricing .pp-start h3{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:1.3rem;color:var(--cream);letter-spacing:.02em}
+#pricing .pp-prob{color:var(--muted);font-size:.93rem;margin-top:6px}
+#pricing .pp-out{color:#cfd6e2;font-size:.95rem;margin-top:6px}
+#pricing .pp-out b,#pricing .pp-prob b{color:var(--cream)}
+#pricing .pp-price{display:flex;align-items:baseline;gap:6px;margin:14px 0 0;flex-wrap:wrap}
+#pricing .pp-price .n{font-family:var(--carve);font-size:2.1rem;line-height:1;color:var(--cream)}
+#pricing .pp-price .per{color:var(--muted);font-size:.92rem}
+#pricing .pp-note{color:var(--amber);font-size:.9rem;margin-top:4px}
+#pricing .pp-start .btn{justify-content:center;margin-top:16px}
+#pricing .pp-start .grow{flex:1}
+#pricing .pp-builder{margin:34px auto 0;max-width:1040px;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:20px 16px 0}
+#pricing .pp-builder>h3{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:1.35rem;color:var(--cream);letter-spacing:.02em}
+#pricing .pp-builder>p{color:var(--muted);font-size:.95rem;margin-top:4px}
+#pricing .pp-group{margin-top:22px}
+#pricing .pp-group h4{font-family:var(--disp);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--amber);font-weight:600;padding-bottom:6px;border-bottom:1px solid var(--line)}
+#pricing .pp-row{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer}
+#pricing .pp-row:last-child{border-bottom:0}
+#pricing .pp-row input[type=checkbox]{width:22px;height:22px;margin-top:2px;accent-color:#2dd4bf;cursor:pointer}
+#pricing .pp-row .nm{font-weight:700;color:var(--cream);font-size:1.02rem}
+#pricing .pp-row .pr{color:var(--muted);font-size:.92rem;margin-top:2px}
+#pricing .pp-row .oc{color:#cfd6e2;font-size:.92rem;margin-top:2px}
+#pricing .pp-row .pr b,#pricing .pp-row .oc b{color:var(--cream);font-weight:600}
+#pricing .pp-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+#pricing .pp-chip{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--cream);background:var(--ink)}
+#pricing .pp-chip.mo{border-color:rgba(96,165,250,.55);color:#cfe0ff}
+#pricing .pp-chip.zero{color:var(--muted)}
+#pricing .pp-qty{display:inline-flex;align-items:center;gap:8px;margin-top:8px;color:var(--muted);font-size:.88rem}
+#pricing .pp-qty button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--ink);color:var(--cream);font-size:1.1rem;cursor:pointer}
+#pricing .pp-qty b{color:var(--cream);min-width:1.2em;text-align:center}
+#pricing .pp-row.on{background:linear-gradient(90deg,rgba(45,212,191,.07),transparent)}
+#pricing .pp-req{font-size:.82rem;color:var(--amber);margin-top:6px}
+#pricing .pp-bar{position:sticky;bottom:0;margin:18px -16px 0;background:rgba(14,19,32,.97);backdrop-filter:blur(8px);border-top:1px solid rgba(45,212,191,.45);border-radius:0 0 12px 12px;padding:12px 16px 14px;z-index:5}
+#pricing .pp-tot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
+#pricing .pp-tot div{min-width:0}
+#pricing .pp-tot span{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-family:var(--disp)}
+#pricing .pp-tot b{display:block;font-family:var(--carve);font-size:1.45rem;line-height:1.1;color:var(--cream);font-variant-numeric:tabular-nums}
+#pricing .pp-tot b.hi{color:var(--amber)}
+#pricing .pp-msg{font-size:.85rem;color:#cfd6e2;margin-top:8px}
+#pricing .pp-msg b{color:var(--cream)}
+#pricing .pp-nudge{display:none;font-size:.85rem;color:var(--cream);margin-top:8px;background:rgba(45,212,191,.1);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
+#pricing .pp-nudge button{background:none;border:0;color:var(--amber);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0}
+#pricing .pp-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+#pricing .pp-actions .btn{flex:1 1 auto;justify-content:center}
+#pricing .pp-how{max-width:1040px;margin:26px auto 0;display:grid;grid-template-columns:1fr;gap:12px}
+#pricing .pp-how div{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:#cfd6e2;font-size:.93rem}
+#pricing .pp-how b{display:block;color:var(--cream);font-family:var(--disp);text-transform:uppercase;letter-spacing:.05em;font-size:.95rem;margin-bottom:4px}
+#pricing .pp-how i{font-style:normal;color:var(--amber);font-family:var(--disp);font-weight:700;margin-right:6px}
+#pricing .pp-not{max-width:1040px;margin:16px auto 0;color:var(--muted);font-size:.9rem}
+#pricing .pp-not b{color:var(--cream)}
+#pricing .pp-nojs{display:none}
+@media(min-width:760px){#pricing .pp-starts{grid-template-columns:repeat(2,1fr)}#pricing .pp-how{grid-template-columns:repeat(3,1fr)}#pricing .pp-builder{padding:24px 24px 0}#pricing .pp-bar{margin:18px -24px 0;padding:14px 24px 16px}#pricing .pp-groups{columns:2;column-gap:32px}#pricing .pp-group{break-inside:avoid}}
+</style>
+  <div class="wrap">
+    <div class="section-head reveal">
+      <p class="eyebrow">Pricing</p>
+      <h2 class="section-title">Pick the problems <span class="accent">you want gone</span></h2>
+      <p>Start with the one thing that hurts most. Add more now or later. You see it working first and owe nothing until you're happy. Then the setup and first month are due when it goes live.</p>
+    </div>
+    <p class="pp-lede reveal"><b>Founding-client prices,</b> locked for 12 months for my first clients. No contract: month to month, cancel with 30 days' notice.</p>
+
+    <div class="pp-starts">
+      <div class="pp-start reveal">
+        <h3>Phones answered</h3>
+        <p class="pp-prob"><b>The problem:</b> calls go to voicemail while you're on a job, and those callers try the next name on Google.</p>
+        <p class="pp-out"><b>What changes:</b> an AI answers every call in your business's name. It knows your services, hours, prices and area, flags emergencies, and emails you the caller's details. Keep your number and your site.</p>
+        <div class="grow"></div>
+        <div class="pp-price"><span class="n">$149</span><span class="per">a month</span></div>
+        <p class="pp-note">$0 setup (normally $300) · free for 14 days on your real line</p>
+        <p class="pp-try"><b>Try it now:</b> call <a href="tel:+18128183099">(812) 818-3099</a>. Ask it anything about CM Digital, or tell it your trade and hear it answer for your shop. <a href="#try">How to try it &rsaquo;</a></p>
+        <button type="button" class="btn btn-ghost" data-start="phones">Start here</button>
+      </div>
+      <div class="pp-start reveal">
+        <h3>Simple Site</h3>
+        <p class="pp-prob"><b>The problem:</b> people search for you and find nothing, or a page that's years old.</p>
+        <p class="pp-out"><b>What changes:</b> they find one clean page with your services, hours, area and photos, and tap to call or send a request. I set up your Google listing and build the site so Google and AI search tools can read your services and towns.</p>
+        <div class="grow"></div>
+        <div class="pp-price"><span class="n">$299</span><span class="per">setup + $29 a month</span></div>
+        <p class="pp-note">normally $399 setup · add any feature below</p>
+        <button type="button" class="btn btn-ghost" data-start="site">Start here</button>
+      </div>
+      <div class="pp-start rec reveal">
+        <span class="tag">Recommended</span>
+        <h3>Build your own</h3>
+        <p class="pp-prob"><b>The problem:</b> you need a few things, not everything.</p>
+        <p class="pp-out"><b>What changes:</b> start with the Simple Site and add only the features you want. Each one below says what it does and what it costs.</p>
+        <div class="grow"></div>
+        <div class="pp-price"><span class="n">From $299</span><span class="per">setup + $29 a month</span></div>
+        <p class="pp-note">your total updates as you tick</p>
+        <button type="button" class="btn btn-ghost" data-start="build">Build it</button>
+      </div>
+      <div class="pp-start feat reveal">
+        <span class="tag">Best value</span>
+        <h3>Everything</h3>
+        <p class="pp-prob"><b>The problem:</b> you're the salesman, the receptionist and the tech, and the office work waits until night.</p>
+        <p class="pp-out"><b>What changes:</b> the site, every feature below and the AI receptionist, working together, with an hour of changes a month.</p>
+        <div class="grow"></div>
+        <div class="pp-price"><span class="n">$999</span><span class="per">setup + $279 a month</span></div>
+        <p class="pp-note">$1,393 + $307 a month if picked one by one</p>
+        <button type="button" class="btn btn-amber" data-start="all">Start here</button>
+      </div>
+    </div>
+
+    <div class="pp-builder reveal" id="picker">
+      <h3>Build your own</h3>
+      <p>Every feature, what it fixes and what it costs. Tick what you want and your total updates at the bottom. Nothing is charged on this page.</p>
+      <div class="pp-groups" id="pp-groups"></div>
+      <div class="pp-bar" id="pp-bar" aria-live="polite">
+        <div class="pp-tot">
+          <div><span>Today</span><b>$0</b></div>
+          <div><span>At delivery</span><b id="pp-del">$0</b></div>
+          <div><span>Then each month</span><b class="hi" id="pp-mo">$0</b></div>
+        </div>
+        <p class="pp-msg" id="pp-msg">Tick something above to see your totals.</p>
+        <p class="pp-nudge" id="pp-nudge">Everything would cost you less: <b>$999 setup + $279 a month</b> for every feature, plus an hour of changes a month. <button type="button" id="pp-toall">Switch to Everything</button></p>
+        <div class="pp-actions">
+          <button type="button" class="btn btn-amber" id="pp-send">Send me this list</button>
+          <button type="button" class="btn btn-ghost" id="pp-clear">Clear</button>
+        </div>
+      </div>
+    </div>
+    <noscript><style>#pricing .pp-builder{display:none}#pricing .pp-nojs{display:block}</style></noscript>
+    <div class="pp-builder pp-nojs"><h3>Every feature</h3><p>Simple Site $299 setup + $29 a month. Extra page, gallery, hiring page, commercial page $99 each, ZIP check $49, financing link $0, logo cleanup $250, all with no extra monthly. Booking $99 + $10 a month, estimator $150 + $10, maintenance plan sign-up $150 + $10, AI receptionist $0 + $120 ($149 a month on its own), extra 100 minutes + $10, review asks + $10, quote follow-ups + $15, seasonal reminders + $15, Google profile care + $49, chat helper + $39.</p><div style="height:20px"></div></div>
+
+    <div class="pp-how">
+      <div><i>1</i><b>See it working</b>I build a working version for your business first. You owe nothing to look.</div>
+      <div><i>2</i><b>Pay at delivery</b>When it's live and you're happy: the setup and first month. Orders with $500 or more in setup pay half when you say yes to the demo.</div>
+      <div><i>3</i><b>Month to month</b>No contract. Take a feature off and its monthly comes off your next bill. Pay a year up front and get two months free.</div>
+    </div>
+    <p class="pp-not reveal"><b>Not included yet:</b> texting. Missed-call text-back and texted follow-ups, review asks, reminders and booking confirmations need your number registered for texting, about $25 setup + $15 a month once it's available. Until then they go by email. Also not included: online payments, and an owner dashboard. Work outside your plan is $75 an hour, quoted first. You own your domain, site, content and customer list.</p>
+  </div>
+<script>
+(function(){
+  var G=[
+   {t:"Get found",i:[
+    {id:"site",nm:"Simple Site",s:299,m:29,p:"People search for you and find nothing, or an old page.",o:"One phone-first page with tap-to-call, a request form to your email, and your Google listing set up and connected. Built so Google and AI search tools can read your services and towns. Hosting and 15 minutes of changes a month. If a site is all you want, you can skip the monthly and own the page outright."},
+    {id:"page",nm:"Extra page",s:99,m:0,q:1,p:"You only show up for one service or one town.",o:"Each service, town or About page gets its own page people can find.",site:1},
+    {id:"gbp",nm:"Google profile care",s:0,m:49,p:"Your Google profile goes stale and slides down the map.",o:"New photos, posts, hours and services on it every month.",site:1},
+    {id:"comm",nm:"Commercial page",s:99,m:0,p:"Businesses and property managers don't know you do commercial work.",o:"A page written for them.",site:1}]},
+   {t:"Turn visitors into calls",i:[
+    {id:"gal",nm:"Photo gallery",s:99,m:0,p:"Customers can't see your work before they call.",o:"Real before-and-after jobs, the way they actually decide.",site:1},
+    {id:"zip",nm:"Service area check",s:49,m:0,p:"Calls from outside your area waste your time.",o:"Customers type their ZIP and see if you cover them.",site:1},
+    {id:"est",nm:"Price estimator",s:150,m:10,p:"“How much?” questions at night with nobody to answer.",o:"A ballpark price any hour, plus a repair-or-replace check. You set the ranges.",site:1},
+    {id:"fin",nm:"Financing link",s:0,m:0,p:"Big jobs stall over the price.",o:"Customers apply with the lender you already use, right from your site.",site:1},
+    {id:"chat",nm:"Website chat helper",s:0,m:39,p:"Some people won't pick up the phone.",o:"They ask in a chat box on your site at any hour.",site:1}]},
+   {t:"Never miss a call",i:[
+    {id:"air",nm:"AI receptionist",s:0,m:120,p:"Calls go to voicemail while you're on a job.",o:"Every call answered in your name, emergencies flagged, an email summary after each call. 300 minutes a month, free for 14 days."},
+    {id:"min",nm:"Extra 100 call minutes",s:0,m:10,p:"Busy season runs past 300 minutes.",o:"100 more minutes a month, on or off as you need.",air:1},
+    {id:"book",nm:"Online booking",s:99,m:10,p:"Phone tag just to set a time.",o:"Customers request a day and a morning or afternoon window from the times you open up. You confirm it or offer another time, and they get an email. Texts too once your number is registered (coming soon).",site:1}]},
+   {t:"Win the jobs you quote",i:[
+    {id:"fol",nm:"Quote follow-ups",s:0,m:15,p:"Quotes go quiet and nobody chases them.",o:"A friendly email a few days after each quote. Texts too once your number is registered (coming soon).",site:1},
+    {id:"rev",nm:"Review asks",s:0,m:10,p:"Happy customers forget to leave a review.",o:"Every finished job gets an email asking for a Google review. Texts too once your number is registered (coming soon).",site:1}]},
+   {t:"Keep customers coming back",i:[
+    {id:"sea",nm:"Seasonal reminders",s:0,m:15,p:"Past customers forget you until something breaks.",o:"“Time for your furnace check” by email before your busy stretches. Texts too once your number is registered (coming soon).",site:1},
+    {id:"plan",nm:"Maintenance plan sign-up",s:150,m:10,p:"Repeat work depends on you remembering to call.",o:"Customers join your tune-up plan from the site. You set it up with them; nothing is charged online.",site:1}]},
+   {t:"Look the part",i:[
+    {id:"logo",nm:"Logo cleanup",s:250,m:0,p:"Your truck, site and Facebook all look different.",o:"One clean look everywhere.",site:1},
+    {id:"hire",nm:"Hiring page",s:99,m:0,p:"Applications come in scattered, or not at all.",o:"A short application that lands in your email.",site:1}]}
+  ];
+  var by={},all=[],sel={},qty={page:1};
+  G.forEach(function(g){g.i.forEach(function(x){by[x.id]=x;all.push(x)})});
+  var EVERY=all.filter(function(x){return x.id!=="min"}).map(function(x){return x.id});
+  function $(id){return document.getElementById(id)}
+  function money(n){return "$"+n.toLocaleString("en-US")}
+  function chips(x){
+    var a=[];
+    if(x.id==="air") return '<span class="pp-chip">$0 setup</span><span class="pp-chip mo">+$120 a month with a site</span><span class="pp-chip mo">$149 a month on its own</span>';
+    a.push('<span class="pp-chip'+(x.s?'':' zero')+'">'+(x.s?money(x.s)+(x.q?' each':'')+' setup':'$0 setup')+'</span>');
+    a.push(x.m?'<span class="pp-chip mo">'+(x.id==="site"?'$29 a month':'+'+money(x.m)+' a month')+'</span>':'<span class="pp-chip zero">no extra monthly</span>');
+    return a.join("");
+  }
+  var h="";
+  G.forEach(function(g){
+    h+='<div class="pp-group"><h4>'+g.t+'</h4>';
+    g.i.forEach(function(x){
+      h+='<label class="pp-row" data-id="'+x.id+'"><input type="checkbox" value="'+x.id+'" aria-label="'+x.nm+'"><span><span class="nm">'+x.nm+'</span><span class="pr" style="display:block"><b>Problem:</b> '+x.p+'</span><span class="oc" style="display:block"><b>What changes:</b> '+x.o+'</span><span class="pp-chips">'+chips(x)+'</span>'+(x.q?'<span class="pp-qty" data-q="'+x.id+'">How many <button type="button" data-d="-1" aria-label="One fewer page">−</button><b>1</b><button type="button" data-d="1" aria-label="One more page">+</button></span>':'')+'<span class="pp-req" hidden></span></span></label>';
+    });
+    h+='</div>';
+  });
+  $("pp-groups").innerHTML=h;
+  var boxes=[].slice.call(document.querySelectorAll('#pp-groups input[type=checkbox]'));
+  function isAll(){return EVERY.every(function(id){return sel[id]})}
+  function calc(){
+    var s=0,m=0,everything=isAll();
+    if(everything){s=999+(qty.page-1)*99;m=279+(sel.min?10:0);}
+    else all.forEach(function(x){
+      if(!sel[x.id])return;
+      var n=x.q?qty[x.id]:1;
+      s+=x.s*n;
+      if(x.id==="air") m+=sel.site?120:149; else m+=x.m;
+    });
+    return {s:s,m:m,all:everything};
+  }
+  function render(){
+    boxes.forEach(function(b){b.checked=!!sel[b.value];b.closest('.pp-row').classList.toggle('on',b.checked)});
+    document.querySelectorAll('.pp-qty').forEach(function(q){q.querySelector('b').textContent=qty[q.getAttribute('data-q')]});
+    var r=calc(),any=Object.keys(sel).some(function(k){return sel[k]});
+    $("pp-del").textContent=money(r.s+r.m);
+    $("pp-mo").textContent=money(r.m);
+    var msg;
+    if(!any) msg="Tick something above to see your totals.";
+    else {
+      msg="<b>"+money(r.s)+" setup + "+money(r.m)+" first month</b> at delivery, then <b>"+money(r.m)+" a month</b>.";
+      if(r.all) msg="<b>Everything price applied.</b> "+msg;
+      if(r.s>=500){var hf=r.s/2;msg+=" Half the setup ("+(hf%1?"$"+hf.toFixed(2):money(hf))+") when you say yes to the demo.";}
+      if(sel.air) msg+=" The receptionist is free for 14 days first.";
+    }
+    $("pp-msg").innerHTML=msg;
+    var oneByOne=0,mm=0;
+    all.forEach(function(x){if(!sel[x.id]||x.id==="min")return;oneByOne+=x.s*(x.q?qty[x.id]:1);mm+=x.id==="air"?(sel.site?120:149):x.m});
+    $("pp-nudge").style.display=(!r.all&&sel.site&&(mm>=279||oneByOne>=999))?"block":"none";
+  }
+  function set(id,on){
+    sel[id]=on;
+    if(on&&by[id].site) sel.site=true;
+    if(on&&id==="min") sel.air=true;
+    if(!on&&id==="site") all.forEach(function(x){if(x.site)sel[x.id]=false});
+    if(!on&&id==="air") sel.min=false;
+    render();
+  }
+  boxes.forEach(function(b){b.addEventListener('change',function(){set(b.value,b.checked)})});
+  document.querySelectorAll('.pp-qty button').forEach(function(btn){
+    btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();
+      var id=btn.parentNode.getAttribute('data-q');qty[id]=Math.max(1,Math.min(12,qty[id]+(+btn.getAttribute('data-d'))));
+      if(!sel[id])set(id,true);else render();});
+  });
+  function preset(k){
+    sel={};qty.page=1;
+    if(k==="phones")sel.air=true;
+    if(k==="site")sel.site=true;
+    if(k==="all")EVERY.forEach(function(id){sel[id]=true});
+    if(k==="build")sel.site=true;
+    render();
+    var p=$("picker");if(p&&p.scrollIntoView)p.scrollIntoView({behavior:"smooth",block:"start"});
+  }
+  document.querySelectorAll('[data-start]').forEach(function(b){b.addEventListener('click',function(){preset(b.getAttribute('data-start'))})});
+  $("pp-toall").addEventListener('click',function(){EVERY.forEach(function(id){sel[id]=true});render()});
+  $("pp-clear").addEventListener('click',function(){sel={};qty.page=1;render()});
+  $("pp-send").addEventListener('click',function(){
+    var r=calc(),lines=[];
+    all.forEach(function(x){if(sel[x.id])lines.push("- "+x.nm+(x.q&&qty[x.id]>1?" x"+qty[x.id]:""))});
+    if(!lines.length){$("pp-msg").innerHTML="Tick at least one thing first, or just send me a message below.";return}
+    var txt="My picks from the price list:\n"+lines.join("\n")+"\n\nAt delivery: "+money(r.s+r.m)+" ("+money(r.s)+" setup + first month). Then "+money(r.m)+" a month."+(r.all?" (Everything price)":"");
+    var need=$("c-need"),msg=$("c-msg");
+    if(need){var want="My picks from the price list",has=false;[].forEach.call(need.options,function(o){if(o.text===want)has=true});if(!has){var o=document.createElement('option');o.text=want;need.add(o)}need.value=want}
+    if(msg)msg.value=txt;
+    var c=$("contact");if(c&&c.scrollIntoView)c.scrollIntoView({behavior:"smooth",block:"start"});
+  });
+  function pick(ids){var o={};ids.forEach(function(id){if(!by[id])return;o[id]=true;if(by[id].site)o.site=true;if(id==="min")o.air=true});return o}
+  window.ppQuote=function(ids){var keep=sel,kq=qty.page;sel=pick(ids);qty.page=1;var r=calc();sel=keep;qty.page=kq;return r};
+  window.ppLoad=function(ids){sel=pick(ids);qty.page=1;render();var p=$("picker");if(p&&p.scrollIntoView)p.scrollIntoView({behavior:"smooth",block:"start"})};
+  window.ppNames=function(ids){return ids.filter(function(id){return by[id]}).map(function(id){return by[id].nm})};
+  render();
+})();
+</script>
+</section>
+
+
+<section class="section alt" id="why">
   <div class="wrap">
     <div class="section-head reveal"><p class="eyebrow">Why me</p><h2 class="section-title">Fast, fair, and a step <span class="accent">ahead</span></h2></div>
     <div class="why">
@@ -1304,7 +1439,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       <div>
         <h4>Chris McCandless</h4>
         <p class="role">Founder &middot; CM Digital</p>
-        <p>I've spent five years building software professionally and the last two building AI tools. When you call, you get me, not a call center or a sales team. I'll come out, sit down with you, and show you exactly what I'd build before you spend a dime.</p>
+        <p>I've spent five years building software professionally and the last two building AI tools. When you call, you get me, not a call center or a sales team. I'll listen to how your business runs and work with you to plan what helps most, and you see it working before you spend a dime. In person if needed.</p>
       </div>
     </div>
     <!-- FIRST CLIENT CASE STUDY: uncomment once Wyland Processing is live and Matt's video/quote is recorded.
@@ -1320,7 +1455,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     -->
     <div class="promise reveal">
       <div><b>Love it or don't pay</b>I build a working version for your business first. Not right for you? You owe nothing.</div>
-      <div><b>No rent</b>The Site package has no monthly fee. Monthly plans are month to month; cancel with 30 days notice.</div>
+      <div><b>No contract</b>Monthly plans are month to month; cancel with 30 days' notice.</div>
       <div><b>You own it</b>Your site, domain, content and customer list go with you.</div>
     </div>
   </div>
@@ -1329,10 +1464,10 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 <div class="ctaband">
   <div class="wrap">
     <h3>See yours before you pay for it</h3>
-    <p>Tell me your trade and I'll build a working sample for your business. If it's not right, you owe me nothing — that's the whole deal.</p>
+    <p>Pick what you need, send it over, and I'll build a working sample for your business. If it's not right, you owe me nothing. That's the whole deal.</p>
     <div class="bb">
-      <a class="btn btn-amber" href="#start">Build me a free sample</a>
-      <a class="btn btn-ghost" href="tel:+18128183099">Call my AI assistant</a>
+      <a class="btn btn-amber" href="#pricing">Pick what you need</a>
+      <a class="btn btn-ghost" href="#contact" data-need="Not sure yet, give me ideas">Not sure? Just ask</a>
     </div>
   </div>
 </div>
@@ -1353,13 +1488,14 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       <details><summary>Are you going to upsell me?</summary><div class="fa">The Simple Site is <b>$299</b>, and if a site is all you want you can skip the monthly and own it outright. I do sell features with a small monthly — an AI receptionist, online booking, review asks — and each one is priced on its own, so you only pay for what you use. If a site is all you need, buy a site. I'll tell you if I think you don't need the rest.</div></details>
       <details><summary>Will I show up first on Google?</summary><div class="fa">I'm not going to promise that, and be careful with anybody who does. What I can do is the part that's in my control: your site built so Google can read it, your Google Business Profile set up right, your towns and services on the page, and a review link so customers can leave you reviews. Ranking at the top of a competitive search takes months of steady work. For most shops around here the bigger win is being <b>findable and easy to call</b>, which happens fast.</div></details>
       <details><summary>How long does it take?</summary><div class="fa">For most builds you'll have a working sample to look at in <b>a couple of days</b>. Something big or unusual takes longer, and I'll tell you up front if it does. After you've looked at it and want to go ahead, it's live within a few days — most of that wait is you getting me photos and your service list. The AI receptionist can be answering your line <b>the next day</b>.</div></details>
+      <details><summary>Do we have to meet in person?</summary><div class="fa">No. I build it, send you a link, and you look at it on your phone. All I need is a few photos and about ten minutes on what you do. I'm in Winslow, Indiana, so if you're close and would rather sit down in person, I'm glad to, but it's an offer, not a requirement.</div></details>
     </div>
   </div>
 </section>
 
 <section class="section alt" id="contact">
   <div class="wrap">
-    <div class="section-head reveal"><p class="eyebrow">Get in touch</p><h2 class="section-title">Let's build <span class="accent">yours</span></h2><p>Tell me about your business and I'll get back to you with honest, free ideas on what would actually help.</p></div>
+    <div class="section-head reveal"><p class="eyebrow">One request, that's it</p><h2 class="section-title">Send it <span class="accent">over</span></h2><p>Whatever you want, a free sample of your site, a free trial of the phone answering, or the list you picked, it all comes through this one form. Nothing is owed until it's built and you're happy with it.</p></div>
     <div class="contact-grid">
       <div id="contact-form-wrap" class="reveal">
         <form class="formcard" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitContact(event)">
@@ -1367,8 +1503,26 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <p class="hidden"><label>Leave this empty <input name="bot-field"></label></p>
           <div class="field"><label for="c-name">Your name <span class="req">*</span></label><input type="text" id="c-name" name="name" placeholder="First and last"></div>
           <div class="field"><label for="c-biz">Business name</label><input type="text" id="c-biz" name="business" placeholder="What's it called?"></div>
-          <div class="field"><label for="c-need">What do you need? <span class="req">*</span></label>
-            <select id="c-need" name="need"><option value="">Choose one…</option><option>A new website</option><option>Website + online booking/orders</option><option>Fix or improve my current website</option><option>AI receptionist: 14-day free trial</option><option>Everything package</option><option>AI &amp; automation setup</option><option>Not sure yet — need ideas</option></select>
+          <div class="field"><label for="c-trade">Your trade</label><select id="c-trade" name="trade"><option value="">Pick one…</option><option>HVAC</option><option>Plumbing</option><option>Electrical</option><option>Excavation &amp; Septic</option><option>Towing &amp; Auto</option><option>Roofing</option><option>Concrete</option><option>Lawn &amp; Tree</option><option>Meat Processing</option><option>Something else</option></select></div>
+          <div class="field"><label for="c-need">What would you like? <span class="req">*</span></label>
+            <select id="c-need" name="need"><option value="">Choose one…</option><option>My picks from the price list</option><option>Show me a free sample of my site first</option><option>Try the phone answering free for 14 days</option><option>Fix or improve my current website</option><option>Not sure yet, give me ideas</option></select>
+          </div>
+          <div class="field"><label>What would help most? <span style="color:var(--muted);font-weight:400">(tap any that fit)</span></label>
+            <div id="c-helps" role="group" aria-label="What would help most">
+              <button type="button" aria-pressed="false" data-ids="air">Answer the phone when I can't</button>
+              <button type="button" aria-pressed="false" data-ids="site">Get found on Google</button>
+              <button type="button" aria-pressed="false" data-ids="site">Take requests from my site</button>
+              <button type="button" aria-pressed="false" data-ids="book">Let customers book themselves</button>
+              <button type="button" aria-pressed="false" data-ids="gal">Show my work with photos</button>
+              <button type="button" aria-pressed="false" data-ids="est">Give ballpark prices any hour</button>
+              <button type="button" aria-pressed="false" data-ids="rev">Get more Google reviews</button>
+              <button type="button" aria-pressed="false" data-ids="fol">Chase quotes nobody answered</button>
+              <button type="button" aria-pressed="false" data-ids="sea">Remind past customers it's time</button>
+              <button type="button" aria-pressed="false" data-ids="gbp">Keep my Google listing fresh</button>
+            </div>
+            <input type="hidden" name="helps" id="c-helps-v">
+            <input type="hidden" name="recommended" id="c-rec-v">
+            <div class="c-rec" id="c-rec" aria-live="polite"><span class="k">My pick for you</span><b class="nm" id="c-rec-nm"></b><span class="pr" id="c-rec-pr"></span><p id="c-rec-why"></p><button type="button" id="c-rec-see">See it in the price list</button></div>
           </div>
           <div class="field"><label for="c-how">How should I reach you? <span class="req">*</span></label>
             <select id="c-how" name="reach-by"><option>Text me</option><option>Call me</option><option>Email me</option><option>Facebook message</option></select>
@@ -1376,15 +1530,13 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <div class="field"><label for="c-contact" id="c-contact-l">Your cell number <span class="req">*</span></label><input type="text" id="c-contact" name="contact" inputmode="tel" autocomplete="tel" placeholder="(812) 555-0123"></div>
           <div class="field"><label for="c-msg">Tell me about it</label><textarea id="c-msg" name="message" placeholder="What does your business do, and what's the headache you'd like to fix?"></textarea></div>
           <div class="err" id="c-err"></div>
-          <button class="btn btn-amber" type="submit">Send it over</button>
+          <button class="btn btn-amber" type="submit">Send my request</button>
         </form>
       </div>
       <div class="reach reveal">
-        <h3>Or reach me directly</h3>
-        <a class="reach-row" href="tel:+18125820112"><span class="ri"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg></span><span><span class="rt">Call Chris</span><br><span class="rv link">(812) 582-0112</span></span></a>
-        <a class="reach-row" href="sms:+18125820112"><span class="ri"><svg class="ic-svg" aria-hidden="true"><use href="#i-mail"/></svg></span><span><span class="rt">Text Chris</span><br><span class="rv link">(812) 582-0112</span></span></a>
-        <a class="reach-row" href="https://app.votel.ai/book/cm-digital-demo-call"><span class="ri"><svg class="ic-svg" aria-hidden="true"><use href="#i-calendar"/></svg></span><span><span class="rt">Book a free 15-minute call</span><br><span class="rv link">Pick a time that works</span></span></a>
-        <a class="reach-row" href="tel:+18128183099"><span class="ri"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg></span><span><span class="rt">Try the AI receptionist</span><br><span class="rv link">(812) 818-3099</span></span></a>
+        <h3>Rather just talk?</h3>
+        <a class="reach-row" href="tel:+18125820112"><span class="ri"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg></span><span><span class="rt">Call or text Chris</span><br><span class="rv link">(812) 582-0112</span></span></a>
+        <p class="ai-fine" style="margin-top:14px">It's my cell, and it's me on the other end. Text is fine if you're on a job.</p>
       </div>
     </div>
   </div>
@@ -1398,7 +1550,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 </footer>
 
 <div class="mbar" id="mbar" aria-label="Quick contact">
-  <a class="btn btn-amber" href="#start">Get a free sample</a>
+  <a class="btn btn-amber" href="#pricing">Pick what you need</a>
   <a class="btn btn-ghost" href="tel:+18128183099">Hear it answer</a>
 </div>
 
@@ -1963,7 +2115,9 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       var pastHero=hero.getBoundingClientRect().bottom<0;
       var atContact=contact.getBoundingClientRect().top<window.innerHeight*0.6;
       var demoOpen=!!document.querySelector('.demo-overlay:not(.hidden)');
-      bar.classList.toggle('show',pastHero&&!atContact&&!demoOpen);
+      var pr=document.getElementById('pricing'), prr=pr?pr.getBoundingClientRect():null;
+      var inPricing=!!prr&&prr.top<window.innerHeight&&prr.bottom>0;
+      bar.classList.toggle('show',pastHero&&!atContact&&!demoOpen&&!inPricing);
     }
     window.addEventListener('scroll',upd,{passive:true}); window.addEventListener('resize',upd); upd();
     document.addEventListener('click',function(){ setTimeout(upd,0); });
@@ -1997,7 +2151,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     var wrap=document.getElementById('contact-form-wrap');
     fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:body})
       .then(function(r){ if(!r.ok) throw new Error(r.status);
-        wrap.innerHTML='<div class="success"><div class="ck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Got it — thanks!</h3><p>Your message is in. I’ll get back to you soon with some ideas. In a hurry? Call or text (812) 582-0112.</p></div>';
+        wrap.innerHTML='<div class="success"><div class="ck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Got it, thanks!</h3><p>'+(need==='Try the phone answering free for 14 days'?'Your trial request is in. I’ll set it up on your line and walk you through it. Want to start right now instead? <a href="https://trades.getcmdigital.com/#join" target="_blank" rel="noopener" style="color:var(--amber)">Start the trial yourself</a>.':'Your request is in. I’ll get back to you within a day. In a hurry? Call or text (812) 582-0112.')+'</p></div>';
       })
       .catch(function(){
         var msg=encodeURIComponent('Hi Chris, this is '+name+(document.getElementById('c-biz').value.trim()?' from '+document.getElementById('c-biz').value.trim():'')+'. I need: '+need+'. '+document.getElementById('c-msg').value.trim()+' ('+document.getElementById('c-how').value+': '+contact+')');
@@ -2094,6 +2248,37 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     urg.textContent="Call in something real, like "+c.getAttribute('data-u')+", and hear how it handles it.";
   });});
   chips[0].setAttribute('aria-pressed','true');
+})();
+</script>
+<script>
+/* form: recommend a plan from "What would help most" */
+(function(){
+  var box=document.getElementById('c-helps'); if(!box) return;
+  var rec=document.getElementById('c-rec'), nm=document.getElementById('c-rec-nm'), pr=document.getElementById('c-rec-pr'), why=document.getElementById('c-rec-why'), see=document.getElementById('c-rec-see');
+  var hv=document.getElementById('c-helps-v'), rv=document.getElementById('c-rec-v'), cur=[];
+  function money(n){return '$'+n.toLocaleString('en-US')}
+  function upd(){
+    var on=[].filter.call(box.querySelectorAll('button'),function(b){return b.getAttribute('aria-pressed')==='true'});
+    hv.value=on.map(function(b){return b.textContent}).join('; ');
+    var ids=[]; on.forEach(function(b){b.getAttribute('data-ids').split(' ').forEach(function(x){if(ids.indexOf(x)<0)ids.push(x)})});
+    cur=ids;
+    if(!ids.length||!window.ppQuote){rec.style.display='none';rv.value='';return}
+    var r=window.ppQuote(ids), n, p, w;
+    var extras=ids.filter(function(x){return x!=='site'&&x!=='air'});
+    if(ids.length===1&&ids[0]==='air'){n='Phones answered';p='$149 a month, $0 setup';w='You need the calls answered. Keep your number and the site you have. Free for 14 days first.'}
+    else if(!extras.length&&ids.indexOf('air')<0){n='Simple Site';p='$299 setup + $29 a month';w='One clean page where people find you and tap to call or send a request.'}
+    else if(r.m>=279||r.s>=999){n='Everything';p='$999 setup + $279 a month';w='Your picks alone come to '+money(r.s)+' setup + '+money(r.m)+' a month. Everything covers them and every other feature.'}
+    else if(279-r.m<=30){n='Everything';p='$999 setup + $279 a month';w='Your picks come to '+money(r.s)+' setup + '+money(r.m)+' a month. For '+money(279-r.m)+' more a month, Everything covers these and every other feature.'}
+    else{n='Build your own';p=money(r.s)+' setup + '+money(r.m)+' a month';w='The site plus just what you picked: '+window.ppNames(ids.filter(function(x){return x!=='site'})).join(', ')+'.'+(ids.indexOf('air')>=0?' The phone answering is free for 14 days first.':'')}
+    nm.textContent=n; pr.textContent=p; why.textContent=w; rec.style.display='block';
+    rv.value=n+' ('+p+')';
+  }
+  box.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');upd()});
+  see.addEventListener('click',function(){
+    var n=nm.textContent;
+    if(n==='Everything'){var a=document.querySelector('[data-start="all"]');if(a)a.click();return}
+    if(window.ppLoad)window.ppLoad(cur);
+  });
 })();
 </script>
 </body>
