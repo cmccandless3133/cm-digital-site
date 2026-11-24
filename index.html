@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>CM Digital | Websites that bring in work, and the tools that manage it</title>
-<meta name="description" content="I build websites for trades and small shops, fix the ones that aren't working, and add the tools that answer the phone, book the job, ask for reviews. Sites from $299 plus $29 a month. Based in Indiana, working anywhere. See it working before you pay.">
+<meta name="description" content="I build websites for trades and small shops, fix the ones that aren't working, and add the tools that answer the phone, book the job, ask for reviews. Packages from $499 setup plus $49 a month. Based in Indiana, working anywhere. See it working before you pay.">
 <link rel="canonical" href="https://getcmdigital.com/">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://getcmdigital.com/">
@@ -12,11 +12,11 @@
 <meta property="og:description" content="New site, or a fix for the one you've got, plus the tools that answer, book, text back and chase reviews. Based in Indiana, working anywhere. See it working before you pay.">
 <meta name="theme-color" content="#0e1320">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"ProfessionalService","name":"CM Digital","url":"https://getcmdigital.com/","telephone":"+1-812-582-0112","founder":{"@type":"Person","name":"Chris McCandless"},"description":"Websites, AI phone receptionists and automation for small businesses. Based in Indiana, working remotely nationwide.","areaServed":[{"@type":"Country","name":"United States"},{"@type":"State","name":"Indiana"},{"@type":"City","name":"Evansville"}],"priceRange":"$$","makesOffer":[{"@type":"Offer","name":"Simple Site","price":"299","priceCurrency":"USD","description":"$299 setup plus $29/month, client owns the site and domain"},{"@type":"Offer","name":"AI receptionist","price":"149","priceCurrency":"USD","description":"$149/month on its own, 14-day free trial"}]}
+{"@context":"https://schema.org","@type":"ProfessionalService","name":"CM Digital","url":"https://getcmdigital.com/","telephone":"+1-812-582-0112","founder":{"@type":"Person","name":"Chris McCandless"},"description":"Websites, AI phone receptionists and automation for small businesses. Based in Indiana, working remotely nationwide.","areaServed":[{"@type":"Country","name":"United States"},{"@type":"State","name":"Indiana"},{"@type":"City","name":"Evansville"}],"priceRange":"$$","makesOffer":[{"@type":"Offer","name":"The Foundation","price":"499","priceCurrency":"USD","description":"$499 setup plus $49/month: a website the client owns, Google Business Profile setup and automatic Google review requests"},{"@type":"Offer","name":"The Lead Engine","price":"799","priceCurrency":"USD","description":"$799 setup plus $149/month: adds online booking, a website chat assistant, quote follow-ups and maintenance plan sign-ups"},{"@type":"Offer","name":"The 24/7 Front Desk","price":"999","priceCurrency":"USD","description":"$999 setup plus $279/month: adds a 24/7 AI phone receptionist, 14-day free trial"},{"@type":"Offer","name":"AI phone receptionist on its own","price":"149","priceCurrency":"USD","description":"$149/month, 14-day free trial"}]}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Archivo+Black&family=Archivo:wght@400;600;700;800&family=Alfa+Slab+One&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Saira+Condensed:wght@600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Barlow:wght@400;500;600;700&family=Archivo+Black&family=Archivo:wght@400;600;700;800&family=Alfa+Slab+One&family=Lora:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Saira+Condensed:wght@600;700;800&family=Outfit:wght@400;500;600;700;800&family=Rubik:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     color-scheme:dark;
@@ -412,6 +412,11 @@
 .c-rec .pr{color:var(--cream);font-weight:600}
 .c-rec p{margin:4px 0 0;font-size:.9rem;color:#cfd6e2}
 .c-rec button{margin-top:8px;background:none;border:none;color:var(--amber);text-decoration:underline;font:inherit;font-size:.88rem;cursor:pointer;padding:0}
+.c-pkg{margin-top:8px;font-size:.9rem;color:#cfd6e2}
+.c-pkg b{color:var(--cream)}
+.c-pkg button{background:none;border:none;color:var(--amber);text-decoration:underline;font:inherit;font-size:.86rem;cursor:pointer;padding:0;margin-left:6px}
+@media(min-width:700px){#work .ex-card.ex-wide{grid-column:1/-1}}
+@media(min-width:760px){#what .caps .cap:nth-child(7){grid-column:1/-1}}
 
 .nav-ct{display:flex;align-items:center;gap:8px}
 .nav-ct .btn{padding:.6em 1em}
@@ -687,6 +692,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 .th-auto .ma-rev p{color:var(--nv);margin-top:6px}
 .th-auto .ma-rev .who{display:flex;align-items:center;gap:8px;margin-top:12px;font-family:'Outfit',sans-serif;font-weight:600;font-size:.85rem;color:var(--t-muted)}
 .th-auto .ma-rev .who i{width:28px;height:28px;border-radius:50%;background:var(--bl);color:#fff;display:grid;place-items:center;font-style:normal;font-size:.74rem}
+.th-auto .ma-rev .who i::before{content:"G"}
 .th-auto .ma-swipe{color:var(--t-muted);font-size:.8rem;margin-top:4px}
 .th-auto .ma-cta{background:linear-gradient(135deg,#1f5fd6,#163f94);color:#fff;border-radius:22px;padding:30px 22px;text-align:center}
 .th-auto .ma-cta h3{font-family:'Outfit',sans-serif;font-weight:800;font-size:1.65rem;line-height:1.15}
@@ -699,6 +705,104 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
   .th-auto .ma-svcs{grid-template-columns:repeat(3,1fr)}
   .th-auto .ma-steps{grid-template-columns:repeat(3,1fr)}
   .th-auto .ma-rev{flex-basis:calc(50% - 6px)}
+}
+
+/* ---------- 5. Gibson County Heating & Air: warm white, navy, flame red and cool blue, rounded ---------- */
+.th-hvac{--heat:#c8321f;--cool:#1c6fb8;--nv:#14233b}
+.th-hvac .dview-cust{background:#f7f4ee}
+.th-hvac .gc-top{display:flex;justify-content:space-between;align-items:center;gap:6px 14px;flex-wrap:nowrap;white-space:nowrap;background:var(--nv);color:#c3cede;font-size:.8rem;font-weight:500;padding:9px 18px}
+.th-hvac .gc-top a{color:#fff;font-weight:700;display:inline-flex;align-items:center;gap:6px}
+.th-hvac .gc-hero{background:linear-gradient(155deg,#14233b 0%,#1a3052 55%,#234572 100%);color:#fff;position:relative}
+.th-hvac .gc-hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:6px;background:linear-gradient(90deg,var(--heat) 0 50%,var(--cool) 50% 100%)}
+.th-hvac .gc-hero .x-wrap{padding-top:28px;padding-bottom:40px}
+.th-hvac .gc-brand{display:flex;align-items:center;gap:12px}
+.th-hvac .gc-mark{width:46px;height:46px;border-radius:13px;background:linear-gradient(135deg,var(--heat) 0 50%,var(--cool) 50% 100%);display:grid;place-items:center;color:#fff;font-weight:800;font-size:1rem;letter-spacing:-.02em;flex:none}
+.th-hvac .gc-nm{font-weight:700;font-size:1.02rem;line-height:1.2}
+.th-hvac .gc-nm small{display:block;font-weight:500;font-size:.74rem;color:#b3c1d6;letter-spacing:.03em;margin-top:2px}
+.th-hvac .gc-h1{font-weight:800;font-size:clamp(2.1rem,9.6vw,3.6rem);line-height:1.05;letter-spacing:-.025em;margin-top:24px;max-width:15ch}
+.th-hvac .gc-h1 .h{color:#ff9478}
+.th-hvac .gc-h1 .c{color:#86c8ff}
+.th-hvac .gc-lede{color:#d2dbe8;font-size:1.06rem;line-height:1.5;margin-top:14px;max-width:38ch}
+.th-hvac .gc-ctas{display:flex;gap:10px;flex-wrap:wrap;margin-top:22px}
+.th-hvac .gc-btn{font:inherit;font-weight:700;font-size:1rem;line-height:1;padding:1em 1.25em;border-radius:12px;border:2px solid transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;text-align:center}
+.th-hvac .gc-btn.hot{background:var(--heat);color:#fff;box-shadow:0 10px 24px -10px rgba(200,50,31,.8)}
+.th-hvac .gc-btn.line{border-color:rgba(255,255,255,.45);color:#fff;background:transparent}
+.th-hvac .gc-trust{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}
+.th-hvac .gc-trust span{font-size:.8rem;font-weight:500;color:#dbe4f0;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);border-radius:999px;padding:.4em .85em}
+.th-hvac .gc-h2{font-weight:800;font-size:1.75rem;line-height:1.1;letter-spacing:-.02em;color:var(--nv)}
+.th-hvac .gc-h2s{color:var(--t-muted);margin:6px 0 18px}
+.th-hvac .gc-picks{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+.th-hvac .gc-pick{font:inherit;text-align:left;background:#fff;border:1.5px solid rgba(20,35,59,.14);border-radius:14px;padding:14px;cursor:pointer;color:var(--nv);font-weight:700;font-size:1.02rem;display:flex;flex-direction:column;gap:3px;min-height:96px}
+.th-hvac .gc-pick .ic{font-size:1.45rem;color:var(--cool);line-height:1;margin-bottom:4px}
+.th-hvac .gc-pick small{font-weight:500;color:var(--t-muted);font-size:.8rem;line-height:1.3}
+.th-hvac .gc-pick.emg{border-color:rgba(200,50,31,.4);background:linear-gradient(160deg,rgba(200,50,31,.1),#fff 72%)}
+.th-hvac .gc-pick.emg .ic{color:var(--heat)}
+.th-hvac .gc-pick:hover,.th-hvac .gc-pick:focus-visible{border-color:var(--nv)}
+.th-hvac .gc-form{background:#fff;border:1px solid var(--t-line);border-top:5px solid var(--heat);border-radius:16px;padding:20px 16px;margin-top:20px;box-shadow:0 14px 40px -22px rgba(20,35,59,.35)}
+.th-hvac .gc-fh{display:flex;justify-content:space-between;align-items:baseline;gap:4px 12px;flex-wrap:wrap;margin-bottom:14px}
+.th-hvac .gc-fh b{font-weight:800;font-size:1.15rem;color:var(--nv)}
+.th-hvac .gc-fh span{font-size:.82rem;color:var(--t-muted)}
+.th-hvac .gc-gas{display:none;background:#fdecea;border:1.5px solid rgba(200,50,31,.5);border-radius:12px;padding:12px 14px;margin-bottom:14px;color:#7a1a10;font-size:.93rem;line-height:1.45}
+.th-hvac .gc-gas.show{display:block}
+.th-hvac .gc-gas b{color:#a3210f}
+.th-hvac .gc-gas a{color:#a3210f;font-weight:700;text-decoration:underline;white-space:nowrap}
+.th-hvac .d-form{max-width:none}
+.th-hvac .d-frow label{font-family:'Rubik',system-ui,sans-serif;font-weight:600;font-size:.84rem;text-transform:none;letter-spacing:0;color:var(--nv)}
+.th-hvac .d-form input,.th-hvac .d-form select,.th-hvac .d-form textarea{background:#f7f4ee;border:1.5px solid rgba(20,35,59,.16);border-radius:10px;font-family:'Rubik',system-ui,sans-serif;color:var(--nv)}
+.th-hvac .d-form input:focus,.th-hvac .d-form select:focus,.th-hvac .d-form textarea:focus{border-color:var(--cool);background:#fff}
+.th-hvac .d-form .d-btn{background:var(--heat);color:#fff;font-family:'Rubik',system-ui,sans-serif;font-weight:700;font-size:1.02rem;text-transform:none;letter-spacing:0;border-radius:12px;padding:1em}
+.th-hvac .d-formdone{background:transparent;border:none}
+.th-hvac .d-formdone .fd-ck{background:var(--cool);color:#fff}
+.th-hvac .d-formdone h4{font-family:'Rubik',system-ui,sans-serif;text-transform:none;color:var(--nv)}
+.th-hvac .d-formdone .fd-tip{color:var(--cool)}
+.th-hvac .gc-svcs{display:grid;gap:10px}
+.th-hvac .gc-svc{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--t-line);border-radius:14px;padding:14px}
+.th-hvac .gc-svc .ic{width:42px;height:42px;border-radius:12px;background:#eaf2fb;color:var(--cool);display:grid;place-items:center;font-size:1.25rem;flex:none}
+.th-hvac .gc-svc:nth-child(odd) .ic{background:#fdeeea;color:var(--heat)}
+.th-hvac .gc-svc h4{font-weight:700;font-size:1.02rem;color:var(--nv)}
+.th-hvac .gc-svc p{color:var(--t-muted);font-size:.9rem;line-height:1.45;margin-top:2px}
+.th-hvac .gc-club{background:var(--nv);color:#fff;border-radius:20px;padding:22px 18px;display:grid;gap:18px}
+.th-hvac .gc-kick{display:inline-block;font-size:.7rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#86c8ff}
+.th-hvac .gc-club-l h3{font-weight:800;font-size:1.7rem;line-height:1.1;letter-spacing:-.02em;margin-top:6px;display:flex;align-items:baseline;gap:6px 12px;flex-wrap:wrap}
+.th-hvac .gc-club-l h3 .pr{color:#ff9478;font-size:1.5rem}
+.th-hvac .gc-club-l h3 .pr small{font-size:.6em;font-weight:600;color:#d2dbe8}
+.th-hvac .gc-club-l p{color:#d2dbe8;margin-top:8px;line-height:1.5}
+.th-hvac .gc-club-l ul{list-style:none;margin:12px 0 0;padding:0}
+.th-hvac .gc-club-l li{position:relative;padding:7px 0 7px 26px;color:#eef2f8;font-size:.95rem;border-bottom:1px solid rgba(255,255,255,.1)}
+.th-hvac .gc-club-l li:last-child{border-bottom:none}
+.th-hvac .gc-club-l li::before{content:"\2713";position:absolute;left:2px;top:7px;color:#86c8ff;font-weight:700}
+.th-hvac .gc-club-r{background:#fff;border-radius:14px;padding:16px 14px;color:var(--nv)}
+.th-hvac .gc-club-fine{color:var(--t-muted);font-size:.82rem;margin-top:10px;text-align:center}
+.th-hvac .gc-revs{display:grid;gap:12px;margin-top:16px}
+.th-hvac .gc-rev{background:#fff;border:1px solid var(--t-line);border-radius:14px;padding:18px}
+.th-hvac .gc-rev .st{color:#f5a524;letter-spacing:2px}
+.th-hvac .gc-rev p{color:var(--nv);margin-top:6px;line-height:1.5}
+.th-hvac .gc-rev .who{color:var(--t-muted);font-size:.84rem;font-weight:600;margin-top:10px}
+.th-hvac .gc-cta{background:var(--heat);color:#fff;text-align:center;padding:38px 20px}
+.th-hvac .gc-cta h3{font-weight:800;font-size:1.7rem;letter-spacing:-.02em}
+.th-hvac .gc-cta p{opacity:.92;margin:6px 0 18px}
+.th-hvac .gc-cta .gc-btn{background:#fff;color:var(--heat)}
+.th-hvac .gc-foot{text-align:center;color:var(--t-muted);font-size:.82rem;padding:24px 20px}
+.th-hvac .gc-sticky{position:sticky;bottom:0;z-index:4;background:rgba(247,244,238,.96);backdrop-filter:blur(6px);border-top:1px solid var(--t-line);padding:10px 14px;display:flex;gap:10px}
+.th-hvac .gc-sticky a,.th-hvac .gc-sticky button{flex:1;font:inherit;font-weight:700;font-size:1rem;line-height:1.1;text-align:center;padding:13px 8px;border-radius:12px;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:6px}
+.th-hvac .gc-sticky a{background:var(--heat);color:#fff;border:2px solid var(--heat)}
+.th-hvac .gc-sticky button{background:#fff;color:var(--nv);border:2px solid rgba(20,35,59,.25)}
+.th-hvac .gc-own{max-width:900px;margin:0 auto;padding:20px 20px 0;display:grid;gap:12px}
+.th-hvac .gc-oc{background:#fff;border:1px solid var(--t-line);border-radius:14px;padding:14px 16px;box-shadow:0 1px 3px rgba(0,0,0,.07)}
+.th-hvac .gc-oc .k{display:flex;justify-content:space-between;gap:10px;font-size:.7rem;font-weight:600;letter-spacing:.07em;text-transform:uppercase;color:var(--t-muted);margin-bottom:8px}
+.th-hvac .gc-oc .k b{color:var(--nv);font-weight:700}
+.th-hvac .gc-oc .msg{background:#eef2f8;border-radius:14px 14px 14px 4px;padding:11px 13px;font-size:.92rem;line-height:1.45;color:var(--nv)}
+.th-hvac .gc-oc .urg{display:inline-block;background:var(--heat);color:#fff;font-weight:700;font-size:.66rem;letter-spacing:.06em;padding:.15em .5em;border-radius:4px;margin-bottom:6px}
+.th-hvac .gc-oc .row{display:block}
+.th-hvac .gc-oc .row i{font-style:normal;color:var(--t-muted)}
+.th-hvac .gc-oc .gc-cap{color:var(--t-muted);font-size:.8rem;margin-top:8px;line-height:1.4}
+@media(min-width:760px){
+  .th-hvac .gc-picks{grid-template-columns:repeat(4,minmax(0,1fr))}
+  .th-hvac .gc-svcs{grid-template-columns:1fr 1fr}
+  .th-hvac .gc-club{grid-template-columns:1.2fr 1fr;align-items:center;padding:30px 28px}
+  .th-hvac .gc-revs{grid-template-columns:1fr 1fr}
+  .th-hvac .gc-own{grid-template-columns:repeat(3,1fr);align-items:start}
+  .th-hvac .gc-sticky{display:none}
 }
 
 /* ---------- preview cards on the home page: each shows its own look ---------- */
@@ -970,13 +1074,13 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 </style>
 </head>
 <body>
-<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3h3A1.5 1.5 0 0 1 20 4.6v2.3a1.5 1.5 0 0 1-1.3 1.5l-2 .3a1.3 1.3 0 0 0-1.1 1.1 9.5 9.5 0 0 1-5.1 5.1 1.3 1.3 0 0 0-1.1 1.1l-.3 2A1.5 1.5 0 0 1 7.5 20H5.2A1.5 1.5 0 0 1 3.6 18.3 15.4 15.4 0 0 1 15.5 3Z"/></symbol><symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.3h2"/></symbol><symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3.4 6.4 7.5 5.6a2 2 0 0 0 2.2 0l7.5-5.6"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c2.6 2.6 2.6 15.8 0 18.4-2.6-2.6-2.6-15.8 0-18.4Z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a7.7 7.7 0 0 1-8.2 7.7 9 9 0 0 1-2.5-.3L6 21l.8-3.3A7.6 7.6 0 0 1 3 11.5C3 7.2 7 4 12 4s9 3.2 9 7.5Z"/><path d="M8.6 11.5h.01M12 11.5h.01M15.4 11.5h.01"/></symbol><symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2.6"/><path d="M12 4.5v3.5M9 13.5h.01M15 13.5h.01M9.5 17h5"/><circle cx="12" cy="3.6" r="1.2"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.2 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.7l6.1-.9Z"/></symbol><symbol id="i-board" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6"/><path d="M10.3 19a2 2 0 0 0 3.4 0"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol><symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.2 6.3a4.5 4.5 0 0 1 6.2 5.4l-2.6-2.6-2.3.6-.6 2.3 2.6 2.6a4.5 4.5 0 0 1-5.4-6.2L4.6 3.5 3.5 4.6Z"/><path d="m11 13-7.5 7.5 1.1 1.1L12.1 14"/></symbol><symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2 2 0 0 1 5 6.5h1.8l1.3-2h7.8l1.3 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="3.6"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 2.5 4.5 13.6h5.6l-1.3 7.9 8.7-11.1h-5.6Z"/></symbol><symbol id="i-cash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.8"/><path d="M6 10v4M18 10v4"/></symbol><symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M3 20.5a6 6 0 0 1 12 0"/><path d="M16.5 5.2a3.4 3.4 0 0 1 0 5.6M18 14.6a6 6 0 0 1 3 5.9"/></symbol><symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l7.5 2.8v5.6c0 4.7-3.2 8.8-7.5 10.3-4.3-1.5-7.5-5.6-7.5-10.3V5.6Z"/><path d="m8.8 11.7 2.3 2.3 4.3-4.5"/></symbol><symbol id="i-tire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="4"/><path d="M12 2.8V8M12 16v5.2M2.8 12H8M16 12h5.2"/></symbol><symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7.5" width="16" height="9" rx="1.8"/><path d="M21.5 11v2M5.5 11v2M9 11v2M12.5 11v2"/></symbol><symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h10v9h-10Z"/><path d="M12.5 9.5h4l3 3v3h-7Z"/><circle cx="6.5" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol><symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 21.5 20H2.5Z"/><path d="M12 9.5v4M12 16.8h.01"/></symbol><symbol id="i-hook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7.5"/><path d="M12 10.5a4.5 4.5 0 1 0-4.5 4.5"/><path d="M7.5 15v3.5M5.5 18.5h4"/></symbol><symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4.6"/><path d="m11.4 11.4 9.1 9.1M17 16l2-2M14.2 13.2l2-2"/></symbol><symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="17" rx="2"/><path d="M9 4.5V3.2h6v1.3"/><path d="M9 10h6M9 14h6M9 18h3"/></symbol><symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V3.8"/><path d="M5 4.2c4-1.6 8 1.6 12 0v8c-4 1.6-8-1.6-12 0Z"/></symbol><symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.3 7.3l2.3 1.3M17.4 15.4l2.3 1.3M4.3 16.7l2.3-1.3M17.4 8.6l2.3-1.3"/></symbol><symbol id="i-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2s6 6.2 6 10.1a6 6 0 0 1-12 0C6 9.4 12 3.2 12 3.2Z"/></symbol><symbol id="i-octagon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3Z"/><path d="M9 12h6"/></symbol><symbol id="i-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.8 12 3.4l8.5 4.4v8.4L12 20.6l-8.5-4.4Z"/><path d="M3.5 7.8 12 12.2l8.5-4.4M12 12.2v8.4"/></symbol><symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 3H21v8.4l-9.6 9.6L3 12.6Z"/><circle cx="17" cy="7" r="1.5"/></symbol></svg>
+<svg width="0" height="0" style="position:absolute;overflow:hidden" aria-hidden="true" focusable="false"><symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M15.5 3h3A1.5 1.5 0 0 1 20 4.6v2.3a1.5 1.5 0 0 1-1.3 1.5l-2 .3a1.3 1.3 0 0 0-1.1 1.1 9.5 9.5 0 0 1-5.1 5.1 1.3 1.3 0 0 0-1.1 1.1l-.3 2A1.5 1.5 0 0 1 7.5 20H5.2A1.5 1.5 0 0 1 3.6 18.3 15.4 15.4 0 0 1 15.5 3Z"/></symbol><symbol id="i-mobile" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2.5" width="10" height="19" rx="2.2"/><path d="M11 18.3h2"/></symbol><symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="5" width="19" height="14" rx="2"/><path d="m3.4 6.4 7.5 5.6a2 2 0 0 0 2.2 0l7.5-5.6"/></symbol><symbol id="i-calendar" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></symbol><symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><path d="M2.8 12h18.4M12 2.8c2.6 2.6 2.6 15.8 0 18.4-2.6-2.6-2.6-15.8 0-18.4Z"/></symbol><symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a7.7 7.7 0 0 1-8.2 7.7 9 9 0 0 1-2.5-.3L6 21l.8-3.3A7.6 7.6 0 0 1 3 11.5C3 7.2 7 4 12 4s9 3.2 9 7.5Z"/><path d="M8.6 11.5h.01M12 11.5h.01M15.4 11.5h.01"/></symbol><symbol id="i-bot" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="12" rx="2.6"/><path d="M12 4.5v3.5M9 13.5h.01M15 13.5h.01M9.5 17h5"/><circle cx="12" cy="3.6" r="1.2"/></symbol><symbol id="i-star" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="m12 3.2 2.7 5.6 6.1.9-4.4 4.3 1 6.1-5.4-2.9-5.4 2.9 1-6.1L3.2 9.7l6.1-.9Z"/></symbol><symbol id="i-board" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M9 4v16M15 4v16"/></symbol><symbol id="i-bell" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M18 9a6 6 0 1 0-12 0c0 5-2 6-2 6h16s-2-1-2-6"/><path d="M10.3 19a2 2 0 0 0 3.4 0"/></symbol><symbol id="i-search" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="m20 20-4-4"/></symbol><symbol id="i-wrench" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M14.2 6.3a4.5 4.5 0 0 1 6.2 5.4l-2.6-2.6-2.3.6-.6 2.3 2.6 2.6a4.5 4.5 0 0 1-5.4-6.2L4.6 3.5 3.5 4.6Z"/><path d="m11 13-7.5 7.5 1.1 1.1L12.1 14"/></symbol><symbol id="i-camera" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3 8.5A2 2 0 0 1 5 6.5h1.8l1.3-2h7.8l1.3 2H19a2 2 0 0 1 2 2v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2Z"/><circle cx="12" cy="13" r="3.6"/></symbol><symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M13.2 2.5 4.5 13.6h5.6l-1.3 7.9 8.7-11.1h-5.6Z"/></symbol><symbol id="i-cash" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="19" height="12" rx="2"/><circle cx="12" cy="12" r="2.8"/><path d="M6 10v4M18 10v4"/></symbol><symbol id="i-users" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="8" r="3.4"/><path d="M3 20.5a6 6 0 0 1 12 0"/><path d="M16.5 5.2a3.4 3.4 0 0 1 0 5.6M18 14.6a6 6 0 0 1 3 5.9"/></symbol><symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.8l7.5 2.8v5.6c0 4.7-3.2 8.8-7.5 10.3-4.3-1.5-7.5-5.6-7.5-10.3V5.6Z"/><path d="m8.8 11.7 2.3 2.3 4.3-4.5"/></symbol><symbol id="i-tire" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9.2"/><circle cx="12" cy="12" r="4"/><path d="M12 2.8V8M12 16v5.2M2.8 12H8M16 12h5.2"/></symbol><symbol id="i-battery" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="7.5" width="16" height="9" rx="1.8"/><path d="M21.5 11v2M5.5 11v2M9 11v2M12.5 11v2"/></symbol><symbol id="i-truck" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M2.5 6.5h10v9h-10Z"/><path d="M12.5 9.5h4l3 3v3h-7Z"/><circle cx="6.5" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></symbol><symbol id="i-alert" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.6 21.5 20H2.5Z"/><path d="M12 9.5v4M12 16.8h.01"/></symbol><symbol id="i-hook" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v7.5"/><path d="M12 10.5a4.5 4.5 0 1 0-4.5 4.5"/><path d="M7.5 15v3.5M5.5 18.5h4"/></symbol><symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="8" cy="8" r="4.6"/><path d="m11.4 11.4 9.1 9.1M17 16l2-2M14.2 13.2l2-2"/></symbol><symbol id="i-clipboard" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="4.5" width="14" height="17" rx="2"/><path d="M9 4.5V3.2h6v1.3"/><path d="M9 10h6M9 14h6M9 18h3"/></symbol><symbol id="i-flag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V3.8"/><path d="M5 4.2c4-1.6 8 1.6 12 0v8c-4 1.6-8-1.6-12 0Z"/></symbol><symbol id="i-gear" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3.2"/><path d="M12 2.5v2.6M12 18.9v2.6M4.3 7.3l2.3 1.3M17.4 15.4l2.3 1.3M4.3 16.7l2.3-1.3M17.4 8.6l2.3-1.3"/></symbol><symbol id="i-droplet" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3.2s6 6.2 6 10.1a6 6 0 0 1-12 0C6 9.4 12 3.2 12 3.2Z"/></symbol><symbol id="i-octagon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M8.3 3h7.4L21 8.3v7.4L15.7 21H8.3L3 15.7V8.3Z"/><path d="M9 12h6"/></symbol><symbol id="i-package" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 7.8 12 3.4l8.5 4.4v8.4L12 20.6l-8.5-4.4Z"/><path d="M3.5 7.8 12 12.2l8.5-4.4M12 12.2v8.4"/></symbol><symbol id="i-tag" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12.6 3H21v8.4l-9.6 9.6L3 12.6Z"/><circle cx="17" cy="7" r="1.5"/></symbol><symbol id="i-flame" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c.3 3.6 5 5.4 5 10.4a5 5 0 0 1-10 0c0-1.9.9-3.3 1.9-4.6.4 1.4 1 2.2 1.8 2.7C10.6 9 11.4 6 12 3Z"/></symbol><symbol id="i-snow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v18M4.2 7.5l15.6 9M19.8 7.5l-15.6 9"/><path d="m9.6 4.8 2.4 2 2.4-2M9.6 19.2l2.4-2 2.4 2"/></symbol></svg>
 
 
 <nav class="nav">
   <div class="nav-inner">
-    <div class="logo"><span class="mark">CM</span><span>CM <b>Digital</b></span></div>
-    <div style="display:flex;align-items:center;gap:16px"><span class="nav-ct"><span class="nav-num">812-582-0112</span><a class="btn btn-amber" href="tel:+18125820112" aria-label="Call Chris at 812-582-0112">Call</a><a class="btn btn-ghost" href="sms:+18125820112" aria-label="Text Chris at 812-582-0112">Text</a></span></div>
+    <div class="logo"><span class="mark">CM</span> <span>CM <b>Digital</b></span></div>
+    <div style="display:flex;align-items:center;gap:16px"><span class="nav-ct"><span class="nav-num">812-582-0112</span> <a class="btn btn-amber" href="tel:+18125820112" aria-label="Call Chris at 812-582-0112">Call</a> <a class="btn btn-ghost" href="sms:+18125820112" aria-label="Text Chris at 812-582-0112">Text</a></span></div>
   </div>
 </nav>
 <style>.navlink{font-family:var(--disp);text-transform:uppercase;letter-spacing:.08em;font-size:.8rem;color:var(--muted)}.navlink:hover{color:var(--amber)}@media(max-width:400px){.navlink{display:none}}</style>
@@ -995,7 +1099,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     </div>
     <div class="guarantee reveal" role="note" aria-label="The CM Digital guarantee">
       <span class="g-ic" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 2l8 3v6c0 5-3.4 9.4-8 11-4.6-1.6-8-6-8-11V5l8-3z"/><path d="M8.5 12.2l2.4 2.4 4.6-4.8"/></svg></span>
-      <span class="g-t"><span class="g-k">My guarantee</span><b>See it working first. Love it, or you don't pay a dime.</b> For most builds I'll have a working version of your site to look at in <b style="color:#cfd6e2">a couple of days</b> &mdash; before you spend anything. If it's not right for your business, you owe me nothing.</span>
+      <span class="g-t"><span class="g-k">My guarantee</span> <b>See it working first. Love it, or you don't pay a dime.</b> For most builds I'll have a working version of your site to look at in <b style="color:#cfd6e2">a couple of days</b> &mdash; before you spend anything. If it's not right for your business, you owe me nothing.</span>
     </div>
     <div class="hero-ctas reveal">
       <a class="btn btn-amber" href="#pricing">Pick what you need</a>
@@ -1015,8 +1119,8 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
         <p>When you're on a roof, under a sink or out on a tow, a call you can't take usually goes to the next shop on Google. This is the AI that answers my own line. Call it, tell it what kind of shop you run, and it answers like <b style="color:var(--cream)">your</b> front desk: it asks the questions your customers get asked, flags what's urgent in your trade, and gets the caller's details down so you can call back knowing the job. It takes about a minute.</p>
         <p class="ai-yours"><b style="color:var(--cream)">This demo line is general.</b> When I set one up for you, I train it on your business: your services, prices, hours, area and how you want calls handled, so it answers your customers the way you would.</p>
         <div class="try-boxes" aria-label="Ways to try it">
-          <a class="tbox" href="#try"><span class="tb-k">1 &middot; Call it</span><b>Hear it answer for your trade</b><span class="tb-d">Call (812) 818-3099, tell it what kind of shop you run, then play a customer. About a minute.</span><span class="tb-go">Pick your trade &rsaquo;</span></a>
-          <a class="tbox" href="#contact" data-need="Try the phone answering free for 14 days"><span class="tb-k">2 &middot; Try it on your line</span><b>14 days free on your own number</b><span class="tb-d">It answers your shop's calls and emails you every caller's details. Ask for it in the one request form.</span><span class="tb-go">Ask for the free trial &rsaquo;</span></a>
+          <a class="tbox" href="#try"><span class="tb-k">1 &middot; Call it</span> <b>Hear it answer for your trade</b> <span class="tb-d">Call (812) 818-3099, tell it what kind of shop you run, then play a customer. About a minute.</span> <span class="tb-go">Pick your trade &rsaquo;</span></a>
+          <a class="tbox" href="#contact" data-need="Try the phone answering free for 14 days"><span class="tb-k">2 &middot; Try it on your line</span> <b>14 days free on your own number</b> <span class="tb-d">It answers your shop's calls and emails you every caller's details. Ask for it in the one request form.</span> <span class="tb-go">Ask for the free trial &rsaquo;</span></a>
         </div>
         <div class="trade-try" id="try">
           <p class="tt-k">Pick your trade, then call</p>
@@ -1045,8 +1149,8 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <p class="tt-fine">It won't make up your prices or hours. When it's set up for your shop, it learns your real ones, and you can try it free for 14 days on your own line.</p>
         </div>
         <div class="owner-text">
-          <div class="ot-head"><span><b>What you'd get</b> · summary from your AI receptionist</span><span>9:42 PM</span></div>
-          <div class="bubble"><span class="urg">URGENT</span><span class="row">New call: water coming through the kitchen ceiling.</span><span class="row"><span class="k">Name:</span> John S.</span><span class="row"><span class="k">Address:</span> 412 Main St, Petersburg</span><span class="row"><span class="k">Callback:</span> (812) 555-0148</span><span class="row"><span class="k">Wants:</span> someone out tomorrow morning. Main water is shut off.</span></div>
+          <div class="ot-head"><span><b>What you'd get</b> · summary from your AI receptionist</span> <span>9:42 PM</span></div>
+          <div class="bubble"><span class="urg">URGENT</span> <span class="row">New call: water coming through the kitchen ceiling.</span> <span class="row"><span class="k">Name:</span> John S.</span> <span class="row"><span class="k">Address:</span> 412 Main St, Petersburg</span> <span class="row"><span class="k">Callback:</span> (812) 555-0148</span> <span class="row"><span class="k">Wants:</span> someone out tomorrow morning. Main water is shut off.</span></div>
           <p class="cap2">If I set one up for your business, this is what you get after every call you couldn't take &mdash; as a <b style="color:#cfd6e2">text to your phone</b> once your number's registered, and as an <b style="color:#cfd6e2">email</b> from day one. You call back already knowing the job.</p>
         </div>
       </div>
@@ -1068,7 +1172,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
             <div class="tx">
               <p><b>AI:</b> Thanks for calling CM Digital, this is Chris's assistant. How can I help?</p>
               <p><b>Caller:</b> I run a tree service and I don't have a website. What would that cost?</p>
-              <p><b>AI:</b> A simple website is $299 to set up and $29 a month, and you own it. Want Chris to call you with ideas?</p>
+              <p><b>AI:</b> Websites start at $499 to set up and $49 a month, and you own it. Want Chris to call you with ideas?</p>
               <p><b>Caller:</b> Sure. But what's this AI receptionist thing?</p>
               <p><b>AI:</b> It's me, answering for your business when you can't get to the phone. Want to hear it? What's your business called?</p>
               <p><b>Caller:</b> Baker Tree Service.</p>
@@ -1105,20 +1209,16 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     <div class="section-head reveal">
       <p class="eyebrow">What I build</p>
       <h2 class="section-title">More than a <span class="accent">pretty page</span></h2>
-      <p>A site is just the start. The real value is in the tools that save you hours and win you more work.</p>
+      <p>A site is just the start. Every tool below is here because it fixes a problem that costs a shop work.</p>
     </div>
     <div class="caps">
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-globe"/></svg></div><h3>A real website</h3><p>Found on Google, all your info in one place, works great on phones. Yours — not an algorithm's.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-calendar"/></svg></div><h3>Online booking &amp; quotes</h3><p>Customers request a day and a morning or afternoon window, or a quote, right from the site. You confirm it or offer another time.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-mobile"/></svg></div><h3>Missed-call text-back</h3><p>Coming soon. Once your number is registered, a caller you miss gets a text back in seconds.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg></div><h3>AI phone receptionist</h3><p>Answers your line when you can't, day or night. Takes the details, flags emergencies, and sends you a summary.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-bot"/></svg></div><h3>AI chat assistant</h3><p>A chat box on your site that answers questions at any hour and takes down requests for you.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-star"/></svg></div><h3>Automatic reviews</h3><p>Every finished job gets an email asking for a Google review, so you don't have to remember.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-board"/></svg></div><h3>Alerts in your email</h3><p>Every request and every call summary lands in your email the moment it comes in.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-bell"/></svg></div><h3>Reminders &amp; follow-ups</h3><p>Automatic reminders and quote follow-ups by email now, and by text once your number's registered. Fewer no-shows, fewer quotes that go quiet.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-search"/></svg></div><h3>Google listing &amp; search</h3><p>Your Google Business profile set up right and the site built so people searching nearby actually find you.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-wrench"/></svg></div><h3>Hosting you own</h3><p>Your site runs on your own account with the domain in your name, so there's nothing to rent. Changes later are $75 an hour, or included with a monthly plan.</p></div>
-      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-camera"/></svg></div><h3>Photos, forms &amp; the rest</h3><p>Galleries, price lists, service areas, PDF forms, whatever your business actually needs on the page.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-globe"/></svg></div><h3>A website you actually own</h3><p>Built so local customers searching Google or asking an AI tool find your shop, not just your Facebook page. Hosted in your name, with zero lock-in.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg></div><h3>24/7 AI phone receptionist</h3><p>Answers when you can't get to the phone, so an emergency caller gets help instead of your voicemail and the next shop on Google.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-star"/></svg></div><h3>5-Star Google review engine</h3><p>Asks every customer for a Google review right after the job's done, so the work you do well shows up where people compare shops.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-calendar"/></svg></div><h3>Online booking &amp; quote requests</h3><p>Lets a homeowner request a morning or afternoon window in about 60 seconds, without playing phone tag.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-bell"/></svg></div><h3>Automated quote follow-ups</h3><p>Follows up on open estimates automatically, so profitable installs and big repairs don't go cold.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-shield"/></svg></div><h3>Maintenance plan &amp; club sign-ups</h3><p>Gives one-time emergency callers an easy way to become spring and fall tune-up members, so repeat work isn't left to chance.</p></div>
+      <div class="cap reveal"><div class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-mail"/></svg></div><h3>Past-customer reactivation</h3><p>Wakes up your old customer list with a seasonal offer, timed for the slow weeks on your schedule.</p></div>
     </div>
   </div>
 </section>
@@ -1131,6 +1231,11 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       <p>Open one to try it, owner side included.</p>
     </div>
     <div class="ex-grid">
+      <div class="pf ex-card ex-wide" data-demo="demo-hvac" role="button" tabindex="0">
+        <div class="ex-cat">Heating &amp; Air</div>
+        <p class="ex-solve">No-heat and gas-smell requests come in flagged as emergencies, and tune-up customers can join a $19-a-month Comfort Club.</p>
+        <span class="btn btn-ghost ex-open">Open the example</span>
+      </div>
       <div class="pf ex-card" data-demo="demo-dirt" role="button" tabindex="0">
         <div class="ex-cat">Excavation &amp; Septic</div>
         <p class="ex-solve">Turns a 5-star Google page into booked jobs with online quotes.</p>
@@ -1157,266 +1262,127 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 
 <section class="section" id="pricing">
 <style>
-#pricing .pp-lede{max-width:860px;margin:0 auto 22px;background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px;padding:14px 18px;color:#cfd6e2;font-size:.95rem}
-#pricing .pp-lede b{color:var(--cream)}
-#pricing .pp-starts{display:grid;grid-template-columns:1fr;gap:16px;max-width:1040px;margin:0 auto}
-#pricing .pp-start{position:relative;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:22px 20px;display:flex;flex-direction:column}
-#pricing .pp-start.feat{border-color:rgba(45,212,191,.5);box-shadow:0 20px 50px -25px rgba(45,212,191,.35)}
-#pricing .pp-start .tag{position:absolute;top:-12px;left:18px;background:var(--grad);color:#fff;font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;font-weight:600;padding:.35em .8em;border-radius:20px}
-#pricing .pp-start h3{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:1.3rem;color:var(--cream);letter-spacing:.02em}
-#pricing .pp-prob{color:var(--muted);font-size:.93rem;margin-top:6px}
-#pricing .pp-out{color:#cfd6e2;font-size:.95rem;margin-top:6px}
-#pricing .pp-out b,#pricing .pp-prob b{color:var(--cream)}
-#pricing .pp-price{display:flex;align-items:baseline;gap:6px;margin:14px 0 0;flex-wrap:wrap}
-#pricing .pp-price .n{font-family:var(--carve);font-size:2.1rem;line-height:1;color:var(--cream)}
-#pricing .pp-price .per{color:var(--muted);font-size:.92rem}
-#pricing .pp-note{color:var(--amber);font-size:.9rem;margin-top:4px}
-#pricing .pp-start .btn{justify-content:center;margin-top:16px}
-#pricing .pp-start .grow{flex:1}
-#pricing .pp-builder{margin:34px auto 0;max-width:1040px;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:20px 16px 0}
-#pricing .pp-builder>h3{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:1.35rem;color:var(--cream);letter-spacing:.02em}
-#pricing .pp-builder>p{color:var(--muted);font-size:.95rem;margin-top:4px}
-#pricing .pp-group{margin-top:22px}
-#pricing .pp-group h4{font-family:var(--disp);text-transform:uppercase;letter-spacing:.12em;font-size:.8rem;color:var(--amber);font-weight:600;padding-bottom:6px;border-bottom:1px solid var(--line)}
-#pricing .pp-row{display:grid;grid-template-columns:28px minmax(0,1fr);gap:12px;padding:14px 0;border-bottom:1px solid var(--line);cursor:pointer}
-#pricing .pp-row:last-child{border-bottom:0}
-#pricing .pp-row input[type=checkbox]{width:22px;height:22px;margin-top:2px;accent-color:#2dd4bf;cursor:pointer}
-#pricing .pp-row .nm{font-weight:700;color:var(--cream);font-size:1.02rem}
-#pricing .pp-row .pr{color:var(--muted);font-size:.92rem;margin-top:2px}
-#pricing .pp-row .oc{color:#cfd6e2;font-size:.92rem;margin-top:2px}
-#pricing .pp-row .pr b,#pricing .pp-row .oc b{color:var(--cream);font-weight:600}
-#pricing .pp-chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
-#pricing .pp-chip{font-size:.8rem;border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--cream);background:var(--ink)}
-#pricing .pp-chip.mo{border-color:rgba(96,165,250,.55);color:#cfe0ff}
-#pricing .pp-chip.zero{color:var(--muted)}
-#pricing .pp-qty{display:inline-flex;align-items:center;gap:8px;margin-top:8px;color:var(--muted);font-size:.88rem}
-#pricing .pp-qty button{width:34px;height:34px;border-radius:8px;border:1px solid var(--line);background:var(--ink);color:var(--cream);font-size:1.1rem;cursor:pointer}
-#pricing .pp-qty b{color:var(--cream);min-width:1.2em;text-align:center}
-#pricing .pp-row.on{background:linear-gradient(90deg,rgba(45,212,191,.07),transparent)}
-#pricing .pp-req{font-size:.82rem;color:var(--amber);margin-top:6px}
-#pricing .pp-bar{position:sticky;bottom:0;margin:18px -16px 0;background:rgba(14,19,32,.97);backdrop-filter:blur(8px);border-top:1px solid rgba(45,212,191,.45);border-radius:0 0 12px 12px;padding:12px 16px 14px;z-index:5}
-#pricing .pp-tot{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px}
-#pricing .pp-tot div{min-width:0}
-#pricing .pp-tot span{display:block;font-size:.7rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-family:var(--disp)}
-#pricing .pp-tot b{display:block;font-family:var(--carve);font-size:1.45rem;line-height:1.1;color:var(--cream);font-variant-numeric:tabular-nums}
-#pricing .pp-tot b.hi{color:var(--amber)}
-#pricing .pp-msg{font-size:.85rem;color:#cfd6e2;margin-top:8px}
-#pricing .pp-msg b{color:var(--cream)}
-#pricing .pp-nudge{display:none;font-size:.85rem;color:var(--cream);margin-top:8px;background:rgba(45,212,191,.1);border:1px solid var(--line);border-radius:8px;padding:8px 10px}
-#pricing .pp-nudge button{background:none;border:0;color:var(--amber);font:inherit;font-weight:700;text-decoration:underline;cursor:pointer;padding:0}
-#pricing .pp-actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
-#pricing .pp-actions .btn{flex:1 1 auto;justify-content:center}
-#pricing .pp-how{max-width:1040px;margin:26px auto 0;display:grid;grid-template-columns:1fr;gap:12px}
-#pricing .pp-how div{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:#cfd6e2;font-size:.93rem}
-#pricing .pp-how b{display:block;color:var(--cream);font-family:var(--disp);text-transform:uppercase;letter-spacing:.05em;font-size:.95rem;margin-bottom:4px}
-#pricing .pp-how i{font-style:normal;color:var(--amber);font-family:var(--disp);font-weight:700;margin-right:6px}
-#pricing .pp-not{max-width:1040px;margin:16px auto 0;color:var(--muted);font-size:.9rem}
-#pricing .pp-not b{color:var(--cream)}
-#pricing .pp-nojs{display:none}
-@media(min-width:760px){#pricing .pp-starts{grid-template-columns:repeat(2,1fr)}#pricing .pp-how{grid-template-columns:repeat(3,1fr)}#pricing .pp-builder{padding:24px 24px 0}#pricing .pp-bar{margin:18px -24px 0;padding:14px 24px 16px}#pricing .pp-groups{columns:2;column-gap:32px}#pricing .pp-group{break-inside:avoid}}
+#pricing .pk-found{display:block;font-style:normal;color:var(--amber);font-size:.92rem;margin-top:8px}
+#pricing .pk-grid{display:grid;grid-template-columns:minmax(0,1fr);gap:26px;max-width:1040px;margin:0 auto;align-items:stretch}
+#pricing .pk{position:relative;min-width:0;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:24px 20px 22px;display:flex;flex-direction:column;scroll-margin-top:84px;transition:box-shadow .3s,border-color .3s}
+#pricing .pk.feat{border-color:rgba(45,212,191,.5);box-shadow:0 20px 50px -25px rgba(45,212,191,.35)}
+#pricing .pk.pk-hi{border-color:var(--amber);box-shadow:0 0 0 3px rgba(45,212,191,.35)}
+#pricing .pk .tag{position:absolute;top:-12px;left:18px;background:var(--grad);color:#fff;font-family:var(--disp);text-transform:uppercase;letter-spacing:.1em;font-size:.66rem;font-weight:600;padding:.35em .8em;border-radius:20px}
+#pricing .pk h3{font-family:var(--disp);text-transform:uppercase;font-weight:700;font-size:1.4rem;color:var(--cream);letter-spacing:.02em;line-height:1.1}
+#pricing .pk-for{color:var(--amber);font-family:var(--disp);text-transform:uppercase;letter-spacing:.08em;font-size:.78rem;font-weight:600;margin-top:5px}
+#pricing .pk-price{display:flex;align-items:baseline;gap:6px;margin:14px 0 2px;flex-wrap:wrap}
+#pricing .pk-price .n{font-family:var(--carve);font-size:2.2rem;line-height:1;color:var(--cream)}
+#pricing .pk-price .mo{display:inline-flex;align-items:baseline;gap:3px;white-space:nowrap}
+#pricing .pk-price .mo .n{font-size:1.55rem}
+#pricing .pk-price .per{color:var(--muted);font-size:.92rem}
+#pricing .pk-ps{margin-top:12px;color:var(--muted);font-size:.94rem;line-height:1.5}
+#pricing .pk-ps+.pk-ps{margin-top:8px;color:#cfd6e2}
+#pricing .pk-ps b{color:var(--cream)}
+#pricing .pk h4{font-family:var(--disp);text-transform:uppercase;letter-spacing:.12em;font-size:.76rem;color:var(--amber);font-weight:600;margin:18px 0 0;padding-bottom:6px;border-bottom:1px solid var(--line)}
+#pricing .pk ul{list-style:none;margin:0 0 4px;padding:0;flex:1}
+#pricing .pk li{padding:9px 0 9px 24px;position:relative;border-bottom:1px solid var(--line);color:#cfd6e2;font-size:.93rem;line-height:1.45}
+#pricing .pk li:last-child{border-bottom:none}
+#pricing .pk li::before{content:"\2713";position:absolute;left:2px;top:9px;color:var(--amber);font-weight:700}
+#pricing .pk li b{color:var(--cream);font-weight:600}
+#pricing .pk li.inc{padding-left:0;color:var(--muted);font-style:italic}
+#pricing .pk li.inc::before{content:none}
+#pricing .pk li.bonus{background:rgba(34,197,94,.08);border:1px solid rgba(34,197,94,.3);border-radius:8px;padding:10px 12px 10px 34px;margin-top:8px}
+#pricing .pk li.bonus::before{left:12px;top:10px;color:#4ade80}
+#pricing .pk .btn{justify-content:center;margin-top:16px;text-align:center}
+#pricing .pk .pp-try{margin-top:12px}
+#pricing .pk-extra{max-width:1040px;margin:22px auto 0;background:var(--panel-2);border:1px solid var(--line);border-left:3px solid var(--amber);border-radius:12px;padding:14px 18px;color:#cfd6e2;font-size:.95rem;line-height:1.55}
+#pricing .pk-extra p+p{margin-top:8px}
+#pricing .pk-extra b{color:var(--cream)}
+#pricing .pk-extra a{color:var(--amber);white-space:nowrap}
+#pricing .pk-how{list-style:none;max-width:1040px;margin:26px auto 0;padding:0;display:grid;grid-template-columns:1fr;gap:12px}
+#pricing .pk-how li{background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px;color:#cfd6e2;font-size:.93rem;line-height:1.55}
+#pricing .pk-how b{color:var(--cream);font-family:var(--disp);text-transform:uppercase;letter-spacing:.05em;font-size:.95rem;font-weight:600}
+#pricing .pk-alerts{max-width:1040px;margin:16px auto 0;background:var(--panel-2);border:1px solid var(--line);border-radius:12px;padding:16px 18px}
+#pricing .pk-alerts h4{font-family:var(--disp);text-transform:uppercase;letter-spacing:.05em;font-size:.95rem;font-weight:600;color:var(--cream);margin-bottom:6px}
+#pricing .pk-alerts p{color:#cfd6e2;font-size:.93rem;line-height:1.55}
+#pricing .pk-fine{max-width:1040px;margin:14px auto 0;color:var(--muted);font-size:.88rem;line-height:1.55}
+@media(min-width:900px){#pricing .pk-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}#pricing .pk-how{grid-template-columns:repeat(3,1fr)}}
 </style>
   <div class="wrap">
     <div class="section-head reveal">
       <p class="eyebrow">Pricing</p>
       <h2 class="section-title">Pick the problems <span class="accent">you want gone</span></h2>
-      <p>Start with the one thing that hurts most. Add more now or later. You see it working first and owe nothing until you're happy. Then the setup and first month are due when it goes live.</p>
+      <p>Start with what's costing you jobs right now. You see a working version for your business first and owe nothing until you're happy. Month to month, no long-term contracts. <em class="pk-found">Founding-client rates locked for 12 months.</em></p>
     </div>
-    <p class="pp-lede reveal"><b>Founding-client prices,</b> locked for 12 months for my first clients. No contract: month to month, cancel with 30 days' notice.</p>
 
-    <div class="pp-starts">
-      <div class="pp-start reveal">
-        <h3>Phones answered</h3>
-        <p class="pp-prob"><b>The problem:</b> calls go to voicemail while you're on a job, and those callers try the next name on Google.</p>
-        <p class="pp-out"><b>What changes:</b> an AI answers every call in your business's name. It knows your services, hours, prices and area, flags emergencies, and emails you the caller's details. Keep your number and your site.</p>
-        <div class="grow"></div>
-        <div class="pp-price"><span class="n">$149</span><span class="per">a month</span></div>
-        <p class="pp-note">$0 setup (normally $300) · free for 14 days on your real line</p>
-        <p class="pp-try"><b>Try it now:</b> call <a href="tel:+18128183099">(812) 818-3099</a>. Ask it anything about CM Digital, or tell it your trade and hear it answer for your shop. <a href="#try">How to try it &rsaquo;</a></p>
-        <button type="button" class="btn btn-ghost" data-start="phones">Start here</button>
-      </div>
-      <div class="pp-start reveal">
-        <h3>Simple Site</h3>
-        <p class="pp-prob"><b>The problem:</b> people search for you and find nothing, or a page that's years old.</p>
-        <p class="pp-out"><b>What changes:</b> they find one clean page with your services, hours, area and photos, and tap to call or send a request. I set up your Google listing and build the site so Google and AI search tools can read your services and towns.</p>
-        <div class="grow"></div>
-        <div class="pp-price"><span class="n">$299</span><span class="per">setup + $29 a month</span></div>
-        <p class="pp-note">normally $399 setup · add any feature below</p>
-        <button type="button" class="btn btn-ghost" data-start="site">Start here</button>
-      </div>
-      <div class="pp-start rec reveal">
+    <div class="pk-grid">
+      <article class="pk reveal" id="pkg-foundation">
+        <h3>The Foundation</h3>
+        <p class="pk-for">Get found &amp; build trust</p>
+        <div class="pk-price"><span class="n">$499</span> <span class="per">setup +</span> <span class="mo"><span class="n">$49</span><span class="per">/month</span></span></div>
+        <p class="pk-ps"><b>The problem:</b> Customers search for your trade in town and find nothing, a broken link, or a competitor with 100+ Google reviews.</p>
+        <p class="pk-ps"><b>The solution:</b> A fast, phone-first website you own, a Google Business Profile that's set up right, and a review engine that asks every customer for a Google review when the job's done.</p>
+        <h4>What's included</h4>
+        <ul>
+          <li><b>Custom, fast-loading website</b> built for Google and AI search, with your towns, services and job photos, tap-to-call and a request form</li>
+          <li><b>Google Business Profile</b> setup and local search tune-up</li>
+          <li><b>5-Star Google Review Engine:</b> an automatic review request after every job, with your Google link and a direct line to you if something wasn't right</li>
+          <li><b>Hosting on your own account,</b> plus up to 30 minutes of site updates a month</li>
+        </ul>
+        <a class="btn btn-ghost" href="#contact" data-need="Show me a free sample of my site first" data-pkg="The Foundation ($499 setup + $49 a month)">See a free sample first</a>
+      </article>
+
+      <article class="pk feat reveal" id="pkg-lead">
         <span class="tag">Recommended</span>
-        <h3>Build your own</h3>
-        <p class="pp-prob"><b>The problem:</b> you need a few things, not everything.</p>
-        <p class="pp-out"><b>What changes:</b> start with the Simple Site and add only the features you want. Each one below says what it does and what it costs.</p>
-        <div class="grow"></div>
-        <div class="pp-price"><span class="n">From $299</span><span class="per">setup + $29 a month</span></div>
-        <p class="pp-note">your total updates as you tick</p>
-        <button type="button" class="btn btn-ghost" data-start="build">Build it</button>
-      </div>
-      <div class="pp-start feat reveal">
+        <h3>The Lead Engine</h3>
+        <p class="pk-for">Capture every lead, follow up every quote</p>
+        <div class="pk-price"><span class="n">$799</span> <span class="per">setup +</span> <span class="mo"><span class="n">$149</span><span class="per">/month</span></span></div>
+        <p class="pk-ps"><b>The problem:</b> Leads slip through the cracks while you're on a job, quotes go cold because nobody had time to follow up, and repeat maintenance work gets forgotten.</p>
+        <p class="pk-ps"><b>The solution:</b> Everything in The Foundation, plus online booking, automatic quote follow-ups and maintenance plan sign-ups, so the follow-up gets done without you chasing people.</p>
+        <h4>What's included</h4>
+        <ul>
+          <li class="inc">Everything in The Foundation, plus:</li>
+          <li><b>24/7 Online Booking &amp; Quote Forms:</b> customers pick a service and a morning or afternoon window right from your phone-friendly site. You confirm it or offer another time.</li>
+          <li><b>24/7 AI Website Chat Assistant:</b> answers common questions and takes down job details around the clock</li>
+          <li><b>Automated Quote Follow-Ups:</b> checks back in on estimates that haven't booked yet</li>
+          <li><b>Maintenance Plan / Service Club Sign-Up:</b> a dedicated page and automatic renewal reminders, so one-off repair customers have an easy way into recurring seasonal work. Nothing is charged online.</li>
+          <li class="bonus"><b>Quick-Win Launch Bonus, included free:</b> a one-time Past-Customer Reactivation campaign. The week you launch, I email your existing customer list a seasonal tune-up or checkup offer.</li>
+        </ul>
+        <a class="btn btn-amber" href="#contact" data-need="Show me a free sample of my site first" data-pkg="The Lead Engine ($799 setup + $149 a month)">See a free sample first</a>
+      </article>
+
+      <article class="pk reveal" id="pkg-desk">
         <span class="tag">Best value</span>
-        <h3>Everything</h3>
-        <p class="pp-prob"><b>The problem:</b> you're the salesman, the receptionist and the tech, and the office work waits until night.</p>
-        <p class="pp-out"><b>What changes:</b> the site, every feature below and the AI receptionist, working together, with an hour of changes a month.</p>
-        <div class="grow"></div>
-        <div class="pp-price"><span class="n">$999</span><span class="per">setup + $279 a month</span></div>
-        <p class="pp-note">$1,393 + $307 a month if picked one by one</p>
-        <button type="button" class="btn btn-amber" data-start="all">Start here</button>
-      </div>
+        <h3>The 24/7 Front Desk</h3>
+        <p class="pk-for">Never miss a call again</p>
+        <div class="pk-price"><span class="n">$999</span> <span class="per">setup +</span> <span class="mo"><span class="n">$279</span><span class="per">/month</span></span></div>
+        <p class="pk-ps"><b>The problem:</b> You're the tech, the estimator and the receptionist. When you're in a crawlspace or driving, missed calls go straight to the next shop on Google.</p>
+        <p class="pk-ps"><b>The solution:</b> Your whole website and lead engine, plus a 24/7 AI phone receptionist trained on your business. It answers every call in your business's name, flags emergencies and sends the job summary straight to you.</p>
+        <h4>What's included</h4>
+        <ul>
+          <li class="inc">Everything in The Lead Engine, plus:</li>
+          <li><b>24/7 AI Phone Receptionist:</b> trained on your exact services, service area, hours and pricing. Answers day or night, flags emergencies and sends you a summary after every call. 300 call minutes a month included.</li>
+          <li><b>Missed-Call Text-Back &amp; SMS Alerts:</b> instant text alerts and automatic text-backs, once your number's carrier registration (10DLC) is approved</li>
+          <li><b>Seasonal Weather / Tune-Up Campaigns:</b> automatic outreach to past customers ahead of cold snaps, heat waves and peak seasons</li>
+          <li><b>Priority Support:</b> up to 1 hour of site or automation updates every month</li>
+        </ul>
+        <p class="pp-try"><b>Hear it first:</b> call <a href="tel:+18128183099">(812) 818-3099</a>, tell it your trade, and hear it answer like your front desk. <a href="#try">How to try it &rsaquo;</a></p>
+        <a class="btn btn-amber" href="#contact" data-need="Try the phone answering free for 14 days" data-pkg="The 24/7 Front Desk ($999 setup + $279 a month)">Try the phone AI free for 14 days</a>
+      </article>
     </div>
 
-    <div class="pp-builder reveal" id="picker">
-      <h3>Build your own</h3>
-      <p>Every feature, what it fixes and what it costs. Tick what you want and your total updates at the bottom. Nothing is charged on this page.</p>
-      <div class="pp-groups" id="pp-groups"></div>
-      <div class="pp-bar" id="pp-bar" aria-live="polite">
-        <div class="pp-tot">
-          <div><span>Today</span><b>$0</b></div>
-          <div><span>At delivery</span><b id="pp-del">$0</b></div>
-          <div><span>Then each month</span><b class="hi" id="pp-mo">$0</b></div>
-        </div>
-        <p class="pp-msg" id="pp-msg">Tick something above to see your totals.</p>
-        <p class="pp-nudge" id="pp-nudge">Everything would cost you less: <b>$999 setup + $279 a month</b> for every feature, plus an hour of changes a month. <button type="button" id="pp-toall">Switch to Everything</button></p>
-        <div class="pp-actions">
-          <button type="button" class="btn btn-amber" id="pp-send">Send me this list</button>
-          <button type="button" class="btn btn-ghost" id="pp-clear">Clear</button>
-        </div>
-      </div>
+    <div class="pk-extra reveal">
+      <p><b>Need something specific?</b> Add extra service or location pages ($99 each), a Past-Customer Reactivation blast to any package ($250 one-time), or custom workflow automations ($75 an hour, quoted up front).</p>
+      <p><b>Happy with the site you've got?</b> The phone AI on its own is $149 a month, free for 14 days on your real line. <a href="#contact" data-need="Try the phone answering free for 14 days" data-pkg="Phone AI on its own ($149 a month)">Ask for the free trial &rsaquo;</a></p>
     </div>
-    <noscript><style>#pricing .pp-builder{display:none}#pricing .pp-nojs{display:block}</style></noscript>
-    <div class="pp-builder pp-nojs"><h3>Every feature</h3><p>Simple Site $299 setup + $29 a month. Extra page, gallery, hiring page, commercial page $99 each, ZIP check $49, financing link $0, logo cleanup $250, all with no extra monthly. Booking $99 + $10 a month, estimator $150 + $10, maintenance plan sign-up $150 + $10, AI receptionist $0 + $120 ($149 a month on its own), extra 100 minutes + $10, review asks + $10, quote follow-ups + $15, seasonal reminders + $15, Google profile care + $49, chat helper + $39.</p><div style="height:20px"></div></div>
 
-    <div class="pp-how">
-      <div><i>1</i><b>See it working</b>I build a working version for your business first. You owe nothing to look.</div>
-      <div><i>2</i><b>Pay at delivery</b>When it's live and you're happy: the setup and first month. Orders with $500 or more in setup pay half when you say yes to the demo.</div>
-      <div><i>3</i><b>Month to month</b>No contract. Take a feature off and its monthly comes off your next bill. Pay a year up front and get two months free.</div>
+    <ol class="pk-how">
+      <li><b>1. See it working:</b> I build a working sample for your business first. You owe nothing to look.</li>
+      <li><b>2. Pay at delivery:</b> Once it's live and you're happy, setup and your first month are due. On builds of $500 or more, half the setup is due when you approve the demo.</li>
+      <li><b>3. Month to month:</b> No contracts. Cancel anytime with 30 days' notice. Pay a year up front and get 2 months free.</li>
+    </ol>
+
+    <div class="pk-alerts reveal">
+      <h4>How alerts work on Day 1 vs. Week 2</h4>
+      <p>From Day 1, every lead, booking and call summary hits your email immediately. To send automated texts from your business number (missed-call text-backs, text reminders and texted review links), the phone carriers require a quick 10DLC business registration: typically $25 one-time plus a $15 a month carrier fee, and usually 1 to 2 weeks to approve, sometimes longer. That clock is theirs, not mine. I handle the paperwork for you and file it on day one.</p>
     </div>
-    <p class="pp-not reveal"><b>Not included yet:</b> texting. Missed-call text-back and texted follow-ups, review asks, reminders and booking confirmations need your number registered for texting, about $25 setup + $15 a month once it's available. Until then they go by email. Also not included: online payments, and an owner dashboard. Work outside your plan is $75 an hour, quoted first. You own your domain, site, content and customer list.</p>
+    <p class="pk-fine reveal">Not included: online payments and an owner dashboard. Work outside your package is $75 an hour, quoted first. You own your domain, site, content and customer list.</p>
   </div>
-<script>
-(function(){
-  var G=[
-   {t:"Get found",i:[
-    {id:"site",nm:"Simple Site",s:299,m:29,p:"People search for you and find nothing, or an old page.",o:"One phone-first page with tap-to-call, a request form to your email, and your Google listing set up and connected. Built so Google and AI search tools can read your services and towns. Hosting and 15 minutes of changes a month. If a site is all you want, you can skip the monthly and own the page outright."},
-    {id:"page",nm:"Extra page",s:99,m:0,q:1,p:"You only show up for one service or one town.",o:"Each service, town or About page gets its own page people can find.",site:1},
-    {id:"gbp",nm:"Google profile care",s:0,m:49,p:"Your Google profile goes stale and slides down the map.",o:"New photos, posts, hours and services on it every month.",site:1},
-    {id:"comm",nm:"Commercial page",s:99,m:0,p:"Businesses and property managers don't know you do commercial work.",o:"A page written for them.",site:1}]},
-   {t:"Turn visitors into calls",i:[
-    {id:"gal",nm:"Photo gallery",s:99,m:0,p:"Customers can't see your work before they call.",o:"Real before-and-after jobs, the way they actually decide.",site:1},
-    {id:"zip",nm:"Service area check",s:49,m:0,p:"Calls from outside your area waste your time.",o:"Customers type their ZIP and see if you cover them.",site:1},
-    {id:"est",nm:"Price estimator",s:150,m:10,p:"“How much?” questions at night with nobody to answer.",o:"A ballpark price any hour, plus a repair-or-replace check. You set the ranges.",site:1},
-    {id:"fin",nm:"Financing link",s:0,m:0,p:"Big jobs stall over the price.",o:"Customers apply with the lender you already use, right from your site.",site:1},
-    {id:"chat",nm:"Website chat helper",s:0,m:39,p:"Some people won't pick up the phone.",o:"They ask in a chat box on your site at any hour.",site:1}]},
-   {t:"Never miss a call",i:[
-    {id:"air",nm:"AI receptionist",s:0,m:120,p:"Calls go to voicemail while you're on a job.",o:"Every call answered in your name, emergencies flagged, an email summary after each call. 300 minutes a month, free for 14 days."},
-    {id:"min",nm:"Extra 100 call minutes",s:0,m:10,p:"Busy season runs past 300 minutes.",o:"100 more minutes a month, on or off as you need.",air:1},
-    {id:"book",nm:"Online booking",s:99,m:10,p:"Phone tag just to set a time.",o:"Customers request a day and a morning or afternoon window from the times you open up. You confirm it or offer another time, and they get an email. Texts too once your number is registered (coming soon).",site:1}]},
-   {t:"Win the jobs you quote",i:[
-    {id:"fol",nm:"Quote follow-ups",s:0,m:15,p:"Quotes go quiet and nobody chases them.",o:"A friendly email a few days after each quote. Texts too once your number is registered (coming soon).",site:1},
-    {id:"rev",nm:"Review asks",s:0,m:10,p:"Happy customers forget to leave a review.",o:"Every finished job gets an email asking for a Google review. Texts too once your number is registered (coming soon).",site:1}]},
-   {t:"Keep customers coming back",i:[
-    {id:"sea",nm:"Seasonal reminders",s:0,m:15,p:"Past customers forget you until something breaks.",o:"“Time for your furnace check” by email before your busy stretches. Texts too once your number is registered (coming soon).",site:1},
-    {id:"plan",nm:"Maintenance plan sign-up",s:150,m:10,p:"Repeat work depends on you remembering to call.",o:"Customers join your tune-up plan from the site. You set it up with them; nothing is charged online.",site:1}]},
-   {t:"Look the part",i:[
-    {id:"logo",nm:"Logo cleanup",s:250,m:0,p:"Your truck, site and Facebook all look different.",o:"One clean look everywhere.",site:1},
-    {id:"hire",nm:"Hiring page",s:99,m:0,p:"Applications come in scattered, or not at all.",o:"A short application that lands in your email.",site:1}]}
-  ];
-  var by={},all=[],sel={},qty={page:1};
-  G.forEach(function(g){g.i.forEach(function(x){by[x.id]=x;all.push(x)})});
-  var EVERY=all.filter(function(x){return x.id!=="min"}).map(function(x){return x.id});
-  function $(id){return document.getElementById(id)}
-  function money(n){return "$"+n.toLocaleString("en-US")}
-  function chips(x){
-    var a=[];
-    if(x.id==="air") return '<span class="pp-chip">$0 setup</span><span class="pp-chip mo">+$120 a month with a site</span><span class="pp-chip mo">$149 a month on its own</span>';
-    a.push('<span class="pp-chip'+(x.s?'':' zero')+'">'+(x.s?money(x.s)+(x.q?' each':'')+' setup':'$0 setup')+'</span>');
-    a.push(x.m?'<span class="pp-chip mo">'+(x.id==="site"?'$29 a month':'+'+money(x.m)+' a month')+'</span>':'<span class="pp-chip zero">no extra monthly</span>');
-    return a.join("");
-  }
-  var h="";
-  G.forEach(function(g){
-    h+='<div class="pp-group"><h4>'+g.t+'</h4>';
-    g.i.forEach(function(x){
-      h+='<label class="pp-row" data-id="'+x.id+'"><input type="checkbox" value="'+x.id+'" aria-label="'+x.nm+'"><span><span class="nm">'+x.nm+'</span><span class="pr" style="display:block"><b>Problem:</b> '+x.p+'</span><span class="oc" style="display:block"><b>What changes:</b> '+x.o+'</span><span class="pp-chips">'+chips(x)+'</span>'+(x.q?'<span class="pp-qty" data-q="'+x.id+'">How many <button type="button" data-d="-1" aria-label="One fewer page">−</button><b>1</b><button type="button" data-d="1" aria-label="One more page">+</button></span>':'')+'<span class="pp-req" hidden></span></span></label>';
-    });
-    h+='</div>';
-  });
-  $("pp-groups").innerHTML=h;
-  var boxes=[].slice.call(document.querySelectorAll('#pp-groups input[type=checkbox]'));
-  function isAll(){return EVERY.every(function(id){return sel[id]})}
-  function calc(){
-    var s=0,m=0,everything=isAll();
-    if(everything){s=999+(qty.page-1)*99;m=279+(sel.min?10:0);}
-    else all.forEach(function(x){
-      if(!sel[x.id])return;
-      var n=x.q?qty[x.id]:1;
-      s+=x.s*n;
-      if(x.id==="air") m+=sel.site?120:149; else m+=x.m;
-    });
-    return {s:s,m:m,all:everything};
-  }
-  function render(){
-    boxes.forEach(function(b){b.checked=!!sel[b.value];b.closest('.pp-row').classList.toggle('on',b.checked)});
-    document.querySelectorAll('.pp-qty').forEach(function(q){q.querySelector('b').textContent=qty[q.getAttribute('data-q')]});
-    var r=calc(),any=Object.keys(sel).some(function(k){return sel[k]});
-    $("pp-del").textContent=money(r.s+r.m);
-    $("pp-mo").textContent=money(r.m);
-    var msg;
-    if(!any) msg="Tick something above to see your totals.";
-    else {
-      msg="<b>"+money(r.s)+" setup + "+money(r.m)+" first month</b> at delivery, then <b>"+money(r.m)+" a month</b>.";
-      if(r.all) msg="<b>Everything price applied.</b> "+msg;
-      if(r.s>=500){var hf=r.s/2;msg+=" Half the setup ("+(hf%1?"$"+hf.toFixed(2):money(hf))+") when you say yes to the demo.";}
-      if(sel.air) msg+=" The receptionist is free for 14 days first.";
-    }
-    $("pp-msg").innerHTML=msg;
-    var oneByOne=0,mm=0;
-    all.forEach(function(x){if(!sel[x.id]||x.id==="min")return;oneByOne+=x.s*(x.q?qty[x.id]:1);mm+=x.id==="air"?(sel.site?120:149):x.m});
-    $("pp-nudge").style.display=(!r.all&&sel.site&&(mm>=279||oneByOne>=999))?"block":"none";
-  }
-  function set(id,on){
-    sel[id]=on;
-    if(on&&by[id].site) sel.site=true;
-    if(on&&id==="min") sel.air=true;
-    if(!on&&id==="site") all.forEach(function(x){if(x.site)sel[x.id]=false});
-    if(!on&&id==="air") sel.min=false;
-    render();
-  }
-  boxes.forEach(function(b){b.addEventListener('change',function(){set(b.value,b.checked)})});
-  document.querySelectorAll('.pp-qty button').forEach(function(btn){
-    btn.addEventListener('click',function(e){e.preventDefault();e.stopPropagation();
-      var id=btn.parentNode.getAttribute('data-q');qty[id]=Math.max(1,Math.min(12,qty[id]+(+btn.getAttribute('data-d'))));
-      if(!sel[id])set(id,true);else render();});
-  });
-  function preset(k){
-    sel={};qty.page=1;
-    if(k==="phones")sel.air=true;
-    if(k==="site")sel.site=true;
-    if(k==="all")EVERY.forEach(function(id){sel[id]=true});
-    if(k==="build")sel.site=true;
-    render();
-    var p=$("picker");if(p&&p.scrollIntoView)p.scrollIntoView({behavior:"smooth",block:"start"});
-  }
-  document.querySelectorAll('[data-start]').forEach(function(b){b.addEventListener('click',function(){preset(b.getAttribute('data-start'))})});
-  $("pp-toall").addEventListener('click',function(){EVERY.forEach(function(id){sel[id]=true});render()});
-  $("pp-clear").addEventListener('click',function(){sel={};qty.page=1;render()});
-  $("pp-send").addEventListener('click',function(){
-    var r=calc(),lines=[];
-    all.forEach(function(x){if(sel[x.id])lines.push("- "+x.nm+(x.q&&qty[x.id]>1?" x"+qty[x.id]:""))});
-    if(!lines.length){$("pp-msg").innerHTML="Tick at least one thing first, or just send me a message below.";return}
-    var txt="My picks from the price list:\n"+lines.join("\n")+"\n\nAt delivery: "+money(r.s+r.m)+" ("+money(r.s)+" setup + first month). Then "+money(r.m)+" a month."+(r.all?" (Everything price)":"");
-    var need=$("c-need"),msg=$("c-msg");
-    if(need){var want="My picks from the price list",has=false;[].forEach.call(need.options,function(o){if(o.text===want)has=true});if(!has){var o=document.createElement('option');o.text=want;need.add(o)}need.value=want}
-    if(msg)msg.value=txt;
-    var c=$("contact");if(c&&c.scrollIntoView)c.scrollIntoView({behavior:"smooth",block:"start"});
-  });
-  function pick(ids){var o={};ids.forEach(function(id){if(!by[id])return;o[id]=true;if(by[id].site)o.site=true;if(id==="min")o.air=true});return o}
-  window.ppQuote=function(ids){var keep=sel,kq=qty.page;sel=pick(ids);qty.page=1;var r=calc();sel=keep;qty.page=kq;return r};
-  window.ppLoad=function(ids){sel=pick(ids);qty.page=1;render();var p=$("picker");if(p&&p.scrollIntoView)p.scrollIntoView({behavior:"smooth",block:"start"})};
-  window.ppNames=function(ids){return ids.filter(function(id){return by[id]}).map(function(id){return by[id].nm})};
-  render();
-})();
-</script>
 </section>
 
 
@@ -1454,9 +1420,9 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     </div>
     -->
     <div class="promise reveal">
-      <div><b>Love it or don't pay</b>I build a working version for your business first. Not right for you? You owe nothing.</div>
-      <div><b>No contract</b>Monthly plans are month to month; cancel with 30 days' notice.</div>
-      <div><b>You own it</b>Your site, domain, content and customer list go with you.</div>
+      <div><b>Love it or don't pay</b> I build a working version for your business first. Not right for you? You owe nothing.</div>
+      <div><b>No contract</b> Monthly plans are month to month; cancel with 30 days' notice.</div>
+      <div><b>You own it</b> Your site, domain, content and customer list go with you.</div>
     </div>
   </div>
 </section>
@@ -1484,8 +1450,8 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       <details><summary>Is the hosting really free?</summary><div class="fa">Yes, for a normal small-business site. It runs on a free hosting tier under your account, and a site like yours stays inside it. The only thing you pay for yearly is the domain name, which runs about $12 to $20 and goes straight to the registrar, not to me.</div></details>
       <details><summary>What if you disappear?</summary><div class="fa">Fair question to ask anybody. Your site is plain, self-contained files sitting in your own account, so any developer can pick it up — there's nothing proprietary to get stuck in. You'd keep running without me. The automations and the AI line are the piece that needs someone watching them, and that's what the monthly covers; cancel it and the website keeps working.</div></details>
       <details><summary>Can I edit it myself?</summary><div class="fa">Most owners don't want to, so my default is you text me the change and it's done. If you'd rather do it yourself, say so up front and I'll build it so the parts you'll actually touch — prices, hours, photos, specials — are editable without me.</div></details>
-      <details><summary>What does a change cost later?</summary><div class="fa">Small stuff like hours, a price, a photo or a new service: <b>$75 an hour, one hour minimum</b>, and I tell you the number before I start. On the $29 monthly, up to <b>15 minutes of changes a month</b> are already included, and up to an hour on Everything.</div></details>
-      <details><summary>Are you going to upsell me?</summary><div class="fa">The Simple Site is <b>$299</b>, and if a site is all you want you can skip the monthly and own it outright. I do sell features with a small monthly — an AI receptionist, online booking, review asks — and each one is priced on its own, so you only pay for what you use. If a site is all you need, buy a site. I'll tell you if I think you don't need the rest.</div></details>
+      <details><summary>What does a change cost later?</summary><div class="fa">Small stuff like hours, a price, a photo or a new service is covered by your package: up to <b>30 minutes of updates a month</b> on The Foundation and The Lead Engine, and up to <b>an hour</b> on The 24/7 Front Desk. Past that it's <b>$75 an hour, one hour minimum</b>, and I tell you the number before I start.</div></details>
+      <details><summary>Are you going to upsell me?</summary><div class="fa">No. All three packages and their prices are on this page, so there's no surprise number later. The Foundation is <b>$499 setup + $49 a month</b>, and if that's all you need, that's all I'll sell you. The bigger packages add tools that take ongoing work to run, like booking, quote follow-ups and the phone AI, and that's why their monthly is higher. I'll tell you if I think you don't need them.</div></details>
       <details><summary>Will I show up first on Google?</summary><div class="fa">I'm not going to promise that, and be careful with anybody who does. What I can do is the part that's in my control: your site built so Google can read it, your Google Business Profile set up right, your towns and services on the page, and a review link so customers can leave you reviews. Ranking at the top of a competitive search takes months of steady work. For most shops around here the bigger win is being <b>findable and easy to call</b>, which happens fast.</div></details>
       <details><summary>How long does it take?</summary><div class="fa">For most builds you'll have a working sample to look at in <b>a couple of days</b>. Something big or unusual takes longer, and I'll tell you up front if it does. After you've looked at it and want to go ahead, it's live within a few days — most of that wait is you getting me photos and your service list. The AI receptionist can be answering your line <b>the next day</b>.</div></details>
       <details><summary>Do we have to meet in person?</summary><div class="fa">No. I build it, send you a link, and you look at it on your phone. All I need is a few photos and about ten minutes on what you do. I'm in Winslow, Indiana, so if you're close and would rather sit down in person, I'm glad to, but it's an offer, not a requirement.</div></details>
@@ -1495,7 +1461,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 
 <section class="section alt" id="contact">
   <div class="wrap">
-    <div class="section-head reveal"><p class="eyebrow">One request, that's it</p><h2 class="section-title">Send it <span class="accent">over</span></h2><p>Whatever you want, a free sample of your site, a free trial of the phone answering, or the list you picked, it all comes through this one form. Nothing is owed until it's built and you're happy with it.</p></div>
+    <div class="section-head reveal"><p class="eyebrow">One request, that's it</p><h2 class="section-title">Send it <span class="accent">over</span></h2><p>Whatever you want, a free sample of your site, a free trial of the phone answering, or the package you picked, it all comes through this one form. Nothing is owed until it's built and you're happy with it.</p></div>
     <div class="contact-grid">
       <div id="contact-form-wrap" class="reveal">
         <form class="formcard" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="submitContact(event)">
@@ -1505,20 +1471,23 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <div class="field"><label for="c-biz">Business name</label><input type="text" id="c-biz" name="business" placeholder="What's it called?"></div>
           <div class="field"><label for="c-trade">Your trade</label><select id="c-trade" name="trade"><option value="">Pick one…</option><option>HVAC</option><option>Plumbing</option><option>Electrical</option><option>Excavation &amp; Septic</option><option>Towing &amp; Auto</option><option>Roofing</option><option>Concrete</option><option>Lawn &amp; Tree</option><option>Meat Processing</option><option>Something else</option></select></div>
           <div class="field"><label for="c-need">What would you like? <span class="req">*</span></label>
-            <select id="c-need" name="need"><option value="">Choose one…</option><option>My picks from the price list</option><option>Show me a free sample of my site first</option><option>Try the phone answering free for 14 days</option><option>Fix or improve my current website</option><option>Not sure yet, give me ideas</option></select>
+            <select id="c-need" name="need"><option value="">Choose one…</option><option>Show me a free sample of my site first</option><option>Try the phone answering free for 14 days</option><option>Fix or improve my current website</option><option>Not sure yet, give me ideas</option></select>
+            <input type="hidden" name="package" id="c-pkg-v">
+            <p class="c-pkg" id="c-pkg" hidden>Package: <b id="c-pkg-nm"></b> <button type="button" id="c-pkg-x">clear</button></p>
           </div>
           <div class="field"><label>What would help most? <span style="color:var(--muted);font-weight:400">(tap any that fit)</span></label>
             <div id="c-helps" role="group" aria-label="What would help most">
-              <button type="button" aria-pressed="false" data-ids="air">Answer the phone when I can't</button>
-              <button type="button" aria-pressed="false" data-ids="site">Get found on Google</button>
-              <button type="button" aria-pressed="false" data-ids="site">Take requests from my site</button>
-              <button type="button" aria-pressed="false" data-ids="book">Let customers book themselves</button>
-              <button type="button" aria-pressed="false" data-ids="gal">Show my work with photos</button>
-              <button type="button" aria-pressed="false" data-ids="est">Give ballpark prices any hour</button>
-              <button type="button" aria-pressed="false" data-ids="rev">Get more Google reviews</button>
-              <button type="button" aria-pressed="false" data-ids="fol">Chase quotes nobody answered</button>
-              <button type="button" aria-pressed="false" data-ids="sea">Remind past customers it's time</button>
-              <button type="button" aria-pressed="false" data-ids="gbp">Keep my Google listing fresh</button>
+              <button type="button" aria-pressed="false" data-lv="p">Answer the phone when I can't</button>
+              <button type="button" aria-pressed="false" data-lv="1">Get found on Google</button>
+              <button type="button" aria-pressed="false" data-lv="1">Take requests from my site</button>
+              <button type="button" aria-pressed="false" data-lv="1">Show my work with photos</button>
+              <button type="button" aria-pressed="false" data-lv="1">Get more Google reviews</button>
+              <button type="button" aria-pressed="false" data-lv="2">Let customers book themselves</button>
+              <button type="button" aria-pressed="false" data-lv="2">Answer website questions at any hour</button>
+              <button type="button" aria-pressed="false" data-lv="2">Chase quotes nobody answered</button>
+              <button type="button" aria-pressed="false" data-lv="2">Sign customers up for a tune-up plan</button>
+              <button type="button" aria-pressed="false" data-lv="3">Bring past customers back each season</button>
+              <button type="button" aria-pressed="false" data-lv="3">Text back the calls I miss</button>
             </div>
             <input type="hidden" name="helps" id="c-helps-v">
             <input type="hidden" name="recommended" id="c-rec-v">
@@ -1544,7 +1513,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 
 <footer>
   <div class="wrap">
-    <div class="fmark"><span class="mark">CM</span><span>CM <b>Digital</b></span></div>
+    <div class="fmark"><span class="mark">CM</span> <span>CM <b>Digital</b></span></div>
     <p class="fmeta">Websites, automations &amp; AI for small businesses<br>Based in Indiana, working anywhere &middot; <a href="tel:+18125820112">(812) 582-0112</a></p>
   </div>
 </footer>
@@ -1555,6 +1524,122 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 </div>
 
 <!-- ============ DEMO OVERLAYS ============ -->
+
+<div class="demo-overlay hidden th-hvac th-light" id="demo-hvac" data-board="hvac" style="--t-bg:#f7f4ee;--t-panel:#ffffff;--t-accent:#c8321f;--t-accent-ink:#ffffff;--t-text:#14233b;--t-muted:#5d6b7e;--t-line:rgba(20,35,59,.13);--disp:'Rubik',system-ui,sans-serif;--body:'Rubik',system-ui,sans-serif">
+  <div class="demo-bar"><span class="lab"><b>EXAMPLE</b> — Heating &amp; Air</span><div class="demo-toggle"><button class="on" data-dview="cust">Customer</button><button data-dview="owner">Owner</button></div><button class="close-btn" onclick="closeDemo()">✕ Close</button></div>
+  <div class="demo-inner dview-cust">
+    <div class="d-note">Sample business — this is the kind of site I'd build for a heating and air company.</div>
+    <div class="gc-top"><span>Serving Gibson County, IN</span> <a href="tel:+18125550100"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg> (812) 555-0100</a></div>
+    <div class="gc-hero"><div class="x-wrap">
+      <div class="gc-brand"><span class="gc-mark" aria-hidden="true">GC</span> <span class="gc-nm">Gibson County Heating &amp; Air <small>Repair &middot; Installs &middot; Tune-ups</small></span></div>
+      <div class="gc-h1"><span class="h">No heat</span> at 10 PM or <span class="c">AC out</span> in July?</div>
+      <p class="gc-lede">Local, honest HVAC repair and installs, with fast dispatch across Princeton, Fort Branch &amp; Oakland City.</p>
+      <div class="gc-ctas"><button type="button" class="gc-btn hot" data-hv="scroll">Request service now</button> <a class="gc-btn line" href="tel:+18125550100">Call (812) 555-0100</a></div>
+      <div class="gc-trust"><span>24/7 emergency line</span> <span>Upfront pricing</span> <span>Licensed &amp; insured</span></div>
+    </div></div>
+    <div class="x-sec"><div class="x-wrap">
+      <div class="gc-h2">What's going on?</div>
+      <div class="gc-h2s">Tap one and we'll start your request. Emergencies jump the line.</div>
+      <div class="gc-picks">
+        <button type="button" class="gc-pick emg" data-hv="pick" data-v="No heat"><span class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-flame"/></svg></span> No heat <small>Furnace or heat pump down</small></button>
+        <button type="button" class="gc-pick emg" data-hv="pick" data-v="Gas smell"><span class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-alert"/></svg></span> Gas smell <small>Get outside first</small></button>
+        <button type="button" class="gc-pick emg" data-hv="pick" data-v="AC out"><span class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-snow"/></svg></span> AC out <small>No cooling at all</small></button>
+        <button type="button" class="gc-pick" data-hv="pick" data-v="Seasonal tune-up"><span class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-calendar"/></svg></span> Tune-up <small>Spring or fall checkup</small></button>
+      </div>
+      <div class="gc-form">
+        <div class="gc-fh"><b>Priority dispatch request</b> <span>Goes straight to the on-call tech</span></div>
+        <div class="gc-gas" id="f-hvac-gas" role="alert"><b>Smell gas?</b> Get everyone outside first. Then call 911 or your gas company from outside the house, and call us at <a href="tel:+18125550100">(812) 555-0100</a>. Don't flip switches or use a phone indoors.</div>
+        <div id="f-hvac-wrap">
+          <div class="d-form">
+            <div class="d-frow"><label for="f-hvac-name">Name</label><input id="f-hvac-name" type="text" placeholder="Your name" autocomplete="name"></div>
+            <div class="d-frow"><label for="f-hvac-phone">Phone</label><input id="f-hvac-phone" type="tel" placeholder="(812) 555-0123" autocomplete="tel"></div>
+            <div class="d-frow full"><label for="f-hvac-loc">Address or town</label><input id="f-hvac-loc" type="text" placeholder="Street and town"></div>
+            <div class="d-frow full"><label for="f-hvac-svc">What's wrong?</label><select id="f-hvac-svc"><option>No heat</option><option>Gas smell</option><option>AC out</option><option>Not keeping up</option><option>Strange noise or smell</option><option>Seasonal tune-up</option><option>New system quote</option></select></div>
+            <div class="d-frow full"><label for="f-hvac-urg">How soon?</label><select id="f-hvac-urg"><option>Emergency – need someone now</option><option>Today</option><option>This week</option><option>Just planning</option></select></div>
+            <div class="d-frow full"><label for="f-hvac-det">Details</label><textarea id="f-hvac-det" placeholder="What's it doing? How old is the system?"></textarea></div>
+            <div class="d-ferr" id="f-hvac-err"></div>
+            <button type="button" class="d-btn solid" data-hv="send">Send my request</button>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <div class="x-sec" style="padding-top:0"><div class="x-wrap">
+      <div class="gc-h2">What we do</div>
+      <div class="gc-h2s">Heating and cooling, repaired right or replaced honestly.</div>
+      <div class="gc-svcs">
+        <div class="gc-svc"><span class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-flame"/></svg></span><div><h4>Furnace &amp; heat pump repair</h4><p>No-heat calls, short cycling, ignitor and blower trouble.</p></div></div>
+        <div class="gc-svc"><span class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-snow"/></svg></span><div><h4>AC repair</h4><p>Not cooling, frozen coils, leaks and bad capacitors.</p></div></div>
+        <div class="gc-svc"><span class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-wrench"/></svg></span><div><h4>New system installs</h4><p>Straight repair-or-replace advice, and a written price first.</p></div></div>
+        <div class="gc-svc"><span class="ic"><svg class="ic-svg" aria-hidden="true"><use href="#i-calendar"/></svg></span><div><h4>Seasonal tune-ups</h4><p>Spring AC and fall furnace checkups that catch trouble early.</p></div></div>
+      </div>
+    </div></div>
+    <div class="x-sec" style="padding-top:0"><div class="x-wrap">
+      <div class="gc-club">
+        <div class="gc-club-l">
+          <span class="gc-kick">Maintenance plan</span>
+          <h3>Comfort Club <span class="pr">$19<small>/mo</small></span></h3>
+          <p>Two tune-ups a year, and you're first in line when it's 10 degrees out or 95.</p>
+          <ul>
+            <li>Spring AC tune-up and fall furnace tune-up</li>
+            <li>Priority scheduling on emergency calls</li>
+            <li>10% off repairs, no overtime charge</li>
+            <li>A reminder when each visit is due</li>
+          </ul>
+        </div>
+        <div class="gc-club-r">
+          <div id="f-club-wrap">
+            <div class="d-form">
+              <div class="d-frow full"><label for="f-club-name">Name</label><input id="f-club-name" type="text" placeholder="Your name" autocomplete="name"></div>
+              <div class="d-frow full"><label for="f-club-phone">Phone</label><input id="f-club-phone" type="tel" placeholder="(812) 555-0123" autocomplete="tel"></div>
+              <div class="d-frow full"><label for="f-club-sys">Your system</label><select id="f-club-sys"><option>Furnace + AC</option><option>Heat pump</option><option>Boiler</option><option>Not sure</option></select></div>
+              <div class="d-ferr" id="f-club-err"></div>
+              <button type="button" class="d-btn solid" data-hv="club">Join the Comfort Club</button>
+            </div>
+            <p class="gc-club-fine">No card needed here. We'll call to set up your plan and book your first tune-up.</p>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <div class="x-sec" style="padding-top:0"><div class="x-wrap">
+      <div class="gc-h2">What neighbors say</div>
+      <div class="gc-revs">
+        <div class="gc-rev"><div class="st">★★★★★</div><p>"Furnace quit on the coldest night of the year. They had a tech at the door in under an hour and the heat back on by midnight."</p><div class="who">Google review</div></div>
+        <div class="gc-rev"><div class="st">★★★★★</div><p>"Told us the AC could be fixed instead of replaced. We joined the Comfort Club the same day."</p><div class="who">Google review</div></div>
+      </div>
+    </div></div>
+    <div class="gc-cta"><h3>No heat tonight?</h3><p>The emergency line is answered around the clock.</p><a class="gc-btn" href="tel:+18125550100">Call (812) 555-0100</a></div>
+    <div class="gc-foot">Gibson County Heating &amp; Air (sample) &middot; Built by CM Digital</div>
+    <div class="gc-sticky"><a href="tel:+18125550100"><svg class="ic-svg" aria-hidden="true"><use href="#i-phone"/></svg> Call now</a> <button type="button" data-hv="scroll">Request service</button></div>
+  </div>
+  <div class="demo-inner dview-owner hidden">
+    <div class="d-note"><b>Running behind this site:</b> the AI receptionist answers after hours and sends you the summary &middot; a fall furnace tune-up reminder goes to past customers on its own &middot; every finished job gets a Google review ask.</div>
+    <div class="gc-own">
+      <div class="gc-oc">
+        <div class="k"><b>AI receptionist</b> <span>10:14 PM</span></div>
+        <div class="msg">
+          <span class="urg">URGENT</span>
+          <span class="row">No heat. Furnace won't light, house is at 58 and dropping.</span>
+          <span class="row"><i>Name:</i> Marcus T.</span>
+          <span class="row"><i>Address:</i> 318 W Broadway, Princeton</span>
+          <span class="row"><i>Callback:</i> (812) 555-0139</span>
+          <span class="row"><i>Wants:</i> someone out tonight. Two kids at home.</span>
+        </div>
+        <p class="gc-cap">The summary you get after a call you couldn't take.</p>
+      </div>
+      <div class="gc-oc">
+        <div class="k"><b>Fall tune-up reminder</b> <span>Sent Oct 1</span></div>
+        <div class="msg">Hi Dana, it's Gibson County Heating &amp; Air. Cold weather's on the way. Want your fall furnace tune-up on the schedule? Reply here or pick a time on our site.</div>
+        <p class="gc-cap">Goes to past customers on its own, ahead of the season.</p>
+      </div>
+      <div class="gc-oc">
+        <div class="k"><b>Google review ask</b> <span>After the job</span></div>
+        <div class="msg">Thanks for having us out today, Marcus. If you've got a minute, a Google review helps a small shop like ours. And if anything wasn't right, reply here and we'll fix it.</div>
+        <p class="gc-cap">Sent to every customer when a job is marked Done.</p>
+      </div>
+    </div>
+    <div class="board-mount" id="mount-hvac"></div>
+  </div>
+</div>
 
 <div class="demo-overlay hidden th-dirt th-light" id="demo-dirt" data-board="dirt" style="--t-bg:#f3eee3;--t-panel:#ffffff;--t-accent:#1b1a17;--t-accent-ink:#ffc21c;--t-text:#1b1a17;--t-muted:#6b665c;--t-line:rgba(27,26,23,.14);--disp:'Archivo','Arial',sans-serif;--body:'Archivo','Arial',sans-serif">
   <div class="demo-bar"><span class="lab"><b>EXAMPLE</b> — Excavation &amp; Septic</span><div class="demo-toggle"><button class="on" data-dview="cust">Customer</button><button data-dview="owner">Owner</button></div><button class="close-btn" onclick="closeDemo()">✕ Close</button></div>
@@ -1805,9 +1890,9 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     <div class="x-sec" style="padding-top:0"><div class="x-wrap">
       <div class="ma-h2">What drivers say</div>
       <div class="ma-revs" style="margin-top:16px">
-        <div class="ma-rev"><div class="st">★★★★★</div><p>"Booked online at midnight, dropped the car off the next morning. No phone tag."</p><div class="who"><i>G</i>Google review</div></div>
-        <div class="ma-rev"><div class="st">★★★★★</div><p>"Honest shop. Told me my brakes were fine when another place said replace them."</p><div class="who"><i>G</i>Google review</div></div>
-        <div class="ma-rev"><div class="st">★★★★★</div><p>"Got a text when my tires were done. In and out before lunch."</p><div class="who"><i>G</i>Google review</div></div>
+        <div class="ma-rev"><div class="st">★★★★★</div><p>"Booked online at midnight, dropped the car off the next morning. No phone tag."</p><div class="who"><i aria-hidden="true"></i>Google review</div></div>
+        <div class="ma-rev"><div class="st">★★★★★</div><p>"Honest shop. Told me my brakes were fine when another place said replace them."</p><div class="who"><i aria-hidden="true"></i>Google review</div></div>
+        <div class="ma-rev"><div class="st">★★★★★</div><p>"Got a text when my tires were done. In and out before lunch."</p><div class="who"><i aria-hidden="true"></i>Google review</div></div>
       </div>
       <div class="ma-swipe">Swipe for more ›</div>
     </div></div>
@@ -1858,6 +1943,27 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 
   /* ---------- board config ---------- */
   var BOARDS={
+    hvac:{
+      title:'Dispatch Board',
+      subtitle:'Every service request and Comfort Club sign-up in one place. Tap a card to open it; mark one Dispatched and the customer gets an automatic on-the-way text, mark it Done and the Google review ask goes out. No-heat and gas calls flagged in red.',
+      noun:'request',
+      statuses:[{k:'New',l:'New',c:'a'},{k:'Dispatched',l:'Dispatched',c:'b'},{k:'Site',l:'On site',c:'p'},{k:'Done',l:'Done',c:'m'}],
+      textStatus:'Dispatched',
+      textMsg:function(r){return 'To '+r.name+': “Hi '+first(r.name)+', your Gibson County Heating & Air tech is on the way, about 30 minutes out.”';},
+      texts:{Done:function(r){return 'To '+r.name+': “Thanks for having us out, '+first(r.name)+'. If you’ve got a minute, a Google review helps a small shop like ours. And if anything wasn’t right, reply here and we’ll fix it.”';}},
+      stats:[{l:'New',f:'new',t:function(r){return r.status==='New';}},{l:'Emergency',f:'emg',cls:'s-emg',t:function(r){return r.emg&&r.status!=='Done';}},{l:'Club',f:'club',t:function(r){return !!r.club;}},{l:'Total',f:'all',t:function(r){return true;}}],
+      tabs:[{l:'All',f:'all'},{l:'Emergency',f:'emg'},{l:'Comfort Club',f:'club'}],
+      filt:function(r,f){if(f==='emg')return r.emg;if(f==='new')return r.status==='New';if(f==='club')return !!r.club;return true;},
+      sub:function(r){return r.svc;}, meta:function(r){return r.phone+' · '+r.loc;}, tag:function(r){return r.urgency;}, urg:function(r){return r.emg&&r.status!=='Done';}, detail:function(r){return r.detail;},
+      rows:function(r){return [['Phone',r.phone,'tel'],['Address',r.loc,''],['Needs',r.svc,''],['How soon',r.urgency,r.emg?'urg':'']];},
+      records:[
+        {id:'GC-512',name:'Marcus Tate',phone:'(812) 555-0139',loc:'318 W Broadway, Princeton',svc:'No heat',urgency:'Emergency – need someone now',emg:true,detail:'Furnace won’t light, house is at 58 and dropping. Two kids at home. Came in through the AI receptionist at 10:14 PM.',status:'New',mins:6},
+        {id:'GC-511',name:'Dana Whitlock',phone:'(812) 555-0171',loc:'Fort Branch',svc:'Seasonal tune-up',urgency:'This week',emg:false,detail:'Booked from the fall furnace reminder. Comfort Club member.',status:'Dispatched',mins:95},
+        {id:'GC-510',name:'Ray Hollis',phone:'(812) 555-0126',loc:'Oakland City',svc:'Comfort Club sign-up',urgency:'New member',emg:false,club:true,detail:'System: Heat pump. Call to set up the plan and book the first tune-up.',status:'New',mins:210},
+        {id:'GC-509',name:'Linda Kerr',phone:'(812) 555-0158',loc:'Princeton',svc:'AC out',urgency:'Today',emg:false,detail:'Outdoor unit hums but the fan isn’t spinning.',status:'Site',mins:260},
+        {id:'GC-508',name:'Tom Ashby',phone:'(812) 555-0114',loc:'Haubstadt',svc:'New system quote',urgency:'Just planning',emg:false,detail:'22-year-old furnace. Wants repair-or-replace numbers.',status:'Done',mins:2900}
+      ]
+    },
     dirt:{
       title:'Leads Board',
       subtitle:'Every quote request in one place. Tap a card to open it; mark one Called and the customer gets an auto follow-up text. Emergencies flagged in red.',
@@ -1938,7 +2044,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       ]
     }
   };
-  var boardState={dirt:{filter:'all',cur:null},meat:{filter:'all',cur:null},auto:{filter:'all',cur:null},tow:{filter:'all',cur:null}};
+  var boardState={hvac:{filter:'all',cur:null},dirt:{filter:'all',cur:null},meat:{filter:'all',cur:null},auto:{filter:'all',cur:null},tow:{filter:'all',cur:null}};
   function cfgLabel(cfg,k){for(var i=0;i<cfg.statuses.length;i++){if(cfg.statuses[i].k===k)return cfg.statuses[i].l;}return k;}
   function cfgColor(cfg,k){for(var i=0;i<cfg.statuses.length;i++){if(cfg.statuses[i].k===k)return cfg.statuses[i].c;}return 'm';}
 
@@ -1985,6 +2091,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     var cfg=BOARDS[bid], r=cfg.records.filter(function(x){return x.id===id;})[0];
     if(!r) return; var was=r.status; r.status=val; renderBoard(bid);
     if(val===cfg.textStatus && was!==cfg.textStatus){ showToast(cfg.textMsg(r)); }
+    else if(cfg.texts && cfg.texts[val] && was!==val){ showToast(cfg.texts[val](r)); }
   }
 
   function scrollToForm(bid){
@@ -1992,7 +2099,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     if(el && el.scrollIntoView) el.scrollIntoView({behavior:'smooth', block:'center'});
   }
   function pickAndScroll(bid,selId,val){ var s=document.getElementById(selId); if(s){ for(var i=0;i<s.options.length;i++){ if(s.options[i].text.indexOf(val)===0){ s.selectedIndex=i; break; } } } scrollToForm(bid); }
-  var sampleSeq={dirt:2042, meat:319, auto:78, tow:242};
+  var sampleSeq={hvac:513, dirt:2042, meat:319, auto:78, tow:242};
   function sampleSubmit(bid){
     var g=function(id){ var el=document.getElementById(id); return el?el.value.trim():''; };
     var name=g('f-'+bid+'-name'), phone=g('f-'+bid+'-phone');
@@ -2015,6 +2122,11 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       rec={id:'CT-'+(sampleSeq.tow++), name:name, phone:phone, svc:g('f-tow-svc')||'Tow',
            loc:g('f-tow-loc')||'—', vehicle:g('f-tow-veh')||'—', urgency:turg||'Flexible',
            detail:g('f-tow-det')||'(no details given)', status:'New', mins:0, fresh:true};
+    } else if(bid==='hvac'){
+      var hsvc=g('f-hvac-svc'), hurg=g('f-hvac-urg');
+      rec={id:'GC-'+(sampleSeq.hvac++), name:name, phone:phone, loc:g('f-hvac-loc')||'—',
+           svc:hsvc||'Service', urgency:hurg||'Flexible', emg:/emergency/i.test(hurg)||/gas/i.test(hsvc),
+           detail:g('f-hvac-det')||'(no details given)', status:'New', mins:0, fresh:true};
     } else {
       var when=g('f-auto-when');
       rec={id:'MS-'+(sampleSeq.auto++), name:name, phone:phone, svc:g('f-auto-svc')||'Service',
@@ -2038,6 +2150,48 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     t.classList.add('show');
     clearTimeout(window._cgmTT); window._cgmTT=setTimeout(function(){t.classList.remove('show');},5600);
   }
+
+  /* ---------- HVAC example: emergency picks, gas-smell notice, Comfort Club sign-up ---------- */
+  (function(){
+    var ov=document.getElementById('demo-hvac'); if(!ov) return;
+    var gas=document.getElementById('f-hvac-gas');
+    function val(id){ var el=document.getElementById(id); return el?el.value.trim():''; }
+    function gasCheck(){ if(gas) gas.classList.toggle('show',/gas/i.test(val('f-hvac-svc'))); }
+    function setUrgency(startsWith){
+      var s=document.getElementById('f-hvac-urg'); if(!s) return;
+      for(var i=0;i<s.options.length;i++){ if(s.options[i].text.indexOf(startsWith)===0){ s.selectedIndex=i; break; } }
+    }
+    function clubSubmit(){
+      var name=val('f-club-name'), phone=val('f-club-phone'), err=document.getElementById('f-club-err');
+      if(!name||!phone){ if(err) err.textContent='Please add your name and phone.'; return; }
+      BOARDS.hvac.records.unshift({id:'GC-'+(sampleSeq.hvac++), name:name, phone:phone, loc:'—', svc:'Comfort Club sign-up',
+        urgency:'New member', emg:false, club:true,
+        detail:'System: '+(val('f-club-sys')||'Not sure')+'. Call to set up the plan and book the first tune-up.',
+        status:'New', mins:0, fresh:true});
+      boardState.hvac.filter='all'; boardState.hvac.cur=null;
+      var wrap=document.getElementById('f-club-wrap');
+      if(wrap){
+        wrap.innerHTML='<div class="d-formdone"><div class="fd-ck">✓</div>'+
+          '<h4>You’re on the list!</h4>'+
+          '<p>Thanks '+esc(name.split(' ')[0])+' — we’ll call to set up your plan.</p>'+
+          '<p class="fd-tip">Now switch to <b>Owner view</b> up top — the sign-up is on the board.</p></div>';
+      }
+    }
+    ov.addEventListener('click',function(e){
+      var b=e.target.closest?e.target.closest('[data-hv]'):null; if(!b) return;
+      var a=b.getAttribute('data-hv');
+      if(a==='scroll'){ scrollToForm('hvac'); return; }
+      if(a==='pick'){
+        var v=b.getAttribute('data-v');
+        pickAndScroll('hvac','f-hvac-svc',v);
+        setUrgency(/tune-up/i.test(v)?'This week':'Emergency');
+        gasCheck(); return;
+      }
+      if(a==='send'){ sampleSubmit('hvac'); return; }
+      if(a==='club'){ clubSubmit(); }
+    });
+    ov.addEventListener('change',function(e){ if(e.target&&e.target.id==='f-hvac-svc') gasCheck(); });
+  })();
 
   /* ---------- delegated events (reliable on mobile) ---------- */
   document.addEventListener('click', function(e){
@@ -2092,10 +2246,17 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
   })();
 
   /* ---------- prefill the form from pricing buttons ---------- */
+  function setPkg(v){
+    var h=document.getElementById('c-pkg-v'), line=document.getElementById('c-pkg'), nm=document.getElementById('c-pkg-nm');
+    if(h) h.value=v||''; if(nm) nm.textContent=v||''; if(line) line.hidden=!v;
+  }
   document.addEventListener('click',function(e){
-    var a=e.target.closest?e.target.closest('[data-need]'):null; if(!a) return;
+    var t=e.target;
+    if(t&&t.id==='c-pkg-x'){ setPkg(''); return; }
+    var a=t.closest?t.closest('[data-need]'):null; if(!a) return;
     var sel=document.getElementById('c-need'), want=a.getAttribute('data-need');
     if(sel){ for(var i=0;i<sel.options.length;i++){ if(sel.options[i].text===want){ sel.selectedIndex=i; break; } } }
+    if(a.hasAttribute('data-pkg')) setPkg(a.getAttribute('data-pkg'));
   });
 
   /* ---------- contact label follows "how should I reach you" ---------- */
@@ -2154,7 +2315,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
         wrap.innerHTML='<div class="success"><div class="ck"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg></div><h3>Got it, thanks!</h3><p>'+(need==='Try the phone answering free for 14 days'?'Your trial request is in. I’ll set it up on your line and walk you through it. Want to start right now instead? <a href="https://trades.getcmdigital.com/#join" target="_blank" rel="noopener" style="color:var(--amber)">Start the trial yourself</a>.':'Your request is in. I’ll get back to you within a day. In a hurry? Call or text (812) 582-0112.')+'</p></div>';
       })
       .catch(function(){
-        var msg=encodeURIComponent('Hi Chris, this is '+name+(document.getElementById('c-biz').value.trim()?' from '+document.getElementById('c-biz').value.trim():'')+'. I need: '+need+'. '+document.getElementById('c-msg').value.trim()+' ('+document.getElementById('c-how').value+': '+contact+')');
+        var msg=encodeURIComponent('Hi Chris, this is '+name+(document.getElementById('c-biz').value.trim()?' from '+document.getElementById('c-biz').value.trim():'')+'. I need: '+need+'. '+(document.getElementById('c-pkg-v').value?'Package: '+document.getElementById('c-pkg-v').value+'. ':'')+document.getElementById('c-msg').value.trim()+' ('+document.getElementById('c-how').value+': '+contact+')');
         wrap.innerHTML='<div class="send-fail"><h3>That didn’t go through</h3><p>Sorry about that. Text it to me instead — I’ve filled in the message for you.</p><a class="btn btn-amber" href="sms:+18125820112?&body='+msg+'">Text Chris</a></div>';
       })
       .then(function(){ wrap.scrollIntoView({behavior:'smooth', block:'center'}); });
@@ -2251,33 +2412,34 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 })();
 </script>
 <script>
-/* form: recommend a plan from "What would help most" */
+/* form: recommend a package from "What would help most" */
 (function(){
   var box=document.getElementById('c-helps'); if(!box) return;
   var rec=document.getElementById('c-rec'), nm=document.getElementById('c-rec-nm'), pr=document.getElementById('c-rec-pr'), why=document.getElementById('c-rec-why'), see=document.getElementById('c-rec-see');
-  var hv=document.getElementById('c-helps-v'), rv=document.getElementById('c-rec-v'), cur=[];
-  function money(n){return '$'+n.toLocaleString('en-US')}
+  var hv=document.getElementById('c-helps-v'), rv=document.getElementById('c-rec-v'), target='';
+  var PK={
+    1:{n:'The Foundation',p:'$499 setup + $49 a month',id:'pkg-foundation',w:'Everything you tapped is in the starting package.'},
+    2:{n:'The Lead Engine',p:'$799 setup + $149 a month',id:'pkg-lead',w:'That covers everything you tapped. Booking, website chat, quote follow-ups and plan sign-ups start at this package.'},
+    3:{n:'The 24/7 Front Desk',p:'$999 setup + $279 a month',id:'pkg-desk',w:'That covers everything you tapped. The phone AI, text-backs and seasonal campaigns are in this package.'}
+  };
   function upd(){
     var on=[].filter.call(box.querySelectorAll('button'),function(b){return b.getAttribute('aria-pressed')==='true'});
     hv.value=on.map(function(b){return b.textContent}).join('; ');
-    var ids=[]; on.forEach(function(b){b.getAttribute('data-ids').split(' ').forEach(function(x){if(ids.indexOf(x)<0)ids.push(x)})});
-    cur=ids;
-    if(!ids.length||!window.ppQuote){rec.style.display='none';rv.value='';return}
-    var r=window.ppQuote(ids), n, p, w;
-    var extras=ids.filter(function(x){return x!=='site'&&x!=='air'});
-    if(ids.length===1&&ids[0]==='air'){n='Phones answered';p='$149 a month, $0 setup';w='You need the calls answered. Keep your number and the site you have. Free for 14 days first.'}
-    else if(!extras.length&&ids.indexOf('air')<0){n='Simple Site';p='$299 setup + $29 a month';w='One clean page where people find you and tap to call or send a request.'}
-    else if(r.m>=279||r.s>=999){n='Everything';p='$999 setup + $279 a month';w='Your picks alone come to '+money(r.s)+' setup + '+money(r.m)+' a month. Everything covers them and every other feature.'}
-    else if(279-r.m<=30){n='Everything';p='$999 setup + $279 a month';w='Your picks come to '+money(r.s)+' setup + '+money(r.m)+' a month. For '+money(279-r.m)+' more a month, Everything covers these and every other feature.'}
-    else{n='Build your own';p=money(r.s)+' setup + '+money(r.m)+' a month';w='The site plus just what you picked: '+window.ppNames(ids.filter(function(x){return x!=='site'})).join(', ')+'.'+(ids.indexOf('air')>=0?' The phone answering is free for 14 days first.':'')}
+    if(!on.length){rec.style.display='none';rv.value='';target='';return}
+    var lv=0, n, p, w;
+    on.forEach(function(b){var v=b.getAttribute('data-lv'), x=(v==='p')?3:(+v||1); if(x>lv)lv=x});
+    if(on.length===1&&on[0].getAttribute('data-lv')==='p'){
+      n='Phone AI on its own'; p='$149 a month, free for 14 days'; target='pkg-desk';
+      w='You need the calls answered. Keep your number and the site you have. Want the site and the follow-up tools too? That’s The 24/7 Front Desk.';
+    } else { n=PK[lv].n; p=PK[lv].p; w=PK[lv].w; target=PK[lv].id; }
     nm.textContent=n; pr.textContent=p; why.textContent=w; rec.style.display='block';
     rv.value=n+' ('+p+')';
   }
   box.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;b.setAttribute('aria-pressed',b.getAttribute('aria-pressed')==='true'?'false':'true');upd()});
   see.addEventListener('click',function(){
-    var n=nm.textContent;
-    if(n==='Everything'){var a=document.querySelector('[data-start="all"]');if(a)a.click();return}
-    if(window.ppLoad)window.ppLoad(cur);
+    var card=target?document.getElementById(target):null; if(!card) return;
+    if(card.scrollIntoView) card.scrollIntoView({behavior:'smooth',block:'start'});
+    card.classList.add('pk-hi'); setTimeout(function(){card.classList.remove('pk-hi')},2200);
   });
 })();
 </script>

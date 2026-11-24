@@ -13,7 +13,7 @@ usually within a minute. There is nothing to run locally and nothing to build.
 
 | File | What it is |
 | --- | --- |
-| `index.html` | The entire site: markup, styles, scripts, and the four example demos |
+| `index.html` | The entire site: markup, styles, scripts, and the five example demos |
 | `netlify.toml` | Tells Netlify to publish this folder as-is and not to cache index.html |
 
 ## Assets that aren't here yet
