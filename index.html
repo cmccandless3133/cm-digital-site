@@ -1201,6 +1201,25 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
         </details>
       </div>
     </div>
+    <div class="ai-how reveal">
+      <h3>What your AI receptionist does for you</h3>
+      <p class="ai-how-sub">Think of it as a front desk that never takes a day off. It's built on your business, answers as your business, and hands you the job.</p>
+      <ol class="ai-steps">
+        <li><b>I train it on your shop.</b> Your services, prices, hours, the towns you cover, and how you want calls handled. It won't make up anything you didn't give it.</li>
+        <li><b>Your calls ring it when you can't pick up.</b> You keep your number. Calls you miss, or every call after hours, go to it. You choose.</li>
+        <li><b>It answers in your business's name, day or night.</b> It answers the questions you get all day, asks the questions your trade needs asked, and takes down the name, address, callback number and what the job is.</li>
+        <li><b>You get the job, not a voicemail.</b> A summary lands in your email right after each call, with urgent calls marked URGENT at the top. By text too once your number is registered.</li>
+      </ol>
+      <ul class="ai-does">
+        <li><b>Emergencies at 2 AM:</b> flagged so you see them first, not buried in voicemail.</li>
+        <li><b>"How much? Are you open? Do you come out to my town?"</b> Answered on the spot from your real info.</li>
+        <li><b>New job requests:</b> every detail written down, so you call back already knowing the job.</li>
+        <li><b>Busy season:</b> 300 call minutes a month included.</li>
+        <li><b>Honest with callers:</b> if someone asks, it tells them it's an AI assistant for your business.</li>
+        <li><b>Try it before you pay:</b> free for 14 days on your real line. Keep it only if it's catching calls you'd have missed.</li>
+      </ul>
+      <p class="ai-how-cta"><a class="btn btn-amber" href="#contact" data-need="Try the phone answering free for 14 days" data-pkg="Phone AI free trial">Try it free for 14 days</a> <span>Comes with The 24/7 Front Desk, adds onto The Foundation or The Lead Engine for $120 a month, or $149 a month on its own.</span></p>
+    </div>
   </div>
 </section>
 
@@ -1302,6 +1321,26 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 #pricing .pk-alerts p{color:#cfd6e2;font-size:.93rem;line-height:1.55}
 #pricing .pk-fine{max-width:1040px;margin:14px auto 0;color:var(--muted);font-size:.88rem;line-height:1.55}
 @media(min-width:900px){#pricing .pk-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}#pricing .pk-how{grid-template-columns:repeat(3,1fr)}}
+#pricing .pk-ai{display:flex;gap:10px;align-items:flex-start;margin:14px 0 4px;padding:12px 13px;border:1.5px dashed rgba(45,212,191,.55);border-radius:10px;background:rgba(45,212,191,.07);cursor:pointer;color:#cfd6e2;font-size:.9rem;line-height:1.45}
+#pricing .pk-ai input{flex:none;width:20px;height:20px;margin:2px 0 0;accent-color:#2dd4bf;cursor:pointer}
+#pricing .pk-ai b{display:block;color:var(--cream);font-size:.95rem}
+#pricing .pk-ai em{display:block;font-style:normal;color:var(--amber);font-weight:600;margin:1px 0 3px}
+#pricing .pk-ai.on{border-style:solid;border-color:var(--amber);background:rgba(45,212,191,.13)}
+#pricing .pk-ai:focus-within{outline:2px solid var(--amber);outline-offset:2px}
+#pricing .pk-ai-note{color:#cfd6e2;font-size:.86rem;margin:0 0 6px;line-height:1.45}
+#pricing .pk-ai-note a{color:var(--amber)}
+#ai .ai-how{margin-top:34px;background:var(--panel-2);border:1px solid var(--line);border-top:3px solid var(--amber);border-radius:12px;padding:24px 22px}
+#ai .ai-how h3{font-family:var(--disp);text-transform:uppercase;letter-spacing:.03em;font-weight:700;font-size:1.3rem;color:var(--cream)}
+#ai .ai-how-sub{color:#cfd6e2;margin-top:6px;max-width:640px}
+#ai .ai-steps{list-style:none;counter-reset:s;margin:18px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:12px}
+#ai .ai-steps li{counter-increment:s;position:relative;padding:12px 14px 12px 50px;background:rgba(255,255,255,.03);border:1px solid var(--line);border-radius:10px;color:#cfd6e2;font-size:.93rem;line-height:1.5}
+#ai .ai-steps li::before{content:counter(s);position:absolute;left:12px;top:12px;width:26px;height:26px;border-radius:50%;background:var(--grad);color:#fff;font-family:var(--disp);font-weight:700;font-size:.85rem;display:grid;place-items:center}
+#ai .ai-steps b,#ai .ai-does b{color:var(--cream)}
+#ai .ai-does{list-style:none;margin:16px 0 0;padding:0;display:grid;grid-template-columns:minmax(0,1fr);gap:8px 18px}
+#ai .ai-does li{position:relative;padding:6px 0 6px 24px;color:#cfd6e2;font-size:.93rem;line-height:1.45}
+#ai .ai-does li::before{content:"\2713";position:absolute;left:2px;top:6px;color:var(--amber);font-weight:700}
+#ai .ai-how-cta{margin-top:18px;display:flex;flex-wrap:wrap;gap:10px 14px;align-items:center;color:var(--muted);font-size:.9rem}
+@media(min-width:760px){#ai .ai-steps{grid-template-columns:repeat(2,minmax(0,1fr))}#ai .ai-does{grid-template-columns:repeat(2,minmax(0,1fr))}}
 </style>
   <div class="wrap">
     <div class="section-head reveal">
@@ -1314,7 +1353,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
       <article class="pk reveal" id="pkg-foundation">
         <h3>The Foundation</h3>
         <p class="pk-for">Get found &amp; build trust</p>
-        <div class="pk-price"><span class="n">$499</span> <span class="per">setup +</span> <span class="mo"><span class="n">$49</span><span class="per">/month</span></span></div>
+        <div class="pk-price"><span class="n">$499</span> <span class="per">setup +</span> <span class="mo"><span class="n" data-mo="49">$49</span><span class="per">/month</span></span></div>
         <p class="pk-ps"><b>The problem:</b> Customers search for your trade in town and find nothing, a broken link, or a competitor with 100+ Google reviews.</p>
         <p class="pk-ps"><b>The solution:</b> A fast, phone-first website you own, a Google Business Profile that's set up right, and a review engine that asks every customer for a Google review when the job's done.</p>
         <h4>What's included</h4>
@@ -1324,6 +1363,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <li><b>5-Star Google Review Engine:</b> an automatic review request after every job, with your Google link and a direct line to you if something wasn't right</li>
           <li><b>Hosting on your own account,</b> plus up to 30 minutes of site updates a month</li>
         </ul>
+        <label class="pk-ai"><input type="checkbox" data-ai-add> <span><b>Add the 24/7 AI phone receptionist</b> <em>+$120 a month, $0 setup, free for 14 days</em> Every call answered in your business's name, emergencies flagged, and the job details sent to you after every call.</span></label>
         <a class="btn btn-ghost" href="#contact" data-need="Show me a free sample of my site first" data-pkg="The Foundation ($499 setup + $49 a month)">See a free sample first</a>
       </article>
 
@@ -1331,7 +1371,7 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
         <span class="tag">Recommended</span>
         <h3>The Lead Engine</h3>
         <p class="pk-for">Capture every lead, follow up every quote</p>
-        <div class="pk-price"><span class="n">$799</span> <span class="per">setup +</span> <span class="mo"><span class="n">$149</span><span class="per">/month</span></span></div>
+        <div class="pk-price"><span class="n">$799</span> <span class="per">setup +</span> <span class="mo"><span class="n" data-mo="149">$149</span><span class="per">/month</span></span></div>
         <p class="pk-ps"><b>The problem:</b> Leads slip through the cracks while you're on a job, quotes go cold because nobody had time to follow up, and repeat maintenance work gets forgotten.</p>
         <p class="pk-ps"><b>The solution:</b> Everything in The Foundation, plus online booking, automatic quote follow-ups and maintenance plan sign-ups, so the follow-up gets done without you chasing people.</p>
         <h4>What's included</h4>
@@ -1343,6 +1383,8 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
           <li><b>Maintenance Plan / Service Club Sign-Up:</b> a dedicated page and automatic renewal reminders, so one-off repair customers have an easy way into recurring seasonal work. Nothing is charged online.</li>
           <li class="bonus"><b>Quick-Win Launch Bonus, included free:</b> a one-time Past-Customer Reactivation campaign. The week you launch, I email your existing customer list a seasonal tune-up or checkup offer.</li>
         </ul>
+        <label class="pk-ai"><input type="checkbox" data-ai-add> <span><b>Add the 24/7 AI phone receptionist</b> <em>+$120 a month, $0 setup, free for 14 days</em> Every call answered in your business's name, emergencies flagged, and the job details sent to you after every call.</span></label>
+        <p class="pk-ai-note" hidden>With the phone AI added, The 24/7 Front Desk is just $10 more a month (and $200 more setup) and also adds missed-call text-back and seasonal campaigns. <a href="#pkg-desk">See it &rsaquo;</a></p>
         <a class="btn btn-amber" href="#contact" data-need="Show me a free sample of my site first" data-pkg="The Lead Engine ($799 setup + $149 a month)">See a free sample first</a>
       </article>
 
@@ -1368,7 +1410,9 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
 
     <div class="pk-extra reveal">
       <p><b>Need something specific?</b> Add extra service or location pages ($99 each), a Past-Customer Reactivation blast to any package ($250 one-time), or custom workflow automations ($75 an hour, quoted up front).</p>
-      <p><b>Happy with the site you've got?</b> The phone AI on its own is $149 a month, free for 14 days on your real line. <a href="#contact" data-need="Try the phone answering free for 14 days" data-pkg="Phone AI on its own ($149 a month)">Ask for the free trial &rsaquo;</a></p>
+      <p><b>Want the phone AI with The Foundation or The Lead Engine?</b> Tick "Add the 24/7 AI phone receptionist" on either one: +$120 a month, $0 setup.</p>
+      <p><b>Just want every call answered?</b> The phone AI on its own is $149 a month and works with the site you have now. Free for 14 days on your real line. <a href="#contact" data-need="Try the phone answering free for 14 days" data-pkg="Phone AI on its own ($149 a month)">Ask for the free trial &rsaquo;</a></p>
+      <p><b>Want your current site faster or easier to use on phones?</b> I'll look at it free and quote the fix before any work. <a href="#contact" data-need="Look at my current website" data-pkg="Free look at my current website">Ask for a free look &rsaquo;</a></p>
     </div>
 
     <ol class="pk-how">
@@ -2440,6 +2484,26 @@ html{scroll-padding-top:env(safe-area-inset-top,0px)}
     var card=target?document.getElementById(target):null; if(!card) return;
     if(card.scrollIntoView) card.scrollIntoView({behavior:'smooth',block:'start'});
     card.classList.add('pk-hi'); setTimeout(function(){card.classList.remove('pk-hi')},2200);
+  });
+})();
+</script>
+<script>
+/* AI receptionist add-on on The Foundation and The Lead Engine */
+(function(){
+  var ADD=120;
+  document.querySelectorAll('#pricing [data-ai-add]').forEach(function(cb){
+    var card=cb.closest('.pk'), lab=cb.closest('.pk-ai'), note=card.querySelector('.pk-ai-note');
+    var mo=card.querySelector('[data-mo]'), btn=card.querySelector('a.btn[data-pkg]');
+    var base=+mo.getAttribute('data-mo'), pkg0=btn.getAttribute('data-pkg'), name=card.querySelector('h3').textContent;
+    var setup=(pkg0.match(/\$[\d,]+ setup/)||[''])[0];
+    function upd(){
+      var on=cb.checked, m=base+(on?ADD:0);
+      mo.textContent='$'+m;
+      lab.classList.toggle('on',on);
+      if(note) note.hidden=!on;
+      btn.setAttribute('data-pkg', on ? name+' + AI phone receptionist ('+setup+' + $'+m+' a month)' : pkg0);
+    }
+    cb.addEventListener('change',upd); upd();
   });
 })();
 </script>
