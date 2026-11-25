@@ -1,0 +1,1145 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>AllTrade HVAC Demo</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@600;700;800&family=Barlow:wght@400;500;600;700&family=IBM+Plex+Mono:wght@500&display=swap" rel="stylesheet">
+<style>
+/* Layout: a phone-first HVAC storefront that funnels to one service-request form, plus an owner dashboard behind a Customer/Owner toggle.
+   Single deliberate light look (a client's storefront), so colors are set explicitly. Heat = flame, cool = ice. */
+:root{
+  color-scheme:light;
+  --ink:#0f2a44;      /* navy: type, header */
+  --flame:#e8590c;    /* heat accent: primary actions */
+  --flame-d:#c2410c;
+  --ice:#0b7fb5;      /* cool accent: secondary, links */
+  --bg:#f3f6f9;       /* cool-tinted neutral */
+  --paper:#ffffff;
+  --line:#d6e0ea;
+  --muted:#5a6b7d;
+  --soft:#e8eff6;
+  --ok:#15803d;--ok-bg:#dcfce7;
+  --warn:#a16207;--warn-bg:#fef3c7;
+  --bad:#b91c1c;--bad-bg:#fee2e2;
+  --dark:#0b1f33;--dark-2:#13304d;--dark-line:rgba(255,255,255,.12);--on-dark:#eaf2fa;--on-dark-mute:#a9bccf;
+  --disp:'Barlow Condensed','Arial Narrow',Arial,sans-serif;
+  --body:'Barlow',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,monospace;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth;scroll-padding-top:calc(env(safe-area-inset-top,0px) + 120px)}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:16.5px;line-height:1.5}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:60;background:var(--dark)}
+a{color:var(--ice)}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ice);outline-offset:2px}
+.gut{padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.wrap{max-width:760px;margin:0 auto}
+h1,h2,h3{font-family:var(--disp);letter-spacing:.01em;line-height:1.05;text-wrap:balance;margin:0}
+h2{font-size:30px;text-transform:uppercase}
+h3{font-size:21px}
+.eyebrow{font-size:12.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--flame-d)}
+.lead{color:var(--muted);margin:6px 0 0;max-width:60ch}
+
+/* Demo bar */
+.demobar{position:sticky;top:env(safe-area-inset-top,0px);z-index:50;background:var(--dark);color:var(--on-dark);padding-block:8px}
+.demobar .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.demotag{font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--on-dark-mute)}
+.demotag b{color:#fdba74}
+@media (max-width:480px){.demotag{flex:1 1 0;min-width:0}.demotag .by-long{display:none}.demotag .by-short{white-space:nowrap}}
+.seg{display:flex;background:var(--dark-2);border:1px solid var(--dark-line);border-radius:999px;padding:3px}
+.seg button{border:0;background:transparent;color:var(--on-dark-mute);font-weight:700;font-size:14px;padding:8px 14px;border-radius:999px;cursor:pointer;min-height:38px}
+.seg button[aria-pressed="true"]{background:var(--paper);color:var(--ink)}
+
+/* Customer header */
+.head{background:var(--paper);border-bottom:1px solid var(--line);padding-block:10px}
+.head .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);min-width:0}
+.mark{width:40px;height:40px;border-radius:9px;flex:0 0 auto;background:linear-gradient(135deg,var(--flame) 0 50%,var(--ice) 50% 100%);display:flex;align-items:center;justify-content:center;color:#fff;font-family:var(--disp);font-weight:800;font-size:19px;letter-spacing:.02em}
+.logo .nm{font-family:var(--disp);font-weight:800;font-size:22px;line-height:1;text-transform:uppercase}
+.logo .nm small{display:block;font-family:var(--body);font-weight:600;font-size:12px;letter-spacing:.06em;color:var(--muted);text-transform:none;margin-top:3px}
+.callbtn{display:inline-flex;align-items:center;gap:6px;background:var(--flame);color:#fff;text-decoration:none;font-weight:700;border-radius:10px;padding:10px 12px;white-space:nowrap;min-height:44px}
+.callbtn:hover{background:var(--flame-d)}
+
+.emerg{background:var(--bad-bg);border-bottom:1px solid #fca5a5;padding-block:9px}
+.emerg .wrap{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;font-weight:600;color:var(--bad)}
+.emerg button{border:0;background:var(--bad);color:#fff;font-weight:700;border-radius:999px;padding:8px 14px;cursor:pointer;min-height:40px}
+
+/* Hero */
+.hero{background:linear-gradient(160deg,var(--dark) 0%,var(--dark-2) 70%,#1d4d73 100%);color:var(--on-dark);padding-block:30px 26px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(232,89,12,.35),transparent 70%)}
+.hero .wrap{position:relative;z-index:1}
+.hero h1{font-size:clamp(36px,9vw,54px);text-transform:uppercase;font-weight:800}
+.hero h1 em{font-style:normal;color:#fdba74}
+.hero p{color:var(--on-dark-mute);margin:10px 0 18px;max-width:46ch;font-size:17px}
+.btns{display:flex;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:11px;padding:13px 18px;font-weight:700;font-size:16px;cursor:pointer;text-decoration:none;min-height:48px}
+.btn.primary{background:var(--flame);color:#fff}
+.btn.primary:hover{background:var(--flame-d)}
+.btn.ghost{background:transparent;color:var(--on-dark);border:1.5px solid rgba(255,255,255,.45)}
+.btn.line{background:var(--paper);color:var(--ink);border:1.5px solid var(--line)}
+.btn.ice{background:var(--ice);color:#fff}
+.btn.block{width:100%}
+.demonote{margin-top:14px;font-size:13px;color:var(--on-dark-mute);border-left:3px solid #fdba74;padding-left:10px;max-width:56ch}
+.demonote b{color:var(--on-dark)}
+
+.trust{background:var(--paper);border-bottom:1px solid var(--line);padding-block:12px}
+.trust .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px}
+.trust div{font-size:13px;color:var(--muted);line-height:1.25}
+.trust b{display:block;font-family:var(--disp);font-size:20px;color:var(--ink);font-weight:700}
+@media (max-width:560px){.trust .wrap{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:12px}}
+
+section.blk{padding-block:30px}
+section.blk + section.blk{border-top:1px solid var(--line)}
+.tiles{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin-top:14px}
+.tiles button{background:var(--paper);border:1.5px solid var(--line);border-radius:13px;padding:14px 12px;text-align:left;cursor:pointer;min-height:92px;display:flex;flex-direction:column;justify-content:space-between;gap:6px}
+.tiles button:hover{border-color:var(--ice)}
+.tiles b{font-family:var(--disp);font-size:19px;text-transform:uppercase;line-height:1.05}
+.tiles span{font-size:13px;color:var(--muted)}
+.tiles .hot{background:var(--flame);border-color:var(--flame);color:#fff}
+.tiles .hot span{color:#ffe8d6}
+@media (max-width:520px){.tiles{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+/* Forms */
+.card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:18px;margin-top:14px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fgrid .full{grid-column:1/-1}
+@media (max-width:520px){.fgrid{grid-template-columns:1fr}}
+label.f{display:flex;flex-direction:column;gap:5px;font-size:14px;font-weight:600;min-width:0}
+label.f small{font-weight:400;color:var(--muted)}
+input[type=text],input[type=tel],input[type=email],input[type=number],select,textarea{width:100%;min-height:46px;border:1.5px solid var(--line);border-radius:10px;padding:10px 12px;background:#fbfdff;font-size:16px}
+textarea{min-height:88px;resize:vertical}
+input:focus,select:focus,textarea:focus{border-color:var(--ice);outline:none;box-shadow:0 0 0 3px rgba(11,127,181,.18)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{border:1.5px solid var(--line);background:#fbfdff;border-radius:999px;padding:9px 13px;font-weight:600;font-size:14.5px;cursor:pointer;min-height:42px}
+.chip[aria-pressed="true"]{background:var(--ink);border-color:var(--ink);color:#fff}
+.chip.em[aria-pressed="true"]{background:var(--bad);border-color:var(--bad)}
+.check{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;cursor:pointer}
+.check input{width:22px;height:22px;margin-top:1px;flex:0 0 auto;accent-color:var(--ice)}
+.err{color:var(--bad);font-size:14px;font-weight:600;min-height:1em}
+.photo{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.photo img{width:64px;height:64px;object-fit:cover;border-radius:8px;border:1px solid var(--line)}
+.success{background:var(--ok-bg);border:1px solid #86efac;border-radius:12px;padding:14px;margin-top:12px}
+.success h3{color:var(--ok)}
+.success .ref{font-family:var(--mono);font-size:14px}
+.preview{background:var(--paper);border:1px dashed var(--line);border-radius:10px;padding:10px 12px;margin-top:8px;font-size:14px}
+.preview small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin-bottom:3px}
+
+/* Estimator */
+.est-out{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:14px}
+.est-out div{background:var(--soft);border-radius:12px;padding:12px}
+.est-out b{display:block;font-family:var(--disp);font-size:28px;font-variant-numeric:tabular-nums}
+.est-out span{font-size:13px;color:var(--muted)}
+.fine{font-size:12.5px;color:var(--muted);margin-top:8px}
+
+/* Plans */
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:14px}
+@media (max-width:560px){.plans{grid-template-columns:1fr}}
+.plan{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;padding:16px;display:flex;flex-direction:column;gap:8px;cursor:pointer;text-align:left}
+.plan[aria-pressed="true"]{border-color:var(--flame);box-shadow:0 0 0 3px rgba(232,89,12,.15)}
+.plan .pr{font-family:var(--disp);font-size:34px;font-weight:800;font-variant-numeric:tabular-nums}
+.plan .pr small{font-size:16px;color:var(--muted);font-weight:600}
+.plan ul{margin:0;padding-left:18px;font-size:14.5px;color:var(--muted)}
+.plan .pill{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;background:var(--flame);color:#fff;border-radius:999px;padding:3px 9px}
+
+.verdict{margin-top:12px;border-radius:12px;padding:12px 14px;font-weight:600}
+.verdict.v0{background:var(--ok-bg);color:var(--ok)}
+.verdict.v1{background:var(--warn-bg);color:var(--warn)}
+.verdict.v2{background:var(--bad-bg);color:var(--bad)}
+
+.towns{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.towns span{background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:5px 11px;font-size:14px}
+.row{display:flex;gap:10px;align-items:flex-end;flex-wrap:wrap}
+.row > *{min-width:0}
+
+.rating{display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.rating .big{font-family:var(--disp);font-size:56px;font-weight:800;line-height:1}
+.stars{color:#f59e0b;font-size:22px;letter-spacing:2px}
+
+.foot{background:var(--dark);color:var(--on-dark-mute);padding-block:26px 110px;font-size:14.5px}
+.foot b{color:var(--on-dark)}
+.foot a{color:#7dd3fc}
+.foot .cols{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:520px){.foot .cols{grid-template-columns:1fr}}
+.foot .preview-by{margin-top:18px;border-top:1px solid var(--dark-line);padding-top:12px;font-size:13px}
+
+/* Sticky bottom action bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:40;background:var(--paper);border-top:1px solid var(--line);padding-top:8px;padding-bottom:calc(8px + env(safe-area-inset-bottom,0px));padding-left:max(10px,env(safe-area-inset-left,0px));padding-right:max(10px,env(safe-area-inset-right,0px));display:grid;grid-template-columns:1fr 1.3fr 1fr;gap:8px;box-shadow:0 -6px 18px rgba(15,42,68,.08)}
+.bar a,.bar button{display:flex;align-items:center;justify-content:center;border-radius:10px;min-height:48px;font-weight:700;font-size:15px;text-decoration:none;border:1.5px solid var(--line);background:var(--paper);color:var(--ink);cursor:pointer}
+.bar .go{background:var(--flame);border-color:var(--flame);color:#fff}
+
+/* Chat */
+.chatbtn{position:fixed;right:max(14px,calc(env(safe-area-inset-right,0px) + 14px));bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:41;width:58px;height:58px;border-radius:50%;border:0;background:var(--ice);color:#fff;font-weight:800;font-family:var(--disp);font-size:16px;box-shadow:0 8px 20px rgba(11,127,181,.35);cursor:pointer}
+.chat{position:fixed;right:max(12px,calc(env(safe-area-inset-right,0px) + 12px));left:max(12px,calc(env(safe-area-inset-left,0px) + 12px));bottom:calc(150px + env(safe-area-inset-bottom,0px));z-index:42;max-width:380px;margin-left:auto;background:var(--paper);border:1px solid var(--line);border-radius:16px;box-shadow:0 18px 40px rgba(15,42,68,.22);display:flex;flex-direction:column;max-height:62vh}
+.chat header{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-bottom:1px solid var(--line)}
+.chat header b{font-family:var(--disp);font-size:19px;text-transform:uppercase}
+.chat header small{display:block;color:var(--muted);font-size:12px}
+.chat .x{border:0;background:var(--soft);border-radius:8px;width:36px;height:36px;cursor:pointer;font-size:18px}
+.msgs{padding:12px;overflow-y:auto;display:flex;flex-direction:column;gap:8px;min-height:0}
+.m{max-width:86%;padding:9px 12px;border-radius:14px;font-size:14.5px}
+.m.bot{background:var(--soft);align-self:flex-start;border-bottom-left-radius:4px}
+.m.me{background:var(--ice);color:#fff;align-self:flex-end;border-bottom-right-radius:4px}
+.quick{display:flex;gap:6px;flex-wrap:wrap;padding:0 12px 8px}
+.quick button{border:1px solid var(--line);background:#fbfdff;border-radius:999px;padding:6px 10px;font-size:13px;cursor:pointer}
+.chat form{display:flex;gap:6px;padding:10px;border-top:1px solid var(--line)}
+.chat form input{min-height:42px}
+.chat form button{border:0;background:var(--ink);color:#fff;border-radius:10px;padding:0 14px;font-weight:700;cursor:pointer}
+
+/* ===== Owner view ===== */
+.owner{background:var(--dark);color:var(--on-dark);min-height:100vh;padding-block:16px 60px}
+.owner a{color:#7dd3fc}
+.ohead{display:flex;justify-content:space-between;align-items:flex-end;gap:10px;flex-wrap:wrap}
+.ohead h1{font-size:32px;text-transform:uppercase}
+.ohead p{margin:2px 0 0;color:var(--on-dark-mute);font-size:14px}
+.today{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+@media (max-width:560px){.today{grid-template-columns:repeat(2,minmax(0,1fr))}}
+.today button{background:var(--dark-2);border:1px solid var(--dark-line);border-radius:12px;padding:10px 12px;color:var(--on-dark);text-align:left;cursor:pointer;font:inherit;width:100%;min-height:64px}
+.today button:hover,.today button:focus-visible{border-color:#fdba74}
+.today b{display:block;font-family:var(--disp);font-size:28px;font-variant-numeric:tabular-nums;line-height:1.1}
+.today span{font-size:12.5px;color:var(--on-dark-mute)}
+.today .alert b{color:#fca5a5}
+.tabs{display:flex;gap:6px;overflow-x:auto;margin-top:16px;padding-bottom:6px;scrollbar-width:thin}
+.tabs button{flex:0 0 auto;border:1px solid var(--dark-line);background:var(--dark-2);color:var(--on-dark-mute);border-radius:999px;padding:9px 14px;font-weight:700;font-size:14px;cursor:pointer;min-height:42px;position:relative}
+.tabs button[aria-current="true"]{background:var(--paper);color:var(--ink)}
+.tabs .dot{display:inline-block;min-width:20px;height:20px;border-radius:999px;background:var(--flame);color:#fff;font-size:12px;line-height:20px;text-align:center;margin-left:6px;padding:0 5px}
+.bnote{color:var(--on-dark-mute);font-size:14px;margin:10px 0 0}
+.fbar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;margin-top:12px;background:rgba(253,186,116,.12);border:1px solid #fdba74;border-radius:12px;padding:8px 12px;font-size:14px;font-weight:700;color:#fdba74}
+.fbar button{border:0;background:transparent;color:#7dd3fc;font-weight:700;cursor:pointer;min-height:40px;padding:4px 0;font-size:14px}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(76px,1fr));gap:8px;margin-top:12px}
+.stats button{background:var(--dark-2);border:1.5px solid var(--dark-line);border-radius:12px;padding:10px;text-align:left;color:var(--on-dark);cursor:pointer;min-height:64px}
+.stats button[aria-pressed="true"]{border-color:#fdba74}
+.stats b{display:block;font-family:var(--disp);font-size:24px;font-variant-numeric:tabular-nums;line-height:1}
+.stats span{font-size:12.5px;color:var(--on-dark-mute)}
+.search{margin-top:10px}
+.search input{background:var(--dark-2);border-color:var(--dark-line);color:var(--on-dark)}
+.search input::placeholder{color:var(--on-dark-mute)}
+.list{display:flex;flex-direction:column;gap:8px;margin-top:10px}
+.rec{background:var(--dark-2);border:1px solid var(--dark-line);border-radius:12px;padding:12px 14px;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:4px 10px;color:var(--on-dark);text-align:left;width:100%}
+.rec:hover{border-color:rgba(255,255,255,.3)}
+.rec .t{font-weight:700;font-size:16px}
+.rec .s{grid-column:1/-1;color:var(--on-dark-mute);font-size:14px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.rec .id{font-family:var(--mono);font-size:12px;color:var(--on-dark-mute)}
+.rec.fresh{border-color:#fdba74;animation:glow 1.6s ease-in-out 4}
+@keyframes glow{50%{box-shadow:0 0 0 4px rgba(253,186,116,.35)}}
+.newb{display:inline-block;background:#fdba74;color:var(--dark);font-size:11px;font-weight:800;letter-spacing:.08em;border-radius:5px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.urg{display:inline-block;background:#ef4444;color:#fff;font-size:11px;font-weight:800;letter-spacing:.06em;border-radius:5px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.st{align-self:start;font-size:12px;font-weight:700;border-radius:999px;padding:3px 9px;background:rgba(255,255,255,.1);white-space:nowrap}
+.st.s0{background:rgba(253,186,116,.2);color:#fdba74}
+.st.s1{background:rgba(125,211,252,.18);color:#7dd3fc}
+.st.s2{background:rgba(196,181,253,.2);color:#c4b5fd}
+.st.s3{background:rgba(134,239,172,.18);color:#86efac}
+.st.s4{background:rgba(255,255,255,.08);color:var(--on-dark-mute)}
+.empty{color:var(--on-dark-mute);font-size:14.5px;padding:18px;text-align:center;border:1px dashed var(--dark-line);border-radius:12px}
+.detail{background:var(--dark-2);border:1px solid var(--dark-line);border-radius:14px;padding:16px;margin-top:12px}
+.detail .back{border:0;background:transparent;color:#7dd3fc;font-weight:700;font-size:16px;cursor:pointer;padding:6px 0;min-height:44px}
+.detail h3{font-size:26px;margin:4px 0 10px}
+.kv{display:grid;grid-template-columns:120px minmax(0,1fr);gap:7px 12px;font-size:14.5px}
+.kv dt{color:var(--on-dark-mute)}
+.kv dd{margin:0;overflow-wrap:anywhere}
+.kv img{width:120px;border-radius:8px}
+.acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.acts .btn{min-height:44px;padding:10px 14px;font-size:15px}
+.acts select{width:auto;min-width:170px;background:var(--dark);border-color:var(--dark-line);color:var(--on-dark)}
+.log{margin-top:14px;border-top:1px solid var(--dark-line);padding-top:10px;font-size:13.5px;color:var(--on-dark-mute)}
+.log div{padding:3px 0}
+.log b{color:var(--on-dark)}
+.auto{margin-top:12px;background:rgba(125,211,252,.08);border:1px solid rgba(125,211,252,.25);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--on-dark)}
+.camps{display:grid;gap:10px;margin-top:12px}
+.camp{background:var(--dark-2);border:1px solid var(--dark-line);border-radius:12px;padding:14px}
+.camp h3{font-size:20px;text-transform:uppercase}
+.camp p{margin:6px 0 10px;color:var(--on-dark-mute);font-size:14.5px}
+.camp .msgp{background:var(--dark);border:1px solid var(--dark-line);border-radius:10px;padding:10px 12px;font-size:14px;color:var(--on-dark);margin-bottom:10px}
+.camp .meta{font-size:13px;color:var(--on-dark-mute)}
+.qr{display:flex;gap:14px;align-items:center;flex-wrap:wrap}
+.qr canvas{background:#fff;border-radius:10px;padding:6px;width:132px;height:132px}
+
+.toast{position:fixed;left:50%;transform:translateX(-50%) translateY(20px);bottom:calc(90px + env(safe-area-inset-bottom,0px));z-index:70;background:var(--ink);color:#fff;border-radius:12px;padding:12px 14px;max-width:min(92vw,440px);font-size:14.5px;box-shadow:0 12px 30px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .2s,transform .2s}
+.toast.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.toast small{display:block;font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#fdba74;margin-bottom:3px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+.urgbox{background:var(--bad-bg);border:1px solid #fca5a5;border-radius:12px;padding:10px 12px}
+/* Call sheet: phone links can't dial from inside a shared preview, so every Call button opens this sheet */
+.csheet{position:fixed;inset:0;z-index:80;background:rgba(11,31,51,.55);display:flex;align-items:flex-end;justify-content:center}
+.csheet-c{background:var(--paper);color:var(--ink);width:min(480px,100%);border-radius:18px 18px 0 0;padding:20px max(18px,env(safe-area-inset-left,0px)) calc(20px + env(safe-area-inset-bottom,0px)) max(18px,env(safe-area-inset-right,0px));box-shadow:0 -10px 30px rgba(0,0,0,.25)}
+@media (min-width:600px){.csheet{align-items:center}.csheet-c{border-radius:18px}}
+.csheet h3{font-size:24px;text-transform:uppercase}
+.csheet .num{font-family:var(--disp);font-size:40px;font-weight:800;letter-spacing:.01em;margin:4px 0 2px;user-select:all;-webkit-user-select:all}
+.csheet p{color:var(--muted);margin:6px 0 0;font-size:15px}
+.csheet .say{background:var(--soft);border-radius:12px;padding:10px 12px;margin-top:12px;font-size:15px;color:var(--ink)}
+.csheet .acts2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:16px}
+.csheet .x2{display:block;width:100%;margin-top:10px;background:transparent;border:0;color:var(--muted);font-weight:700;min-height:44px;cursor:pointer}
+</style>
+
+<div class="demobar gut">
+  <div class="wrap">
+    <span class="demotag"><b>Demo</b> · sample data<span class="by"> · <span class="by-long">built for AllTrade </span><span class="by-short">by CM Digital</span></span></span>
+    <div class="seg" role="group" aria-label="Switch view">
+      <button type="button" id="v-cust" aria-pressed="true" data-view="cust">Customer</button>
+      <button type="button" id="v-owner" aria-pressed="false" data-view="owner">Owner</button>
+    </div>
+  </div>
+</div>
+
+<!-- ===================== CUSTOMER VIEW ===================== -->
+<div id="view-cust">
+  <header class="head gut">
+    <div class="wrap">
+      <a class="logo" href="#top" id="top">
+        <span class="mark" aria-hidden="true">AT</span>
+        <span class="nm">AllTrade<small>Heating &amp; Air · Fort Branch, IN</small></span>
+      </a>
+      <a class="callbtn" href="tel:+18127688675" aria-label="Call 24/7 at 812-768-8675">Call 24/7</a>
+    </div>
+  </header>
+
+  <div class="emerg gut">
+    <div class="wrap">
+      <span>No heat or no cooling? We answer 24 hours a day, 7 days a week.</span>
+      <button type="button" data-go="emergency">Get help now</button>
+    </div>
+  </div>
+
+  <section class="hero gut">
+    <div class="wrap">
+      <p class="eyebrow" style="color:#fdba74;margin:0 0 8px">Trane Comfort Specialist™ dealer · all brands serviced</p>
+      <h1>Heating and air for <em>Pike, Gibson and Knox</em> counties.</h1>
+      <p>Repairs, tune-ups and new systems from a local, licensed crew. Tell us what's going on and we'll text you a time.</p>
+      <div class="btns">
+        <button class="btn primary" type="button" data-go="request">Request service</button>
+        <a class="btn ghost" href="tel:+18127688675">Call (812) 768-8675</a>
+      </div>
+      <p class="demonote"><b>Demo:</b> this number is a real AI receptionist set up as AllTrade. Call it and talk like a customer, say your furnace won't kick on. On the live site it answers your own number the same way, day or night.</p>
+    </div>
+  </section>
+
+  <div class="trust gut">
+    <div class="wrap">
+      <div><b>4.7 ★</b>10 Google reviews</div>
+      <div><b>Trane</b>Comfort Specialist™ dealer</div>
+      <div><b>24/7</b>Emergency service</div>
+      <div><b>3 counties</b>Pike · Gibson · Knox</div>
+    </div>
+  </div>
+
+  <section class="blk gut">
+    <div class="wrap">
+      <p class="eyebrow">What do you need?</p>
+      <h2>Pick one. It takes about a minute.</h2>
+      <div class="tiles">
+        <button type="button" class="hot" data-go="emergency"><b>No heat or no AC</b><span>Emergency service, 24/7</span></button>
+        <button type="button" data-go="request"><b>Repair or service</b><span>Noises, leaks, thermostat</span></button>
+        <button type="button" data-go="tuneup"><b>Book a tune-up</b><span>Pick a day and time</span></button>
+        <button type="button" data-go="estimate"><b>New system price</b><span>Ballpark + monthly payment</span></button>
+        <button type="button" data-go="club"><b>Comfort Club</b><span>Two tune-ups a year, priority service</span></button>
+        <button type="button" data-go="careers"><b>Join our crew</b><span>Now hiring techs</span></button>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE REQUEST: the heart of the page -->
+  <section class="blk gut" id="request">
+    <div class="wrap">
+      <p class="eyebrow">Service request</p>
+      <h2>Tell us what's going on</h2>
+      <p class="lead">We text you back with a time. Emergencies go straight to the tech on call.</p>
+      <form class="card" id="reqForm" novalidate>
+        <div class="fgrid">
+          <div class="full">
+            <span class="f" style="font-weight:600;font-size:14px;display:block;margin-bottom:6px">What's the problem?</span>
+            <div class="chips" id="probChips" role="group" aria-label="Problem">
+              <button type="button" class="chip" data-v="No heat" aria-pressed="false">No heat</button>
+              <button type="button" class="chip" data-v="No cooling" aria-pressed="false">No cooling</button>
+              <button type="button" class="chip" data-v="Strange noise or smell" aria-pressed="false">Noise or smell</button>
+              <button type="button" class="chip" data-v="Water leak" aria-pressed="false">Water leak</button>
+              <button type="button" class="chip" data-v="Thermostat" aria-pressed="false">Thermostat</button>
+              <button type="button" class="chip" data-v="Duct or vent cleaning" aria-pressed="false">Ducts &amp; vents</button>
+              <button type="button" class="chip" data-v="Commercial service" aria-pressed="false">Commercial</button>
+              <button type="button" class="chip" data-v="Something else" aria-pressed="false">Something else</button>
+            </div>
+          </div>
+          <div class="full urgbox">
+            <label class="check" style="font-weight:700"><input type="checkbox" id="rqUrgent"> Yes, this is an emergency. Send it to the tech on call now.</label>
+            <p class="fine" style="margin:6px 0 0 32px">Your call. Leave it unchecked and the office texts you a time. Smell gas? Leave the house and call your gas company first.</p>
+          </div>
+          <label class="f">Your name<input type="text" id="rqName" autocomplete="name" placeholder="First and last"></label>
+          <label class="f">Mobile number<input type="tel" id="rqPhone" autocomplete="tel" placeholder="(812) 555-0123"></label>
+          <label class="f">Town
+            <select id="rqTown"><option value="">Choose your town</option></select>
+          </label>
+          <label class="f">Best time for a visit
+            <select id="rqWhen"><option>As soon as possible</option><option>Today</option><option>Tomorrow morning</option><option>Tomorrow afternoon</option><option>This week, any time</option></select>
+          </label>
+          <label class="f">System brand and age <small>(optional)</small><input type="text" id="rqSystem" placeholder="e.g. Trane furnace, about 12 years"></label>
+          <label class="f">Photo of the unit or the problem <small>(optional)</small>
+            <span class="photo"><input type="file" id="rqPhoto" accept="image/*"><img id="rqThumb" alt="" hidden></span>
+          </label>
+          <label class="f full">What's happening?<textarea id="rqDesc" placeholder="Furnace runs but blows cold air since last night…"></textarea></label>
+          <label class="check full"><input type="checkbox" id="rqText" checked> Text me updates. The office texts you when your tech heads out.</label>
+        </div>
+        <p class="err" id="rqErr" role="alert"></p>
+        <button class="btn primary block" type="submit">Send my request</button>
+        <div id="rqOk" hidden></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- TUNE-UP BOOKING -->
+  <section class="blk gut" id="tuneup">
+    <div class="wrap">
+      <p class="eyebrow">Book online</p>
+      <h2>Furnace or AC tune-up</h2>
+      <p class="lead">A clean, checked system runs cheaper and breaks down less. Pick a day and a window; we confirm by text.</p>
+      <form class="card" id="tuForm" novalidate>
+        <div class="fgrid">
+          <div class="full"><span style="font-weight:600;font-size:14px;display:block;margin-bottom:6px">What should we check?</span>
+            <div class="chips" id="tuSys" role="group" aria-label="System">
+              <button type="button" class="chip" data-v="Furnace" aria-pressed="true">Furnace</button>
+              <button type="button" class="chip" data-v="Air conditioner" aria-pressed="false">Air conditioner</button>
+              <button type="button" class="chip" data-v="Heat pump" aria-pressed="false">Heat pump</button>
+              <button type="button" class="chip" data-v="Furnace + AC" aria-pressed="false">Both</button>
+            </div></div>
+          <div class="full"><span style="font-weight:600;font-size:14px;display:block;margin-bottom:6px">Day</span>
+            <div class="chips" id="tuDay" role="group" aria-label="Day"></div></div>
+          <div class="full"><span style="font-weight:600;font-size:14px;display:block;margin-bottom:6px">Arrival window</span>
+            <div class="chips" id="tuWin" role="group" aria-label="Arrival window">
+              <button type="button" class="chip" data-v="8–10 AM" aria-pressed="false">8–10 AM</button>
+              <button type="button" class="chip" data-v="10 AM–12 PM" aria-pressed="false">10–12</button>
+              <button type="button" class="chip" data-v="12–2 PM" aria-pressed="false">12–2</button>
+              <button type="button" class="chip" data-v="2–4:30 PM" aria-pressed="false">2–4:30</button>
+            </div></div>
+          <label class="f">Your name<input type="text" id="tuName" autocomplete="name"></label>
+          <label class="f">Mobile number<input type="tel" id="tuPhone" autocomplete="tel"></label>
+          <label class="f full">Town<select id="tuTown"><option value="">Choose your town</option></select></label>
+        </div>
+        <p class="err" id="tuErr" role="alert"></p>
+        <button class="btn primary block" type="submit">Book my tune-up</button>
+        <div id="tuOk" hidden></div>
+      </form>
+    </div>
+  </section>
+
+  <!-- ESTIMATOR + FINANCING -->
+  <section class="blk gut" id="estimate">
+    <div class="wrap">
+      <p class="eyebrow">Thinking about a new system?</p>
+      <h2>Get a ballpark in 30 seconds</h2>
+      <p class="lead">A rough range and what it could look like per month. We give you an exact, written price after a free visit.</p>
+      <div class="card">
+        <div class="fgrid">
+          <label class="f">What are you replacing?
+            <select id="esType">
+              <option value="furnace">Furnace</option>
+              <option value="ac">Central air conditioner</option>
+              <option value="heatpump">Heat pump</option>
+              <option value="combo" selected>Furnace + air conditioner</option>
+              <option value="ductless">Ductless mini-split</option>
+            </select></label>
+          <label class="f">Home size
+            <select id="esSize">
+              <option value="0.9">Under 1,200 sq ft</option>
+              <option value="1" selected>1,200–2,000 sq ft</option>
+              <option value="1.15">2,000–3,000 sq ft</option>
+              <option value="1.3">Over 3,000 sq ft</option>
+            </select></label>
+          <div class="full"><span style="font-weight:600;font-size:14px;display:block;margin-bottom:6px">Comfort level</span>
+            <div class="chips" id="esTier" role="group" aria-label="Comfort level">
+              <button type="button" class="chip" data-v="1" aria-pressed="false">Good</button>
+              <button type="button" class="chip" data-v="1.18" aria-pressed="true">Better</button>
+              <button type="button" class="chip" data-v="1.4" aria-pressed="false">Best</button>
+            </div></div>
+          <label class="f">Pay over
+            <select id="esTerm"><option value="60">60 months</option><option value="120" selected>120 months</option></select></label>
+          <label class="f">Sample APR <small>(set by the lender)</small><input type="number" id="esApr" value="9.99" step="0.01" min="0" max="30"></label>
+        </div>
+        <div class="est-out" aria-live="polite">
+          <div><span>Ballpark installed</span><b id="esRange">–</b></div>
+          <div><span>About per month</span><b id="esPay">–</b></div>
+        </div>
+        <p class="fine">Sample ranges for the demo. AllTrade sets the real price ranges, and financing terms come from the lender with approved credit. Ask about current Trane offers and utility rebates.</p>
+        <div class="fgrid" style="margin-top:12px">
+          <label class="f">Your name<input type="text" id="esName" autocomplete="name"></label>
+          <label class="f">Mobile number<input type="tel" id="esPhone" autocomplete="tel"></label>
+        </div>
+        <p class="err" id="esErr" role="alert"></p>
+        <button class="btn primary block" type="button" id="esGo">Get my exact price (free visit)</button>
+        <div id="esOk" hidden></div>
+      </div>
+
+      <div class="card" id="replace">
+        <h3>Repair or replace? Quick check</h3>
+        <p class="lead" style="margin-top:4px">Check what's true for your system.</p>
+        <div style="display:grid;gap:10px;margin-top:10px" id="rpList">
+          <label class="check"><input type="checkbox" value="2"> It's 15 years old or older</label>
+          <label class="check"><input type="checkbox" value="2"> It's needed 2 or more repairs in the last 2 years</label>
+          <label class="check"><input type="checkbox" value="2"> The AC uses R-22 refrigerant (most units installed before 2010)</label>
+          <label class="check"><input type="checkbox" value="1"> Some rooms are too hot or too cold</label>
+          <label class="check"><input type="checkbox" value="1"> Energy bills keep going up</label>
+          <label class="check"><input type="checkbox" value="2"> The repair quote is more than a third of a new system</label>
+        </div>
+        <div class="verdict v0" id="rpOut" aria-live="polite">Nothing checked yet. A tune-up is the right start.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMFORT CLUB -->
+  <section class="blk gut" id="club">
+    <div class="wrap">
+      <p class="eyebrow">Maintenance plan</p>
+      <h2>AllTrade Comfort Club</h2>
+      <p class="lead">Two tune-ups a year, front of the line when something breaks, and we remind you when it's time.</p>
+      <div class="plans" id="plans">
+        <button type="button" class="plan" data-plan="Comfort Club" data-price="15" aria-pressed="false">
+          <h3>Comfort Club</h3>
+          <div class="pr">$15<small>/month</small></div>
+          <ul><li>Fall furnace and spring AC tune-up</li><li>Priority scheduling</li><li>10% off repairs</li><li>Filter reminders by text</li></ul>
+        </button>
+        <button type="button" class="plan" data-plan="Comfort Club Plus" data-price="25" aria-pressed="true">
+          <span class="pill">Most picked</span>
+          <h3>Comfort Club Plus</h3>
+          <div class="pr">$25<small>/month</small></div>
+          <ul><li>Everything in Comfort Club</li><li>No after-hours trip charge</li><li>15% off repairs</li><li>Filters included at each visit</li></ul>
+        </button>
+      </div>
+      <form class="card" id="clForm" novalidate>
+        <div class="fgrid">
+          <label class="f">Your name<input type="text" id="clName" autocomplete="name"></label>
+          <label class="f">Mobile number<input type="tel" id="clPhone" autocomplete="tel"></label>
+          <label class="f">Email<input type="email" id="clEmail" autocomplete="email"></label>
+          <label class="f">Town<select id="clTown"><option value="">Choose your town</option></select></label>
+        </div>
+        <p class="fine">Sample plan names and prices; AllTrade sets the real ones. On the live site, signing up sends AllTrade the member's details, and AllTrade sets up the plan with them. Cancel anytime.</p>
+        <p class="err" id="clErr" role="alert"></p>
+        <button class="btn primary block" type="submit" id="clBtn">Join Comfort Club Plus</button>
+        <div id="clOk" hidden></div>
+      </form>
+
+      <div class="card" id="filters">
+        <h3>Never forget the filter</h3>
+        <p class="lead" style="margin-top:4px">We'll text you when it's time to change it, with the size so you buy the right one.</p>
+        <div class="row" style="margin-top:10px">
+          <label class="f" style="flex:1 1 150px">Filter size<input type="text" id="fiSize" placeholder="16x25x1"></label>
+          <label class="f" style="flex:1 1 150px">Every
+            <select id="fiEvery"><option>30 days</option><option selected>90 days</option><option>6 months</option></select></label>
+          <label class="f" style="flex:1 1 170px">Mobile number<input type="tel" id="fiPhone"></label>
+          <button class="btn line" type="button" id="fiGo" style="flex:1 1 140px">Remind me</button>
+        </div>
+        <p class="err" id="fiErr" role="alert"></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SERVICE AREA -->
+  <section class="blk gut" id="area">
+    <div class="wrap">
+      <p class="eyebrow">Service area</p>
+      <h2>Do we come out to you?</h2>
+      <p class="lead">Pike, Gibson, Knox and surrounding counties, from our shop on State Road 168 in Fort Branch.</p>
+      <div class="row" style="margin-top:12px">
+        <label class="f" style="flex:1 1 180px">Your ZIP code<input type="text" id="zip" inputmode="numeric" maxlength="5" placeholder="47648"></label>
+        <button class="btn ice" type="button" id="zipGo" style="flex:0 0 auto">Check</button>
+      </div>
+      <p id="zipOut" aria-live="polite" style="font-weight:600;margin:10px 0 0"></p>
+      <div class="towns" id="towns"></div>
+    </div>
+  </section>
+
+  <!-- COMMERCIAL -->
+  <section class="blk gut" id="commercial">
+    <div class="wrap">
+      <p class="eyebrow">For businesses</p>
+      <h2>Commercial heating and cooling</h2>
+      <p class="lead">Maintenance agreements on a schedule, quick repairs when something goes down, retrofits, and new systems designed from the ground up.</p>
+      <div class="btns" style="margin-top:14px"><button class="btn line" type="button" data-go="commercial-req">Request commercial service</button></div>
+    </div>
+  </section>
+
+  <!-- REVIEWS -->
+  <section class="blk gut" id="reviews">
+    <div class="wrap">
+      <p class="eyebrow">What neighbors say</p>
+      <h2>Reviews</h2>
+      <div class="card rating">
+        <span class="big">4.7</span>
+        <div><div class="stars" aria-label="4.7 out of 5 stars">★★★★★</div><div style="color:var(--muted)">from 10 Google reviews</div></div>
+        <a class="btn line" href="https://www.google.com/search?q=AllTrade+Heating+and+Air+Fort+Branch+IN" target="_blank" rel="noopener">Read them on Google</a>
+      </div>
+      <p class="fine">On the live site your newest Google reviews show here on their own. After every job, the customer gets a text asking for a review, so this number keeps climbing.</p>
+    </div>
+  </section>
+
+  <!-- CAREERS -->
+  <section class="blk gut" id="careers">
+    <div class="wrap">
+      <p class="eyebrow">Now hiring</p>
+      <h2>Join the AllTrade crew</h2>
+      <p class="lead">Service techs, installers and apprentices. Local work, home most nights. Apply in two minutes from your phone.</p>
+      <form class="card" id="apForm" novalidate>
+        <div class="fgrid">
+          <label class="f">Your name<input type="text" id="apName" autocomplete="name"></label>
+          <label class="f">Mobile number<input type="tel" id="apPhone" autocomplete="tel"></label>
+          <label class="f">Position
+            <select id="apRole"><option>Service technician</option><option>Installer</option><option>Apprentice / helper</option><option>Office</option></select></label>
+          <label class="f">Years of HVAC experience<select id="apYears"><option>None, ready to learn</option><option>1–3</option><option>4–9</option><option>10+</option></select></label>
+          <label class="check full"><input type="checkbox" id="apEpa"> I have EPA 608 certification</label>
+          <label class="f full">Anything else? <small>(optional)</small><textarea id="apNote" placeholder="Where you've worked, licenses, when you can start"></textarea></label>
+        </div>
+        <p class="err" id="apErr" role="alert"></p>
+        <button class="btn primary block" type="submit">Send my application</button>
+        <div id="apOk" hidden></div>
+      </form>
+    </div>
+  </section>
+
+  <footer class="foot gut">
+    <div class="wrap">
+      <div class="cols">
+        <div><b>AllTrade Heating &amp; Air</b><br>1189 E State Rd 168, Fort Branch, IN 47648<br>Office: Mon–Fri, 8:00 AM–4:30 PM<br>Emergency service: 24/7</div>
+        <div><b>Call or text</b><br><a href="tel:+18127688675">(812) 768-8675</a> <span>(demo AI line)</span><br><a href="https://www.facebook.com/alltradeheatingandair/" target="_blank" rel="noopener">Facebook</a><br>Trane Comfort Specialist™ dealer · all brands serviced · licensed and insured</div>
+      </div>
+      <p class="preview-by">Website design preview by CM Digital · sample data only · nothing you enter here is sent anywhere.</p>
+    </div>
+  </footer>
+
+  <nav class="bar" aria-label="Quick actions">
+    <a href="tel:+18127688675">Call</a>
+    <button type="button" class="go" data-go="request">Request service</button>
+    <button type="button" data-go="tuneup">Book</button>
+  </nav>
+
+  <button type="button" class="chatbtn" id="chatBtn" aria-label="Open chat">Chat</button>
+  <div class="chat" id="chat" hidden role="dialog" aria-label="Chat with AllTrade">
+    <header><div><b>Ask AllTrade</b><small>AI assistant · answers 24/7</small></div><button type="button" class="x" id="chatX" aria-label="Close chat">×</button></header>
+    <div class="msgs" id="msgs"></div>
+    <div class="quick" id="quick">
+      <button type="button">My furnace stopped</button>
+      <button type="button">What areas do you cover?</button>
+      <button type="button">Do you offer financing?</button>
+      <button type="button">Book a tune-up</button>
+    </div>
+    <form id="chatForm"><label class="vh" for="chatIn">Message</label><input type="text" id="chatIn" placeholder="Type a question…" autocomplete="off"><button type="submit">Send</button></form>
+  </div>
+</div>
+
+<!-- ===================== OWNER VIEW ===================== -->
+<div id="view-owner" class="owner gut" hidden>
+  <div class="wrap">
+    <div class="ohead">
+      <div><h1>AllTrade dashboard</h1><p>Saturday, Nov 7 · everything from the website, the phone and the AI assistant lands here.</p></div>
+    </div>
+    <div class="today" id="today"></div>
+    <div class="tabs" id="tabs" role="group" aria-label="Boards"></div>
+    <p class="bnote" id="bnote"></p>
+    <div id="boardArea">
+      <div class="fbar" id="fbar" hidden></div>
+      <div class="stats" id="stats"></div>
+      <label class="search f"><span class="vh">Search</span><input type="text" id="q" placeholder="Search name, phone, town or ticket #"></label>
+      <div class="list" id="list"></div>
+      <div id="detail" class="detail" hidden></div>
+    </div>
+    <div id="campArea" hidden>
+      <div class="camps" id="camps"></div>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<div class="csheet" id="csheet" hidden role="dialog" aria-modal="true" aria-labelledby="csTitle">
+  <div class="csheet-c">
+    <h3 id="csTitle">Call AllTrade, 24/7</h3>
+    <div class="num" id="csNum">(812) 768-8675</div>
+    <p>Dial this from your phone. It rings AllTrade's demo AI receptionist, the same kind that would answer your line.</p>
+    <div class="say"><b>Try this:</b> talk like a customer. Say your furnace won't kick on and see what it asks.</div>
+    <div class="acts2">
+      <a class="btn primary" id="csCall" href="tel:+18127688675" target="_top">Call now</a>
+      <button type="button" class="btn line" id="csCopy">Copy number</button>
+    </div>
+    <button type="button" class="x2" id="csClose">Close</button>
+  </div>
+</div>
+
+<script>
+(function(){
+'use strict';
+var $=function(id){return document.getElementById(id);};
+function esc(s){return String(s==null?'':s).replace(/[&<>"']/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+function first(n){return String(n||'').trim().split(/\s+/)[0]||'there';}
+function money(n){return '$'+Math.round(n).toLocaleString('en-US');}
+function nowLabel(){var d=new Date();var h=d.getHours(),m=d.getMinutes();var ap=h>=12?'PM':'AM';h=h%12||12;return 'Today '+h+':'+(m<10?'0':'')+m+' '+ap;}
+function digits(p){return String(p||'').replace(/\D/g,'');}
+function okPhone(p){var d=digits(p);return d.length===10||(d.length===11&&d[0]==='1');}
+function fmtPhone(p){var d=digits(p);if(d.length===11)d=d.slice(1);return d.length===10?'('+d.slice(0,3)+') '+d.slice(3,6)+'-'+d.slice(6):p;}
+
+/* ---------- Service area (ZIPs from AllTrade's Trane dealer listing) ---------- */
+var ZIPS={'47648':'Fort Branch','47670':'Princeton','47567':'Petersburg','47598':'Winslow','47591':'Vincennes','47501':'Washington','47639':'Haubstadt'};
+var TOWNS=['Fort Branch','Princeton','Haubstadt','Owensville','Oakland City','Francisco','Petersburg','Winslow','Otwell','Spurgeon','Vincennes','Bicknell','Washington','Other'];
+['rqTown','tuTown','clTown'].forEach(function(id){var s=$(id);TOWNS.forEach(function(t){var o=document.createElement('option');o.textContent=t;s.appendChild(o);});});
+$('towns').innerHTML=TOWNS.filter(function(t){return t!=='Other';}).map(function(t){return '<span>'+esc(t)+'</span>';}).join('');
+$('zipGo').addEventListener('click',function(){
+  var z=$('zip').value.trim();var o=$('zipOut');
+  if(!/^\d{5}$/.test(z)){o.style.color='var(--bad)';o.textContent='Enter a 5-digit ZIP code.';return;}
+  if(ZIPS[z]){o.style.color='var(--ok)';o.textContent='Yes, we cover '+ZIPS[z]+' ('+z+'). Request service or book a tune-up above.';}
+  else{o.style.color='var(--warn)';o.textContent='We may still cover '+z+'. Send a request and we\'ll let you know the same day.';}
+});
+
+/* ---------- Toggle views ---------- */
+function setView(v){
+  $('view-cust').hidden=v!=='cust';$('view-owner').hidden=v!=='owner';
+  $('v-cust').setAttribute('aria-pressed',v==='cust');$('v-owner').setAttribute('aria-pressed',v==='owner');
+  if(v==='owner'){renderAll();}
+  window.scrollTo(0,0);
+}
+document.querySelector('.seg').addEventListener('click',function(e){var b=e.target.closest('button[data-view]');if(b)setView(b.dataset.view);});
+
+/* ---------- Toast ---------- */
+var tt;
+function toast(title,body){var t=$('toast');t.innerHTML='<small>'+esc(title)+'</small>'+esc(body);t.classList.add('on');clearTimeout(tt);tt=setTimeout(function(){t.classList.remove('on');},4200);}
+
+/* ---------- Chip groups (single select) ---------- */
+/* Pick one per group; tap the picked one again to clear it (except groups that must always have one, like the estimator's comfort level). */
+function chipGroup(id,onChange,keepOne){
+  var g=$(id);
+  g.addEventListener('click',function(e){var b=e.target.closest('.chip');if(!b)return;
+    var off=!keepOne&&b.getAttribute('aria-pressed')==='true';
+    [].forEach.call(g.querySelectorAll('.chip'),function(c){c.setAttribute('aria-pressed',(!off&&c===b)?'true':'false');});
+    if(onChange)onChange(off?'':b.dataset.v);});
+  return function(){var s=g.querySelector('.chip[aria-pressed="true"]');return s?s.dataset.v:'';};
+}
+/* Picking a problem never marks it urgent; only the customer's own emergency checkbox (or the "No heat or no AC" emergency tile) does. */
+var getProb=chipGroup('probChips');
+var getTuSys=chipGroup('tuSys');
+var getTuWin=chipGroup('tuWin');
+var getTier=chipGroup('esTier',calcEst,true);
+
+/* Tune-up days: next 8 weekdays */
+(function(){var d=new Date(2026,10,9);var out=[];var names=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];var mons=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  while(out.length<8){if(d.getDay()>0&&d.getDay()<6)out.push(names[d.getDay()]+' '+mons[d.getMonth()]+' '+d.getDate());d.setDate(d.getDate()+1);}
+  $('tuDay').innerHTML=out.map(function(s,i){return '<button type="button" class="chip" data-v="'+s+'" aria-pressed="'+(i===0?'true':'false')+'">'+s+'</button>';}).join('');})();
+var getTuDay=chipGroup('tuDay');
+
+/* ---------- Call buttons: show the number (a preview can't always dial) ---------- */
+var lastFocus=null;
+document.body.appendChild($('csheet')); /* keep it above every view and the bottom bar */
+function openCall(){lastFocus=document.activeElement;$('csheet').hidden=false;$('csCopy').textContent='Copy number';$('csCall').focus();}
+function closeCall(){$('csheet').hidden=true;if(lastFocus&&lastFocus.focus)lastFocus.focus();}
+document.addEventListener('click',function(e){
+  var a=e.target.closest('a[href^="tel:"]');
+  if(!a||a.id==='csCall')return;
+  e.preventDefault();openCall();
+});
+$('csClose').addEventListener('click',closeCall);
+$('csheet').addEventListener('click',function(e){if(e.target===this)closeCall();});
+document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!$('csheet').hidden)closeCall();});
+$('csCopy').addEventListener('click',function(){
+  var b=this,num='(812) 768-8675';
+  function done(){b.textContent='Copied';}
+  function pick(){try{var r=document.createRange();r.selectNodeContents($('csNum'));var s=window.getSelection();s.removeAllRanges();s.addRange(r);b.textContent='Selected. Copy it';}catch(x){}}
+  try{navigator.clipboard.writeText(num).then(done,pick);}catch(x){pick();}
+});
+
+/* ---------- "Go to" buttons ---------- */
+document.addEventListener('click',function(e){
+  var b=e.target.closest('[data-go]');if(!b)return;
+  var g=b.dataset.go;
+  if(g==='emergency'){[].forEach.call($('probChips').querySelectorAll('.chip'),function(c){c.setAttribute('aria-pressed',c.dataset.v==='No heat'?'true':'false');});$('rqUrgent').checked=true;g='request';}
+  if(g==='commercial-req'){[].forEach.call($('probChips').querySelectorAll('.chip'),function(c){c.setAttribute('aria-pressed',c.dataset.v==='Commercial service'?'true':'false');});g='request';}
+  var el=$(g);if(el){el.scrollIntoView({behavior:'smooth',block:'start'});}
+});
+
+/* ---------- Board data ---------- */
+var BOARDS={
+  service:{label:'Service calls',prefix:'SR',note:'Every request from the website, the AI phone line and the chat. When a customer marks a request as an emergency, it is flagged red and texted to the tech on call.',
+    statuses:['New','Scheduled','Tech on the way','Done'],
+    texts:{
+      'New':'Hi {first}, this is AllTrade Heating & Air. We got your request ({id}) and will text you a time shortly.',
+      'Scheduled':'Hi {first}, AllTrade here. You\'re on the schedule: {when}. Reply here if anything changes.',
+      'Tech on the way':'Hi {first}, {tech} from AllTrade is on the way, about 25 minutes out.',
+      'Done':'Thanks for choosing AllTrade, {first}! If we did right by you, a quick Google review helps a local shop a lot: g.page/r/alltrade'
+    }},
+  calls:{label:'AI phone calls',prefix:'CL',note:'Calls the AI receptionist answered while you were on a job or after hours. Each one has a summary, so you call back already knowing the problem.',
+    statuses:['New','Called back','Booked','Not a fit'],texts:{}},
+  quotes:{label:'Quotes',prefix:'QT',note:'New-system leads from the price estimator and calls. Unanswered quotes get a friendly follow-up text on day 2 and day 7 automatically.',
+    statuses:['New','Visit set','Quote sent','Won','Lost'],
+    texts:{'Quote sent':'Hi {first}, your AllTrade quote is ready with Good, Better and Best options and monthly payments: alltrade.example/q/{id}. Questions? Just reply.',
+           'Won':'Thanks {first}! Your install is on the books. We\'ll text the day before with arrival time.'}},
+  tuneups:{label:'Tune-ups',prefix:'TU',note:'Online bookings. A reminder text goes out the day before so nobody forgets.',
+    statuses:['Requested','Confirmed','Done'],
+    texts:{'Confirmed':'Hi {first}, your AllTrade tune-up is confirmed for {when}. The office will text you when your tech heads out.',
+           'Done':'Thanks {first}! Your system is checked and ready. If we did a good job, a Google review helps a lot: g.page/r/alltrade'}},
+  club:{label:'Comfort Club',prefix:'CC',note:'Maintenance members who signed up online. Steady income every month, even in mild weather.',
+    statuses:['New','Active','Tune-up due','Canceled'],
+    texts:{'Active':'Welcome to the AllTrade Comfort Club, {first}! You\'re first in line when something breaks. We\'ll text you to set up your next tune-up.',
+           'Tune-up due':'Hi {first}, it\'s time for your Comfort Club tune-up. Pick a time: alltrade.example/book'}},
+  hires:{label:'Job applicants',prefix:'AP',note:'Applications from the "Join our crew" form. Finding techs is the hardest part of growing; this makes applying take two minutes.',
+    statuses:['New','Interview','Hired','Pass'],
+    texts:{'Interview':'Thanks for applying to AllTrade, {first}. Can you come by the shop for a quick interview this week? Reply with a day that works.'}},
+  campaigns:{label:'Marketing',campaign:true,note:'One-tap campaigns to past customers. They fill slow weeks and bring in tune-ups before the rush.'}
+};
+var seq={SR:1041,CL:318,QT:207,TU:512,CC:88,AP:23};
+var R={
+  service:[
+    {id:'SR-1040',name:'Darlene Hughes',phone:'(812) 555-0142',town:'Princeton',prob:'No heat',urgent:true,when:'As soon as possible',sys:'Trane gas furnace, ~14 yrs',desc:'Furnace clicks but never lights. 58° in the house.',src:'AI phone line',status:'New',at:'Today 6:12 AM',fresh:false},
+    {id:'SR-1039',name:'Tom Kessler',phone:'(812) 555-0187',town:'Fort Branch',prob:'Strange noise or smell',when:'Today',sys:'Carrier furnace',desc:'Squealing when the blower kicks on.',src:'Website',status:'Scheduled',sched:'Today 1–3 PM',at:'Yesterday 7:48 PM'},
+    {id:'SR-1038',name:'Rita Schmitt',phone:'(812) 555-0119',town:'Haubstadt',prob:'Thermostat',when:'This week, any time',sys:'Heat pump',desc:'Thermostat blank after power outage.',src:'Chat',status:'Tech on the way',tech:'Kyle',at:'Today 8:05 AM'},
+    {id:'SR-1037',name:'Gibson County Co-op (office)',phone:'(812) 555-0166',town:'Princeton',prob:'Commercial service',when:'This week, any time',sys:'Rooftop unit',desc:'Office too warm in afternoons.',src:'Website',status:'Scheduled',sched:'Mon 8–10 AM',at:'Thu 2:20 PM'},
+    {id:'SR-1036',name:'Brian Oxley',phone:'(812) 555-0175',town:'Petersburg',prob:'Water leak',when:'Tomorrow morning',sys:'Lennox AC + furnace',desc:'Water around the furnace base.',src:'AI phone line',status:'Done',at:'Thu 9:02 AM'},
+    {id:'SR-1035',name:'Kayla Dunn',phone:'(812) 555-0138',town:'Oakland City',prob:'No heat',urgent:true,when:'As soon as possible',sys:'Goodman furnace',desc:'Pilot out, kids at home.',src:'AI phone line',status:'Done',at:'Wed 11:40 PM'}
+  ],
+  calls:[
+    {id:'CL-317',name:'Gary Wehr',phone:'(812) 555-0151',town:'Winslow',summary:'Furnace short-cycling every 5 minutes since yesterday. Wants a tech Monday morning. Has a Trane, about 9 years old.',urgent:false,dur:'2m 41s',status:'New',at:'Today 5:47 AM'},
+    {id:'CL-316',name:'Maria Lopez',phone:'(812) 555-0129',town:'Vincennes',summary:'Asked about the price of a new heat pump and financing. Wants a quote visit. Home is about 1,800 sq ft.',urgent:false,dur:'3m 10s',status:'New',at:'Fri 9:22 PM'},
+    {id:'CL-315',name:'Ed Barnett',phone:'(812) 555-0110',town:'Fort Branch',summary:'No heat, elderly mother in the home, 61°. Flagged urgent; tech on call was texted at 10:58 PM.',urgent:true,dur:'1m 55s',status:'Booked',at:'Fri 10:57 PM'},
+    {id:'CL-314',name:'Unknown caller',phone:'(812) 555-0199',town:'',summary:'Asked if AllTrade does plumbing. Told them heating and air only and offered to take a message. No message left.',urgent:false,dur:'0m 48s',status:'Not a fit',at:'Fri 4:51 PM'}
+  ],
+  quotes:[
+    {id:'QT-206',name:'Jeff & Amy Burkhart',phone:'(812) 555-0133',town:'Princeton',type:'Furnace + air conditioner',range:'$9,700–$17,100',tier:'Better',status:'Quote sent',at:'Tue',follow:'Follow-up #1 sent Thu · #2 goes Tue'},
+    {id:'QT-205',name:'Linda Cato',phone:'(812) 555-0158',town:'Petersburg',type:'Heat pump',range:'$6,600–$11,600',tier:'Better',status:'Visit set',sched:'Mon 2–4:30 PM',at:'Wed'},
+    {id:'QT-204',name:'Rick Toon',phone:'(812) 555-0172',town:'Haubstadt',type:'Furnace',range:'$3,800–$6,500',tier:'Good',status:'Won',at:'Last week'},
+    {id:'QT-203',name:'Sharon Pell',phone:'(812) 555-0104',town:'Washington',type:'Central air conditioner',range:'$5,000–$9,200',tier:'Better',status:'Lost',at:'Oct 28',note:'Went with a cheaper bid'}
+  ],
+  tuneups:[
+    {id:'TU-511',name:'Paul Mayhew',phone:'(812) 555-0147',town:'Fort Branch',sys:'Furnace',sched:'Mon Nov 9 · 8–10 AM',status:'Confirmed',at:'Thu'},
+    {id:'TU-510',name:'Nancy Ruark',phone:'(812) 555-0161',town:'Princeton',sys:'Furnace + AC',sched:'Tue Nov 10 · 10 AM–12 PM',status:'Requested',at:'Fri'},
+    {id:'TU-509',name:'Dale Hurst',phone:'(812) 555-0115',town:'Owensville',sys:'Heat pump',sched:'Wed Nov 11 · 12–2 PM',status:'Requested',at:'Fri'},
+    {id:'TU-508',name:'Joan Elpers',phone:'(812) 555-0182',town:'Haubstadt',sys:'Furnace',sched:'Thu Nov 5 · 8–10 AM',status:'Done',at:'Mon'}
+  ],
+  club:[
+    {id:'CC-087',name:'Steve Ritter',phone:'(812) 555-0124',town:'Princeton',plan:'Comfort Club Plus',price:25,status:'Active',at:'Sep 2026',next:'Fall tune-up done Oct 14'},
+    {id:'CC-086',name:'Becky Hall',phone:'(812) 555-0168',town:'Fort Branch',plan:'Comfort Club',price:15,status:'Tune-up due',at:'Mar 2026',next:'Fall tune-up not booked yet'},
+    {id:'CC-085',name:'Mark & Jo Lamb',phone:'(812) 555-0136',town:'Petersburg',plan:'Comfort Club Plus',price:25,status:'Active',at:'Mar 2026',next:'Fall tune-up done Oct 2'},
+    {id:'CC-084',name:'Henry Fox',phone:'(812) 555-0191',town:'Vincennes',plan:'Comfort Club',price:15,status:'Tune-up due',at:'Feb 2026',next:'Fall tune-up not booked yet'},
+    {id:'CC-083',name:'Carol Weisheit',phone:'(812) 555-0107',town:'Haubstadt',plan:'Comfort Club Plus',price:25,status:'Active',at:'Jan 2026',next:'Fall tune-up done Sep 30'}
+  ],
+  hires:[
+    {id:'AP-022',name:'Tyler Gaines',phone:'(812) 555-0155',town:'Princeton',role:'Service technician',years:'4–9',epa:'Yes',note:'Six years residential service, has own tools.',status:'New',at:'Fri'},
+    {id:'AP-021',name:'Cody Beck',phone:'(812) 555-0144',town:'Petersburg',role:'Apprentice / helper',years:'None, ready to learn',epa:'No',note:'Finished the HVAC program at Vincennes University in May.',status:'Interview',at:'Tue'}
+  ]
+};
+['service','calls','quotes','tuneups','club','hires'].forEach(function(k){R[k].forEach(function(r){r.log=r.log||[{t:r.at,m:'Came in from '+(r.src||'the website')}];});});
+
+var CAMPS=[
+  {id:'fall',title:'Fall furnace check',aud:'All past heating customers who haven\'t had a tune-up since spring',count:214,msg:'Hi {first}, it\'s AllTrade Heating & Air. Cold weather is here. Book your furnace tune-up before the rush and skip the no-heat call: alltrade.example/book',sent:false},
+  {id:'cold',title:'Cold-snap alert',aud:'Sends when the forecast drops below 20°F',count:'auto',msg:'Heads up from AllTrade: single digits are coming. Set your thermostat no lower than 60°, change a dirty filter, and call us any time, day or night, if the heat quits.',sent:false},
+  {id:'old',title:'Older systems: replace before it quits',aud:'Customers whose system is 15+ years old',count:63,msg:'Hi {first}, your system is getting up there in years. Want a free replacement estimate with monthly payment options, no pressure? Reply YES.',sent:false},
+  {id:'quote',title:'Quote follow-up (automatic)',aud:'Every quote with no answer after 2 and 7 days',count:'auto',msg:'Hi {first}, just checking in on the AllTrade quote we sent. Any questions I can answer? Happy to walk through the options.',sent:true},
+  {id:'review',title:'Review request (automatic)',aud:'Every job marked Done',count:'auto',msg:'Thanks for choosing AllTrade, {first}! A quick Google review helps a local shop a lot: g.page/r/alltrade',sent:true}
+];
+
+var cur='service',filter=null,openId=null,focus=null; /* cur=null: no board picked, show everything new across boards */
+var FOCUS={
+  urgent:{label:'No-heat emergencies waiting',test:function(r){return r.urgent&&r.status==='New';}},
+  inplay:{label:'Quotes in play (visit set or quote sent)',test:function(r){return r.status==='Quote sent'||r.status==='Visit set';}}
+};
+
+function stIndex(b,s){return Math.min(BOARDS[b].statuses.indexOf(s),4);}
+function subline(b,r){
+  switch(b){
+    case 'service':return (r.prob||'')+' · '+(r.town||'')+' · '+(r.src||'')+(r.sched?' · '+r.sched:'');
+    case 'calls':return r.summary;
+    case 'quotes':return r.type+' · '+r.tier+' · '+r.range;
+    case 'tuneups':return r.sys+' · '+r.sched+' · '+r.town;
+    case 'club':return r.plan+' · $'+r.price+'/mo · '+r.next;
+    case 'hires':return r.role+' · '+r.years+' yrs · EPA 608: '+r.epa;
+  }
+  return '';
+}
+function renderToday(){
+  var urgent=R.service.filter(function(r){return r.urgent&&r.status==='New';}).length+R.calls.filter(function(r){return r.urgent&&r.status==='New';}).length;
+  var newCalls=R.calls.filter(function(r){return r.status==='New';}).length;
+  var quotes=R.quotes.filter(function(r){return r.status==='Quote sent'||r.status==='Visit set';}).length;
+  var mrr=R.club.filter(function(r){return r.status!=='Canceled';}).reduce(function(a,r){return a+r.price;},0);
+  $('today').innerHTML=
+    '<button type="button" data-jump="urgent" class="'+(urgent?'alert':'')+'"><b>'+urgent+'</b><span>no-heat emergencies waiting ›</span></button>'+
+    '<button type="button" data-jump="calls"><b>'+newCalls+'</b><span>AI calls to return ›</span></button>'+
+    '<button type="button" data-jump="quotes"><b>'+quotes+'</b><span>quotes in play ›</span></button>'+
+    '<button type="button" data-jump="club"><b>$'+mrr+'</b><span>Comfort Club / month (sample) ›</span></button>';
+}
+function renderTabs(){
+  $('tabs').innerHTML=Object.keys(BOARDS).map(function(k){
+    var n=BOARDS[k].campaign?0:R[k].filter(function(r){return r.status===BOARDS[k].statuses[0];}).length;
+    return '<button type="button" data-b="'+k+'" aria-current="'+(k===cur)+'">'+esc(BOARDS[k].label)+(n?'<span class="dot">'+n+'</span>':'')+'</button>';
+  }).join('');
+}
+function renderStats(){
+  $('stats').hidden=!cur;if(!cur){$('stats').innerHTML='';return;}
+  var b=BOARDS[cur];
+  $('stats').innerHTML=b.statuses.map(function(s){
+    var n=R[cur].filter(function(r){return r.status===s;}).length;
+    return '<button type="button" data-s="'+esc(s)+'" aria-pressed="'+(filter===s)+'"><b>'+n+'</b><span>'+esc(s)+'</span></button>';
+  }).join('');
+}
+function renderList(){
+  var q=$('q').value.trim().toLowerCase();
+  if(!cur){
+    var all=[];Object.keys(BOARDS).forEach(function(k){if(BOARDS[k].campaign)return;R[k].forEach(function(r){
+      if(q?[r.name,r.phone,r.town,r.id,subline(k,r)].join(' ').toLowerCase().indexOf(q)>-1:r.status===BOARDS[k].statuses[0])all.push([k,r]);});});
+    $('list').innerHTML=all.length?all.map(function(x){var k=x[0],r=x[1];
+      return '<button type="button" class="rec'+(r.fresh?' fresh':'')+'" data-b="'+k+'" data-id="'+r.id+'">'+
+        '<span class="t">'+esc(r.name)+(r.fresh?'<span class="newb">NEW</span>':'')+(r.urgent&&r.status==='New'?'<span class="urg">URGENT</span>':'')+'</span>'+
+        '<span class="st s'+stIndex(k,r.status)+'">'+esc(BOARDS[k].label)+'</span>'+
+        '<span class="s">'+esc(subline(k,r))+'</span>'+
+        '<span class="id">'+r.id+' · '+esc(r.status)+' · '+esc(r.at)+'</span></button>';}).join(''):'<div class="empty">'+(q?'Nothing matches that search.':'Nothing new anywhere. Nice.')+'</div>';
+    $('fbar').innerHTML='';$('fbar').hidden=true;return;
+  }
+  var rows=R[cur].filter(function(r){
+    if(filter&&r.status!==filter)return false;
+    if(focus&&!FOCUS[focus].test(r))return false;
+    if(!q)return true;
+    return [r.name,r.phone,r.town,r.id,subline(cur,r)].join(' ').toLowerCase().indexOf(q)>-1;
+  });
+  $('list').innerHTML=rows.length?rows.map(function(r){
+    return '<button type="button" class="rec'+(r.fresh?' fresh':'')+'" data-id="'+r.id+'">'+
+      '<span class="t">'+esc(r.name)+(r.fresh?'<span class="newb">NEW</span>':'')+(r.urgent&&r.status!=='Done'&&r.status!=='Booked'?'<span class="urg">URGENT</span>':'')+'</span>'+
+      '<span class="st s'+stIndex(cur,r.status)+'">'+esc(r.status)+'</span>'+
+      '<span class="s">'+esc(subline(cur,r))+'</span>'+
+      '<span class="id">'+r.id+' · '+esc(r.at)+'</span></button>';
+  }).join(''):'<div class="empty">Nothing here'+(filter?' with status "'+esc(filter)+'"':'')+(focus?' right now':'')+'. '+(focus?'Tap "Show all" to see the whole board.':'Tap a box above to clear the filter.')+'</div>';
+  var fb=$('fbar');
+  if(focus){fb.innerHTML='<span>Showing: '+esc(FOCUS[focus].label)+'</span><button type="button" data-clear="1">Show all</button>';fb.hidden=false;}
+  else{fb.innerHTML='';fb.hidden=true;}
+}
+function kv(k,v){return v?'<dt>'+esc(k)+'</dt><dd>'+v+'</dd>':'';}
+function renderDetail(){
+  var r=cur&&R[cur].filter(function(x){return x.id===openId;})[0];var d=$('detail');
+  if(!r){d.hidden=true;$('list').hidden=false;$('stats').hidden=!cur;document.querySelector('.search').hidden=false;return;}
+  $('list').hidden=true;$('stats').hidden=true;$('fbar').hidden=true;document.querySelector('.search').hidden=true;d.hidden=false;
+  var b=BOARDS[cur];var rows='';
+  rows+=kv('Ticket','<span style="font-family:var(--mono)">'+r.id+'</span>');
+  rows+=kv('Phone',esc(r.phone));
+  rows+=kv('Town',esc(r.town));
+  if(cur==='service'){rows+=kv('Problem',esc(r.prob)+(r.urgent?' <span class="urg">URGENT</span>':''))+kv('Wants',esc(r.when))+kv('System',esc(r.sys))+kv('Details',esc(r.desc))+kv('Came from',esc(r.src))+kv('Scheduled',esc(r.sched))+kv('Tech',esc(r.tech))+(r.photo?kv('Photo','<img src="'+r.photo+'" alt="Customer photo">'):'');}
+  if(cur==='calls'){rows+=kv('AI summary',esc(r.summary))+kv('Length',esc(r.dur))+kv('Recording','<a href="#" data-noop="1">Play recording</a> · <a href="#" data-noop="1">Transcript</a>');}
+  if(cur==='quotes'){rows+=kv('Replacing',esc(r.type))+kv('Comfort level',esc(r.tier))+kv('Ballpark shown',esc(r.range))+kv('Visit',esc(r.sched))+kv('Follow-up',esc(r.follow))+kv('Note',esc(r.note));}
+  if(cur==='tuneups'){rows+=kv('System',esc(r.sys))+kv('Booked for',esc(r.sched));}
+  if(cur==='club'){rows+=kv('Plan',esc(r.plan)+' · $'+r.price+'/month')+kv('Member since',esc(r.at))+kv('Tune-ups',esc(r.next))+kv('Email',esc(r.email));}
+  if(cur==='hires'){rows+=kv('Position',esc(r.role))+kv('Experience',esc(r.years)+' years')+kv('EPA 608',esc(r.epa))+kv('Note',esc(r.note));}
+  var opts=b.statuses.map(function(s){return '<option'+(s===r.status?' selected':'')+'>'+esc(s)+'</option>';}).join('');
+  var auto='';
+  if(cur==='quotes'&&r.status==='Quote sent')auto='<div class="auto">Automatic follow-up is on: a friendly text goes out on day 2 and day 7 if they haven\'t answered. Stops the moment they reply.</div>';
+  if(cur==='service'&&r.urgent&&r.status==='New')auto='<div class="auto">Urgent: the AI texted the tech on call with the address and problem. Mark "Scheduled" or "Tech on the way" and the customer gets a text.</div>';
+  if(cur==='calls'&&r.status==='New')auto='<div class="auto">Tap "Make it a service call" to turn this into a ticket without retyping anything.</div>';
+  d.innerHTML='<button type="button" class="back" data-act="back">← Back to '+esc(b.label)+'</button>'+
+    '<h3>'+esc(r.name)+'</h3><dl class="kv">'+rows+'</dl>'+auto+
+    '<div class="acts"><label class="vh" for="stSel">Status</label><select id="stSel" data-act="status">'+opts+'</select>'+
+    '<button type="button" class="btn ice" data-act="text">Text '+esc(first(r.name))+'</button>'+
+    '<button type="button" class="btn line" data-act="call">Call</button>'+
+    (cur==='calls'?'<button type="button" class="btn primary" data-act="convert">Make it a service call</button>':'')+
+    (cur==='quotes'?'<button type="button" class="btn primary" data-act="proposal">Send Good/Better/Best</button>':'')+
+    '</div><div class="log">'+r.log.slice().reverse().map(function(l){return '<div><b>'+esc(l.t)+'</b> · '+esc(l.m)+'</div>';}).join('')+'</div>';
+}
+function renderCamps(){
+  $('camps').innerHTML=CAMPS.map(function(c){
+    var m=c.msg.replace('{first}','Steve');
+    return '<div class="camp"><h3>'+esc(c.title)+'</h3><p>'+esc(c.aud)+(typeof c.count==='number'?' · <b>'+c.count+' people</b>':'')+'</p>'+
+      '<div class="msgp">'+esc(m)+'</div>'+
+      (c.count==='auto'?'<span class="meta">'+(c.sent?'On · runs by itself':'Off')+'</span> <button type="button" class="btn line" data-camp="'+c.id+'" style="margin-left:8px">'+(c.sent?'Turn off':'Turn on')+'</button>':
+       '<button type="button" class="btn primary" data-camp="'+c.id+'"'+(c.sent?' disabled':'')+'>'+(c.sent?'Sent today':'Send to '+c.count)+'</button>')+'</div>';
+  }).join('')+
+  '<div class="camp"><h3>"Scan for service" sticker</h3><p>Put one on every furnace and AC you touch. The homeowner scans it, the request form opens with their address already filled in, and the call comes back to you instead of whoever shows up first on Google.</p><div class="qr"><canvas id="qrc" width="120" height="120" aria-label="Sample sticker code"></canvas><span class="meta">Sample sticker · the live version links to your request form</span></div></div>';
+  drawSticker();
+}
+function drawSticker(){
+  var c=$('qrc');if(!c||!c.getContext)return;var x=c.getContext('2d');x.fillStyle='#fff';x.fillRect(0,0,120,120);x.fillStyle='#0f2a44';
+  var seed=7;function rnd(){seed=(seed*9301+49297)%233280;return seed/233280;}
+  for(var i=0;i<21;i++)for(var j=0;j<21;j++){if(rnd()>.52)x.fillRect(4+i*5.4,4+j*5.4,5.4,5.4);}
+  [[4,4],[85,4],[4,85]].forEach(function(p){x.fillStyle='#0f2a44';x.fillRect(p[0],p[1],31,31);x.fillStyle='#fff';x.fillRect(p[0]+5,p[1]+5,21,21);x.fillStyle='#e8590c';x.fillRect(p[0]+10,p[1]+10,11,11);});
+}
+function renderAll(){
+  renderToday();renderTabs();
+  if(!cur){$('bnote').textContent='No board picked, so this shows everything new across all of them. Tap a board to open it.';$('boardArea').hidden=false;$('campArea').hidden=true;renderStats();renderList();renderDetail();return;}
+  var isC=!!BOARDS[cur].campaign;
+  $('bnote').textContent=BOARDS[cur].note;
+  $('boardArea').hidden=isC;$('campArea').hidden=!isC;
+  if(isC){renderCamps();return;}
+  renderStats();renderList();renderDetail();
+}
+
+/* Tap a board to open it; tap the open one again to deselect it and see everything new across all boards. */
+$('tabs').addEventListener('click',function(e){var b=e.target.closest('button[data-b]');if(!b)return;cur=(cur===b.dataset.b)?null:b.dataset.b;filter=null;focus=null;openId=null;$('q').value='';renderAll();});
+$('stats').addEventListener('click',function(e){var b=e.target.closest('button[data-s]');if(!b)return;focus=null;filter=filter===b.dataset.s?null:b.dataset.s;renderStats();renderList();});
+$('fbar').addEventListener('click',function(e){if(!e.target.closest('[data-clear]'))return;focus=null;renderList();});
+/* Top numbers jump straight to the matching tickets. */
+$('today').addEventListener('click',function(e){
+  var b=e.target.closest('button[data-jump]');if(!b)return;var g=b.dataset.jump;
+  openId=null;filter=null;focus=null;$('q').value='';
+  if(g==='urgent'){cur=(R.service.some(FOCUS.urgent.test)||!R.calls.some(FOCUS.urgent.test))?'service':'calls';focus='urgent';}
+  if(g==='calls'){cur='calls';filter='New';}
+  if(g==='quotes'){cur='quotes';focus='inplay';}
+  if(g==='club'){cur='club';}
+  renderAll();$('tabs').scrollIntoView({behavior:'smooth',block:'nearest'});
+});
+$('q').addEventListener('input',renderList);
+$('list').addEventListener('click',function(e){var c=e.target.closest('.rec');if(!c)return;if(c.dataset.b){cur=c.dataset.b;renderTabs();$('bnote').textContent=BOARDS[cur].note;}openId=c.dataset.id;var r=find(cur,openId);if(r)r.fresh=false;renderDetail();window.scrollTo(0,0);});
+function find(b,id){return R[b].filter(function(x){return x.id===id;})[0];}
+function fill(t,r){return t.replace(/\{first\}/g,first(r.name)).replace(/\{id\}/g,r.id).replace(/\{when\}/g,r.sched||'the time we agreed').replace(/\{tech\}/g,r.tech||'Kyle');}
+$('detail').addEventListener('click',function(e){
+  var a=e.target.closest('[data-act],[data-noop]');if(!a)return;
+  if(a.dataset.noop){e.preventDefault();toast('Demo','Recordings and transcripts open here on the live system.');return;}
+  var r=find(cur,openId);var act=a.dataset.act;
+  if(act==='back'){openId=null;renderAll();return;}
+  if(act==='text'){toast('Text to '+first(r.name),'Opens a text to '+r.phone+' from your business number.');r.log.push({t:nowLabel(),m:'Texted customer'});renderDetail();}
+  if(act==='call'){toast('Call','Dials '+r.phone+' from your phone. Shown as your business number.');}
+  if(act==='convert'){var n={id:'SR-'+(seq.SR++),name:r.name,phone:r.phone,town:r.town,prob:/no heat/i.test(r.summary)?'No heat':'From AI call',urgent:r.urgent,when:'As soon as possible',sys:'',desc:r.summary,src:'AI phone line',status:'New',at:nowLabel(),fresh:true,log:[{t:nowLabel(),m:'Created from AI call '+r.id}]};
+    R.service.unshift(n);r.status='Booked';r.log.push({t:nowLabel(),m:'Turned into service call '+n.id});toast('Service call '+n.id+' created','Nothing retyped. It\'s at the top of Service calls.');renderAll();}
+  if(act==='proposal'){r.status='Quote sent';r.follow='Follow-up #1 goes in 2 days';r.log.push({t:nowLabel(),m:'Sent Good/Better/Best proposal'});toast('Text to '+first(r.name),fill(BOARDS.quotes.texts['Quote sent'],r));renderAll();}
+});
+$('detail').addEventListener('change',function(e){
+  if(e.target.id!=='stSel')return;var r=find(cur,openId);var to=e.target.value;var from=r.status;r.status=to;
+  if(cur==='service'&&to==='Scheduled'&&!r.sched)r.sched='Mon 8–10 AM';
+  if(cur==='service'&&to==='Tech on the way'&&!r.tech)r.tech='Kyle';
+  r.log.push({t:nowLabel(),m:from+' → '+to});
+  var tpl=BOARDS[cur].texts[to];
+  if(tpl){var msg=fill(tpl,r);r.log.push({t:nowLabel(),m:'Text sent: "'+msg+'"'});toast('Text sent to '+first(r.name),msg);}
+  renderAll();
+});
+$('camps').addEventListener('click',function(e){
+  var b=e.target.closest('button[data-camp]');if(!b)return;var c=CAMPS.filter(function(x){return x.id===b.dataset.camp;})[0];
+  if(c.count==='auto'){c.sent=!c.sent;toast(c.title,c.sent?'Turned on. It runs by itself from now on.':'Turned off.');}
+  else{c.sent=true;toast(c.title,'Queued to '+c.count+' past customers. In the demo nothing is actually sent.');}
+  renderCamps();
+});
+
+/* ---------- Customer forms → owner boards ---------- */
+function success(box,title,ref,lines,preview){
+  box.innerHTML='<div class="success"><h3>'+esc(title)+'</h3><p class="ref">Reference '+esc(ref)+'</p>'+lines+
+    (preview?'<div class="preview"><small>Text you\'ll get</small>'+esc(preview)+'</div>':'')+
+    '<p class="fine">Demo: tap <b>Owner</b> at the top to see it land on AllTrade\'s board.</p></div>';
+  box.hidden=false;box.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+function bad(id,msg){$(id).textContent=msg;return false;}
+function add(board,rec){rec.fresh=true;rec.at=nowLabel();rec.log=[{t:rec.at,m:'Came in from '+(rec.src||'the website')}];R[board].unshift(rec);cur=board;filter=null;focus=null;openId=null;}
+
+var photoData='';
+$('rqPhoto').addEventListener('change',function(){var f=this.files&&this.files[0];if(!f)return;var rd=new FileReader();rd.onload=function(){photoData=rd.result;$('rqThumb').src=photoData;$('rqThumb').hidden=false;};rd.readAsDataURL(f);});
+$('reqForm').addEventListener('submit',function(e){
+  e.preventDefault();$('rqErr').textContent='';
+  var prob=getProb(),name=$('rqName').value.trim(),phone=$('rqPhone').value.trim();
+  if(!prob)return bad('rqErr','Pick what the problem is.');
+  if(!name)return bad('rqErr','Add your name so the tech knows who to ask for.');
+  if(!okPhone(phone))return bad('rqErr','Add a 10-digit mobile number so we can text you a time.');
+  var urgent=$('rqUrgent').checked;
+  var r={id:'SR-'+(seq.SR++),name:name,phone:fmtPhone(phone),town:$('rqTown').value||'',prob:prob,urgent:urgent,when:$('rqWhen').value,sys:$('rqSystem').value.trim(),desc:$('rqDesc').value.trim(),src:'Website',status:'New',photo:photoData};
+  add('service',r);
+  success($('rqOk'),urgent?'Got it. The tech on call has your request.':'Got it. We\'ll text you a time.',r.id,
+    urgent?'<p>Because you marked this as an emergency, the on-call tech was just texted your address and problem. Keep your phone close.</p>':'<p>Office hours are Mon–Fri, 8:00–4:30. Requests after hours are answered first thing.</p>',
+    fill(BOARDS.service.texts.New,r));
+  this.reset();photoData='';$('rqThumb').hidden=true;[].forEach.call($('probChips').querySelectorAll('.chip'),function(c){c.setAttribute('aria-pressed','false');});$('rqText').checked=true;
+});
+$('tuForm').addEventListener('submit',function(e){
+  e.preventDefault();$('tuErr').textContent='';
+  var name=$('tuName').value.trim(),phone=$('tuPhone').value.trim(),win=getTuWin();
+  if(!getTuSys())return bad('tuErr','Pick which system needs the tune-up.');
+  if(!getTuDay())return bad('tuErr','Pick a day.');
+  if(!win)return bad('tuErr','Pick an arrival window.');
+  if(!name)return bad('tuErr','Add your name.');
+  if(!okPhone(phone))return bad('tuErr','Add a 10-digit mobile number so we can confirm by text.');
+  var r={id:'TU-'+(seq.TU++),name:name,phone:fmtPhone(phone),town:$('tuTown').value,sys:getTuSys(),sched:getTuDay()+' · '+win,status:'Requested',src:'Online booking'};
+  add('tuneups',r);
+  success($('tuOk'),'Tune-up requested',r.id,'<p>'+esc(r.sys)+', '+esc(r.sched)+'. We confirm by text and remind you the day before.</p>',fill(BOARDS.tuneups.texts.Confirmed,r));
+  this.reset();
+});
+
+/* Estimator */
+var BASE={furnace:[3800,6500],ac:[4200,7800],heatpump:[5600,9800],combo:[8200,14500],ductless:[3500,7500]};
+var TYPE_LABEL={furnace:'Furnace',ac:'Central air conditioner',heatpump:'Heat pump',combo:'Furnace + air conditioner',ductless:'Ductless mini-split'};
+var lastRange='';
+function r100(n){return Math.round(n/100)*100;}
+function calcEst(){
+  var t=$('esType').value,s=parseFloat($('esSize').value),tier=parseFloat(getTier()||'1');
+  var lo=r100(BASE[t][0]*s*tier),hi=r100(BASE[t][1]*s*tier);
+  lastRange=money(lo)+'–'+money(hi);
+  $('esRange').textContent=lastRange;
+  var apr=Math.max(0,parseFloat($('esApr').value)||0)/1200,n=parseInt($('esTerm').value,10),mid=(lo+hi)/2;
+  var pay=apr?mid*apr/(1-Math.pow(1+apr,-n)):mid/n;
+  $('esPay').textContent=money(pay);
+}
+['esType','esSize','esTerm','esApr'].forEach(function(id){$(id).addEventListener('input',calcEst);$(id).addEventListener('change',calcEst);});
+calcEst();
+$('esGo').addEventListener('click',function(){
+  $('esErr').textContent='';var name=$('esName').value.trim(),phone=$('esPhone').value.trim();
+  if(!name)return bad('esErr','Add your name.');
+  if(!okPhone(phone))return bad('esErr','Add a 10-digit mobile number so we can set up the visit.');
+  var tierName=({'1':'Good','1.18':'Better','1.4':'Best'})[getTier()]||'Better';
+  var r={id:'QT-'+(seq.QT++),name:name,phone:fmtPhone(phone),town:'',type:TYPE_LABEL[$('esType').value],range:lastRange,tier:tierName,status:'New',src:'Price estimator'};
+  add('quotes',r);
+  success($('esOk'),'We\'ll set up your free visit',r.id,'<p>You looked at: '+esc(r.type)+', '+esc(tierName)+', '+esc(r.range)+'. We\'ll text to pick a time, then give you a written price with Good, Better and Best options.</p>','');
+  $('esName').value='';$('esPhone').value='';
+});
+
+/* Repair or replace */
+$('rpList').addEventListener('change',function(){
+  var s=0;[].forEach.call(this.querySelectorAll('input:checked'),function(i){s+=+i.value;});
+  var o=$('rpOut');
+  if(s===0){o.className='verdict v0';o.textContent='Nothing checked yet. A tune-up is the right start.';}
+  else if(s<4){o.className='verdict v1';o.textContent='A repair probably makes sense for now. Ask the tech how much life the system has left.';}
+  else{o.className='verdict v2';o.innerHTML='Worth getting a replacement price before you spend on another repair. <a href="#estimate">See a ballpark</a>, or ask for a free visit.';}
+});
+
+/* Comfort Club */
+var plan={name:'Comfort Club Plus',price:25};
+$('plans').addEventListener('click',function(e){var b=e.target.closest('.plan');if(!b)return;
+  [].forEach.call(this.querySelectorAll('.plan'),function(p){p.setAttribute('aria-pressed',p===b?'true':'false');});
+  plan={name:b.dataset.plan,price:+b.dataset.price};$('clBtn').textContent='Join '+plan.name;});
+$('clForm').addEventListener('submit',function(e){
+  e.preventDefault();$('clErr').textContent='';
+  var name=$('clName').value.trim(),phone=$('clPhone').value.trim();
+  if(!name)return bad('clErr','Add your name.');
+  if(!okPhone(phone))return bad('clErr','Add a 10-digit mobile number.');
+  var r={id:'CC-'+String(seq.CC++).padStart(3,'0'),name:name,phone:fmtPhone(phone),email:$('clEmail').value.trim(),town:$('clTown').value,plan:plan.name,price:plan.price,status:'New',next:'First tune-up to schedule',src:'Comfort Club sign-up'};
+  add('club',r);
+  success($('clOk'),'Welcome to the '+plan.name,r.id,'<p>AllTrade has your details and will set up your $'+plan.price+'/month plan with you, cancel anytime. We\'ll text to set up your first tune-up.</p>',fill(BOARDS.club.texts.Active,r));
+  this.reset();
+});
+
+/* Filter reminder */
+$('fiGo').addEventListener('click',function(){
+  $('fiErr').textContent='';var p=$('fiPhone').value.trim();var sz=$('fiSize').value.trim()||'your filter';
+  if(!okPhone(p))return bad('fiErr','Add a 10-digit mobile number.');
+  toast('Filter reminder set','We\'ll text '+fmtPhone(p)+' every '+$('fiEvery').value+' to change '+sz+'.');
+  $('fiPhone').value='';$('fiSize').value='';
+});
+
+/* Careers */
+$('apForm').addEventListener('submit',function(e){
+  e.preventDefault();$('apErr').textContent='';
+  var name=$('apName').value.trim(),phone=$('apPhone').value.trim();
+  if(!name)return bad('apErr','Add your name.');
+  if(!okPhone(phone))return bad('apErr','Add a 10-digit mobile number.');
+  var r={id:'AP-0'+(seq.AP++),name:name,phone:fmtPhone(phone),town:'',role:$('apRole').value,years:$('apYears').value,epa:$('apEpa').checked?'Yes':'No',note:$('apNote').value.trim(),status:'New',src:'Careers page'};
+  add('hires',r);
+  success($('apOk'),'Application sent',r.id,'<p>Thanks! We\'ll text you within a couple of days.</p>','');
+  this.reset();
+});
+
+/* ---------- Chat assistant (scripted demo) ---------- */
+var chatState=0,chatLead={};
+function say(t,who){var m=document.createElement('div');m.className='m '+(who||'bot');m.textContent=t;$('msgs').appendChild(m);$('msgs').scrollTop=1e6;}
+function reply(text){
+  var t=text.toLowerCase();
+  if(chatState===3){chatLead.urgent=/^\s*(y|yes|yeah|yep)\b/i.test(text);chatState=1;say(chatLead.urgent?'Got it, I\'ll flag it for the tech on call. What\'s your name?':'Okay, the office will text you a time. What\'s your name?');return;}
+  if(chatState===1){chatLead.name=text.trim();chatState=2;say('Thanks, '+first(chatLead.name)+'. What\'s the best mobile number to text you?');return;}
+  if(chatState===2){if(!okPhone(text)){say('That doesn\'t look like a 10-digit number. Try again?');return;}
+    chatLead.phone=fmtPhone(text);chatState=0;
+    add('service',{id:'SR-'+(seq.SR++),name:chatLead.name,phone:chatLead.phone,town:'',prob:chatLead.prob||'From chat',urgent:!!chatLead.urgent,when:'As soon as possible',sys:'',desc:chatLead.desc||'',src:'Chat',status:'New'});
+    say('Done. A tech has your request and you\'ll get a text shortly. If it\'s an emergency you can also call (812) 768-8675 any time.');return;}
+  if(/furnace|heat|cold|stopped|not working|no heat|won.?t/.test(t)){chatLead={prob:'No heat',desc:text};chatState=3;say('Sorry about that. We can get someone out. Quick check: is the thermostat set to Heat and above room temperature, and is the furnace switch on? If it still won\'t run: is this an emergency you need help with right now? (yes or no)');return;}
+  if(/area|cover|where|town|come out/.test(t)){say('We cover Pike, Gibson and Knox counties: Fort Branch, Princeton, Haubstadt, Oakland City, Petersburg, Winslow, Vincennes, Washington and the towns around them.');return;}
+  if(/financ|payment|monthly|pay/.test(t)){say('Yes, financing is available on new systems with approved credit. The price estimator on this page shows a monthly payment. Want me to set up a free quote visit?');return;}
+  if(/tune|maint|check/.test(t)){say('You can book a tune-up right on this page and pick your arrival window. Members of the Comfort Club get two a year included.');document.getElementById('tuneup').scrollIntoView({behavior:'smooth'});return;}
+  if(/price|cost|new system|replace/.test(t)){say('A furnace and AC together usually runs several thousand dollars depending on the size and model. The estimator on this page gives a ballpark and monthly payment, and we give an exact written price after a free visit.');return;}
+  if(/plumb|electric/.test(t)){say('We do heating and air only. I can take a message for the office if you\'d like.');return;}
+  if(/hour|open/.test(t)){say('The office is open Monday to Friday, 8:00 to 4:30. Emergency service is 24/7.');return;}
+  say('I can help with repairs, tune-ups, new systems, financing and the Comfort Club. What\'s going on with your heating or air?');
+}
+$('chatBtn').addEventListener('click',function(){var c=$('chat');c.hidden=!c.hidden;if(!c.hidden&&!$('msgs').children.length)say('Hi! I\'m AllTrade\'s assistant. I can answer questions or get a tech headed your way, day or night.');});
+$('chatX').addEventListener('click',function(){$('chat').hidden=true;});
+$('quick').addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;say(b.textContent,'me');reply(b.textContent);});
+$('chatForm').addEventListener('submit',function(e){e.preventDefault();var v=$('chatIn').value.trim();if(!v)return;say(v,'me');$('chatIn').value='';reply(v);});
+
+window.__demo={R:R,setView:setView};
+})();
+</script>
+
+
+</body></html>
